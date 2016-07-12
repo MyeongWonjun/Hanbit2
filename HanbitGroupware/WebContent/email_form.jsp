@@ -120,23 +120,3 @@ li a.active {
 <p>Hover over the "Dropdown" link to see the dropdown menu.</p>
 
  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
