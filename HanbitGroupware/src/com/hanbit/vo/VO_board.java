@@ -7,7 +7,7 @@ public class VO_board {
 	}
 	public VO_board(String type, String name, String subject, String content, String board_file, String regdate,
 			String hit, String file_name) {
-		super();
+		super();      
 		this.type = type;
 		this.name = name;
 		this.subject = subject;
