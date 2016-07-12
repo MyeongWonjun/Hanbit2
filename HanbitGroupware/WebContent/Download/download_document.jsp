@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-body {
+<style type="text/css">  
+body {  
 	background-color: #e1e8f0
 }
 
@@ -15,15 +15,18 @@ body {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	width: 130px;
+	width:180px;
+	float: left;
+	
 }
 
 .tab-title:HOVER{
 	background-color: #9ad3de;
+	width:180px;
 }  
 
 #bbs table {
-	    width:580px;
+	    width:1000px;
 	    margin-left:10px;
 	    border:1px solid black;
 	    border-collapse:collapse;
@@ -105,7 +108,7 @@ body {
 	<div id="bbs" align="center" >
 	
 		<table summary="게시판 목록">
-			<caption>업무자료실</caption>
+			<caption><h2>업무자료실</h2></caption>
 			<thead>
 				<tr class="title">
 					<th class="no">번호</th>

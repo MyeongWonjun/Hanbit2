@@ -86,18 +86,23 @@ li a.active {
 }
 
 .tab_vertical {
-	list-style-type: none;
+	list-style-type: none;  
 	margin: 0;
 	padding: 0;
-	width: 130px;
+	width:180px;
+	float: left;
+	
+	
 }
+
 
 .tab-title:HOVER{
 	background-color: #9ad3de;
+	width:180px;
 }  
 
 #bbs table {
-	    width:580px;
+	    width:1000px;
 	    margin-left:10px;
 	    border:1px solid black;
 	    border-collapse:collapse;
@@ -163,62 +168,23 @@ li a.active {
 	    background:#ff4aa5;
 	    color:white;
 	    font-weight:bold;
-	}
+	}  
 		
 
 </style>
 </head>
 <body>
-	<h2 id="mainTop">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HANBIT SYSTEM
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp; <input id="btn" type="button" value="MY">
-		<input id="btn" type="button" value="LOGOUT">
-	</h2>
-	<div>
-		<ul>
-			<li><a href="#home">Home</a></li>
-			<li id="menu"><a href="#email" id="menu_drop">E-mail</a>
-				<div id="drop_content">
-					<a href="#">전체메일</a> <a href="#">받은메일함</a> <a href="#">보낸메일함</a> <a
-						href="#">내게쓴메일함</a> <a href="#">스팸메일함</a>
-				</div></li>
-			<li id="menu"><a href="#schedule" id="menu_drop">Schedule</a>
-				<div id="drop_content">
-					<a href="#">전체일정</a> <a href="#">충장</a> <a href="#">연차</a>
-				</div></li>
-			<li id="menu"><a href="#board" id="menu_drop">Board</a>
-				<div id="drop_content">
-					<a href="#">공지사항</a> <a href="#">자유게시판</a>
-				</div></li>
-			<li id="menu"><a href="#download" id="menu_drop">Download</a>
-				<div id="drop_content">
-					<a href="#">업무자료실</a> <a href="#">공용문서함</a>
-				</div></li>
-			<li id="menu"><a href="#support" id="menu_drop">업무지원</a>
-				<div id="drop_content">
-					<a href="#">임직원정보</a>
-				</div></li>
-			<li id="menu"><a href="#configuration" id="menu_drop">환경설정</a>
-				<div id="drop_content">
-					<a href="#">개인정보</a>
-				</div></li>
-		</ul>
-	</div>
+	<jsp:include page="../home/top_menu.jsp"></jsp:include>
 
 	<h2>DownLoad</h2>
 	<ul class="tab_vertical" data-tab>
-		<li class="tab-title"><a href="#">공용문서함</a></li>
-		<li class="tab-title"><a href="#">업무자료실</a></li>
+		<li class="tab-title"><a href="download_public.jsp" >공용문서함</a></li>
+		<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
 	</ul>
 	
 	<div id="bbs" align="center" >
 		<table summary="게시판 목록">
-			<caption>공용문서함</caption>
+			<caption><h2>공용문서함</h2></caption>
 			<thead>
 				<tr class="title">
 					<th class="no">번호</th>
