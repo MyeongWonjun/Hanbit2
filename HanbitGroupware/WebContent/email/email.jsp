@@ -37,16 +37,28 @@
 #btn2{
 	margin-top: 10px;
 }
+#text input{
+	margin-left: 100px;
+	font-weight:bolder;
+	color: #f6f1ed;
+	
+}
+
 
 </style>
 </head>
 <body>
 <jsp:include page="../home/top_menu.jsp"/>
-<div id="btn1">
-	<input type="button" value="메일쓰기">
-	<input type="button" value="내게쓰기">
-</div>
-<div id="btn2">
+<span id="btn1">
+	<input type="button" value="메일쓰기"/>
+	<input type="button" value="내게쓰기"/>
+	
+</span>
+<span id="text">
+	<input type="text" value="search.."/>
+</span>
+</br>
+<span id="btn2">
 	<input type="button" value="전체메일">
 	<br/>
 	<input type="button" value="받은메일함">
@@ -56,7 +68,7 @@
 	<input type="button" value="내게쓴메일함">
 	<br/>
 	<input type="button" value="스팸메일함">
-</div>
+</span>
 
 
 </body>

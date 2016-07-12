@@ -78,7 +78,7 @@ li a.active {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	background-color: #89bdd3;
+	background-color: #6ebcfa;
 	
 }
 
