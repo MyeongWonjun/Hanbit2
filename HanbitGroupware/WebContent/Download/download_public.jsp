@@ -94,7 +94,7 @@ body {
 	    background:#ff4aa5;
 	    color:white;
 	    font-weight:bold;
-	}
+	}  
 		
 
 </style>
