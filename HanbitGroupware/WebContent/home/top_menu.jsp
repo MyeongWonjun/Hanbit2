@@ -25,7 +25,7 @@ li {
     float: left;
 }
 
-li a, .email_drop {
+li a, .menu_drop {
     display: block;
     color: #ffffff;
     text-align: center;
@@ -33,7 +33,7 @@ li a, .email_drop {
     text-decoration: none;
 }
 
-li:hover:not(.active), .email:hover .email_drop{
+li:hover:not(.active), #menu:hover #menu_drop{
     background-color: #9ad3de;
 }
 
@@ -42,7 +42,7 @@ li a.active {
     background-color: #4CAF50;
 }
 
-.drop_content {
+#drop_content {
     display: none;
     position: absolute;
     background-color: #e3e3e3;
@@ -50,7 +50,7 @@ li a.active {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.drop_content a {
+#drop_content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -58,9 +58,9 @@ li a.active {
     text-align: left;
 }
 
-.drop_content a:hover {background-color: #c9c9c9}
+#drop_content a:hover {background-color: #c9c9c9}
 
-.email:hover .drop_content {
+#menu:hover #drop_content {
     display: block;
 }
 
@@ -71,9 +71,9 @@ li a.active {
 	<h2 id="mainTop">한 빛 그 룹 웨 어</h2>
 	<ul>
 		<li><a href="#home">Home</a></li>
-		<li class="email">
-			<a href="#email" class="email_drop">E-mail</a>
-			<div class="drop_content">
+		<li id="menu">
+			<a href="#email" id="menu_drop">E-mail</a>
+			<div id="drop_content">
 				<a href="#">전체메일</a>
 				<a href="#">받은메일함</a>
 				<a href="#">보낸메일함</a>
@@ -81,42 +81,77 @@ li a.active {
 				<a href="#">스팸메일함</a>
 			</div>
 		</li>
-		<li>
-			<a href="#schedule">Schedule</a>
-			<div class="drop_content">
-				<a href="#"></a>
+		<li id="menu">
+			<a href="#schedule" id="menu_drop">Schedule</a>
+			<div id="drop_content">
+				<a href="#">전체일정</a>
+				<a href="#">충장</a>
+				<a href="#">연차</a>
 			</div>
 		</li>
-		<li>
-			<a href="#board">Board</a>
+		<li id="menu">
+			<a href="#board" id="menu_drop">Board</a>
+			<div id="drop_content">
+				<a href="#">공지사항</a>
+				<a href="#">자유게시판</a>
+			</div>
 		</li>
-		<li><a href="#download">Download</a></li>
-		<li><a href="#support">업무지원</a></li>
-		<li><a href="#configuration">환경설정</a></li>
+		<li id="menu">
+			<a href="#download" id="menu_drop">Download</a>
+			<div id="drop_content">
+				<a href="#">업무자료실</a>
+				<a href="#">공용문서함</a>
+			</div>
+		</li>
+		<li id="menu">
+			<a href="#support" id="menu_drop">업무지원</a>
+			<div id="drop_content">
+				<a href="#">임직원정보</a>
+			</div>
+		</li>
+		<li id="menu">
+			<a href="#configuration" id="menu_drop">환경설정</a>
+			<div id="drop_content">
+				<a href="#">개인정보</a>
+			</div>
+		</li>
 	</ul>
-	<h3>Dropdown Menu inside a Navigation Bar</h3>
-	<p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+	<div>
+		<img alt="img" src="../img/img1.png">
+	</div>
 </body>
 </html>
 
 
 
 
-<!-- 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li class="dropdown">
-    <a href="#" class="dropbtn">Dropdown</a>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </li>
-</ul>
 
-<h3>Dropdown Menu inside a Navigation Bar</h3>
-<p>Hover over the "Dropdown" link to see the dropdown menu.</p>
 
- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
