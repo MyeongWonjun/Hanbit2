@@ -6,6 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+body{
+	background-color: #e1e8f0
+}
 #mainTop {
 	text-align: center;
 	font-weight: bold;
@@ -64,11 +67,38 @@ li a.active {
     display: block;
 }
 
+#btn{
+	
+	font-family:Helvetica;
+	font-size:12px;
+	font-weight: bold;
+	text-align:center;
+	width: 80px;
+	height: 40px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #89bdd3;
+	
+}
 
 </style>
 </head>
 <body>
-	<h2 id="mainTop">한 빛 그 룹 웨 어</h2>
+	<h2 id="mainTop">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		HANBIT SYSTEM
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<input id="btn" type="button" value="MY">
+		<input id="btn" type="button" value="LOGOUT">
+	</h2>
+	<div>
 	<ul>
 		<li><a href="#home">Home</a></li>
 		<li id="menu">
@@ -116,8 +146,9 @@ li a.active {
 			</div>
 		</li>
 	</ul>
+	</div>
 	<div>
-		<img alt="img" src="../img/img1.png">
+		<img alt="img" src="../img/img1.png" align="right" hspace="20" vspace="20">
 	</div>
 </body>
 </html>

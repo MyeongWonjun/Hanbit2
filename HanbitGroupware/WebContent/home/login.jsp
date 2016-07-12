@@ -135,7 +135,7 @@
 			<div>&nbsp;</div>
 			<div>&nbsp;</div>
 			<div>&nbsp;</div>
-			<div class="gw">한 빛 그 룹 웨 어</div>
+			<div class="gw">HANBIT SYSTEM</div>
 			<br/>
 			<div class="LOGIN">LOGIN</div>
 			<div>&nbsp;</div>
