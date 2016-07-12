@@ -12,7 +12,7 @@ body {
 }
 
 .tab_vertical {
-	list-style-type: none;
+	list-style-type: none;  
 	margin: 0;
 	padding: 0;
 	width:180px;
