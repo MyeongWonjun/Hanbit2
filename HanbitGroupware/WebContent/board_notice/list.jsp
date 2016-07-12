@@ -34,7 +34,7 @@
 	.reg {width:20%}
 	.hit {width:15%}
 	.title{background-color: #89bdd3;
-			color: white;}
+			text: ;}
 	
 	.odd {background:silver}
 	
@@ -83,6 +83,7 @@
 <body>
 <jsp:include page="../home/top_menu.jsp"></jsp:include>
 <br/>
+	
 	<div id="bbs" align="center">
 		<table summary="게시판 목록">
 			<caption>공지사항</caption>
