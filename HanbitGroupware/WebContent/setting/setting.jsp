@@ -12,7 +12,7 @@
 	font-size:12px;
 	text-align:center;
 	width: 70px;
-	height: 20px;
+	height: 30px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -20,6 +20,10 @@
 	color: white;
 	
 }
+
+	td{
+		text-align: center
+	}
 
 </style>
 </head>
@@ -91,11 +95,10 @@
 				<td width="400"></td>
 			</tr>
 			<tr >
-			
+			<td colspan="2">
 				<input type="button" class="btn2" value="수정">
 		        <input type="button" class="btn2" value="확인">
-
-				</td>
+			</td>
 			</tr>
 		</table>
 	</form>
