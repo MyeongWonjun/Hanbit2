@@ -105,6 +105,7 @@ body {
 	<div id="bbs" align="center" >
 		<table summary="게시판 목록">
 			<caption>공용문서함</caption>
+			<br/><br/>
 			<thead>
 				<tr class="title">
 					<th class="no">번호</th>
