@@ -4,7 +4,7 @@ public class VO_board {
 	private String type, name, subject, content, board_file, regdate, hit, file_name;
 	public VO_board() {
 		// TODO Auto-generated constructor stub
-	}
+	}     
 	public VO_board(String type, String name, String subject, String content, String board_file, String regdate,
 			String hit, String file_name) {
 		super();      
