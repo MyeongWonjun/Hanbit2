@@ -103,6 +103,7 @@ body {
 	</ul>
 	
 	<div id="bbs" align="center" >
+	
 		<table summary="게시판 목록">
 			<caption>업무자료실</caption>
 			<thead>
@@ -170,6 +171,19 @@ body {
 				</tr>
 			</tfoot>
 		</table>
+		<br/><br/>
+		<div>
+		<select name="search">
+			<option>제목</option>
+			<option>작성자</option>
+		</select>
+		
+		<input type="text" id="search_what">
+		<input type="button" value="검색" >
+	 	
+		</div>
+		
+		
 	</div>
 	
 	

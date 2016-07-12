@@ -170,6 +170,18 @@ body {
 				</tr>
 			</tfoot>
 		</table>
+		
+		<br/><br/>
+		<div>
+		<select name="search">
+			<option>제목</option>
+			<option>작성자</option>
+		</select>
+		
+		<input type="text" id="search_what">
+		<input type="button" value="검색" >
+	 	
+		</div>
 	</div>
 	
 	
