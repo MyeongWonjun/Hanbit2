@@ -1,11 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript">
+function goSubmit(){
+
+}
 
 </script>
 <style type="text/css">
@@ -56,15 +59,15 @@ tr {
 </style>
 </head>
 <body>
-	<h2 id="mainTop">í•œ ë¹› ê·¸ ë£¹ ì›¨ ì–´</h2>
+	<h2 id="mainTop">ÇÑ ºû ±× ·ì ¿þ ¾î</h2>
 	<ul>
 		<li><a href="#home">Home</a></li>
 		<li><a href="#e-mail">E-mail</a></li>
 		<li><a href="#schedule">Schedule</a></li>
 		<li><a href="#board">Board</a></li>
 		<li><a href="#download">Download</a></li>
-		<li><a href="#support">ì—…ë¬´ì§€ì›</a></li>
-		<li><a href="#configuration">í™˜ê²½ì„¤ì •</a></li>
+		<li><a href="#support">¾÷¹«Áö¿ø</a></li>
+		<li><a href="#configuration">È¯°æ¼³Á¤</a></li>
 	</ul>
 <br />
 <br />
@@ -76,24 +79,24 @@ tr {
 			align="center" >
 			<tr>
 				<td colspan="2" height="45" align="left" bgcolor="#c5d5cd">
-					<font size="+1"><b>ê¸°ë³¸ì •ë³´</b></font>
+					<font size="+1"><b>±âº»Á¤º¸</b></font>
 				</td>
 			</tr>
 			<tr>
-				<td width="200" >ì‚¬ë²ˆ</td>
+				<td width="200" >»ç¹ø</td>
 				<td width="400" ></td>
 			</tr>
 			<tr>
-				<td width="200">ë¹„ë°€ë²ˆí˜¸</td>
+				<td width="200">ºñ¹Ð¹øÈ£</td>
 				<td width="400"><input type="password" name="passwd" size="30"
 					maxlength="12"></td>
 			<tr>
-				<td width="200">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</td>
+				<td width="200">ºñ¹Ð¹øÈ£ È®ÀÎ</td>
 				<td width="400"><input type="password" name="passwd2" size="30"
 					maxlength="12"></td>
 			</tr>
 			<tr>
-				<td width="200" >ì´ë¦„</td>
+				<td width="200" >ÀÌ¸§</td>
 				<td width="400" ></td>
 			</tr>
 			<tr>
@@ -102,44 +105,45 @@ tr {
 					maxlength="12"></td>
 			</tr>
 			<tr>
-				<td width="200">ì „í™”ë²ˆí˜¸</td>
+				<td width="200">ÀüÈ­¹øÈ£</td>
 				<td width="400"><input type="phone" name="phone" size="30"
 					maxlength="12"></td>
 				
 			</tr>
 			<tr>
-				<td width="200">ë¶€ì„œ</td>
+				<td width="200">ºÎ¼­</td>
 				<td width="400"></td>
 			</tr>
 			<tr>
-				<td width="200">ì§ê¸‰</td>
+				<td width="200">Á÷±Þ</td>
 				<td width="400"></td>
 			</tr>
 			<tr>
-				<td width="200">ë‹´ë‹¹</td>
+				<td width="200">´ã´ç</td>
 				<td width="400"></td>
 			</tr>
 			<tr>
-				<td width="200">ìƒìœ„ìž</td>
+				<td width="200">»óÀ§ÀÚ</td>
 				<td width="400"></td>
 			</tr>
 			<tr>
-				<td width="200">ìž…ì‚¬ì¼ìž</td>
+				<td width="200">ÀÔ»çÀÏÀÚ</td>
 				<td width="400"></td>
 			</tr>
 			<tr>
-				<td width="200">ë³´ì•ˆë“±ê¸‰</td>
+				<td width="200">º¸¾Èµî±Þ</td>
 				<td width="400"></td>
 			</tr>
 			<tr>
 				<td colspan="2" height="45" align="center" >
-				<input type="submit" name="confirm" value="ìˆ˜ì •"style="width:75;  background-color:#c5d5cd; border:1 solid #A0DBE4">
+				<input type="submit" name="confirm" value="¼öÁ¤"style="width:75;  background-color:#c5d5cd; border:1 solid #A0DBE4">
 
-				<input type="reset" name="reset" value="ì·¨ì†Œ"style="width:75; background-color:#c5d5cd; border:1 solid #A0DBE4">
+				<input type="reset" name="reset" value="Ãë¼Ò"style="width:75; background-color:#c5d5cd; border:1 solid #A0DBE4">
 
 				</td>
 			</tr>
 		</table>
 	</form>
+
 </body>
 </html>
