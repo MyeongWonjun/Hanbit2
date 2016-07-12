@@ -79,6 +79,7 @@ li a.active {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	background-color: #6ebcfa;
+	color: white;
 	
 }
 
