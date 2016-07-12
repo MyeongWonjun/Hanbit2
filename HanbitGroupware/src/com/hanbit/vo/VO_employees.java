@@ -1,4 +1,4 @@
-package com.hb.vo;
+package com.hanbit.vo;
 
 public class VO_employees {
 
