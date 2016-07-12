@@ -94,7 +94,7 @@ li a.active {
 
 .tab-title:HOVER{
 	background-color: #9ad3de;
-}
+}  
 
 #bbs table {
 	    width:580px;
