@@ -5,8 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="/HanbitGroupware/script/editor/ckeditor/ckeditor.js"></script>
 </head>
 <body>
-
+	<form>
+		<textarea name="editor1" id="editor1" rows="10" cols="80">
+			This
+		</textarea>
+		<script>
+			CKEDITOR.replace('editor1',{toolbar : 'Basic', filebrowserImageUploadUrl : 'fileupload.jsp?type=Images', width : '100%', height : '200'});
+		</script>
+	</form>
 </body>
 </html>
