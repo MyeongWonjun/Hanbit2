@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 body{
-	background-color: #e1e8f0
+	background-color: white;
 }
 #mainTop {
 	text-align: center;
@@ -147,9 +147,9 @@ li a.active {
 		</li>
 	</ul>
 	</div>
-	<div>
+	<!-- <div>
 		<img alt="img" src="../img/img1.png" align="right" hspace="20" vspace="20">
-	</div>
+	</div> -->
 </body>
 </html>
 
