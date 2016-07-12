@@ -15,15 +15,20 @@ body {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	width: 130px;
+	width:180px;
+	float: left;
+	
+	
 }
+
 
 .tab-title:HOVER{
 	background-color: #9ad3de;
+	width:180px;
 }  
 
 #bbs table {
-	    width:580px;
+	    width:1000px;
 	    margin-left:10px;
 	    border:1px solid black;
 	    border-collapse:collapse;
@@ -98,13 +103,13 @@ body {
 	<jsp:include page="../home/top_menu.jsp"></jsp:include>
 	<h2>DownLoad</h2>
 	<ul class="tab_vertical" data-tab>
-		<li class="tab-title"><a href="download_public.jsp">공용문서함</a></li>
+		<li class="tab-title"><a href="download_public.jsp" >공용문서함</a></li>
 		<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
 	</ul>
 	
 	<div id="bbs" align="center" >
 		<table summary="게시판 목록">
-			<caption>공용문서함</caption>
+			<caption><h2>공용문서함</h2></caption>
 			<br/><br/>
 			<thead>
 				<tr class="title">
