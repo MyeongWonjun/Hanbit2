@@ -1,5 +1,5 @@
 package com.hanbit.controller;
 
-public class Test2 {
+public class MainController {
 
 }
