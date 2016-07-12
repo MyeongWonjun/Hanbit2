@@ -101,7 +101,7 @@ body {
 </head>
 <body>
 	<jsp:include page="../home/top_menu.jsp"></jsp:include>
-	<h2>DownLoad</h2>
+	<h1>DownLoad</h1>
 	<ul class="tab_vertical" data-tab>
 		<li class="tab-title"><a href="download_public.jsp" >공용문서함</a></li>
 		<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
