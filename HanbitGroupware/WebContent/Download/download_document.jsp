@@ -212,8 +212,8 @@ li a.active {
 
 	<h2>DownLoad</h2>
 	<ul class="tab_vertical" data-tab>
-		<li class="tab-title"><a href="#">공용문서함</a></li>
-		<li class="tab-title"><a href="#">업무자료실</a></li>
+		<li class="tab-title"><a href="download_public.jsp">공용문서함</a></li>
+		<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
 	</ul>
 	
 	<div id="bbs" align="center" >
