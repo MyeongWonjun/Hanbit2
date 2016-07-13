@@ -8,9 +8,10 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#bbs table {
+		color:white;
 	    width:1000px;
 	    margin-left:10px;
-	    border:1px solid black;
+	    border:1px solid #e7e7e7;
 	    border-collapse:collapse;
 	    font-size:14px;
 	    
@@ -24,7 +25,7 @@
 	
 	#bbs table th,#bbs table td {
 	    text-align:center;
-	    border:1px solid black;
+	    border:1px solid #e7e7e7;
 	    padding:4px 10px;
 	}
 	
@@ -140,9 +141,9 @@
 			</tbody> 
 			<tfoot >
 				<tr>
-				
-				<td><input type="button" value="글쓰기" 
-					onclick="javascript:window.open('board_write.jsp','_blank','width=800, height=600, menubar=no, status=no, toolbar=no')"/></td>
+				<!-- style="background-color: #89bdd3; color: white;" -->
+				<td><input type="button" value="글쓰기"  
+					onclick="javascript:window.open('board_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')"/></td>
 					<td colspan="5" align="center">
 						<ol class="paging">
 						<!--  이전버튼 은 beginPage가 pagePerBlock보다 작으면 비활성화 -->

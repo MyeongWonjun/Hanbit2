@@ -9,27 +9,30 @@
 	#bbs table {
 	    width:700px;
 	    margin-left:10px;
-	    border:1px solid black;
+	    border:1px solid #e7e7e7;
 	    border-collapse:collapse;
 	    font-size:14px;
 	    
 	}
 	
 	#bbs table caption {
+		color:#89bdd3;
 	    font-size:20px;
 	    font-weight:bold;
 	    margin-bottom:10px;
 	}
 	
 	#bbs table th {
+		background-color:#89bdd3;
+		color:white;
 	    text-align:center;
-	    border:1px solid black;
+	    border:1px solid #e7e7e7;
 	    padding:4px 10px;
 	}
 	
 	#bbs table td {
 	    text-align:left;
-	    border:1px solid black;
+	    border:1px solid #e7e7e7;
 	    padding:4px 10px;
 	}
 	
@@ -80,15 +83,15 @@
 			<caption>게시판 글쓰기</caption>
 			<tbody>
 				<tr>
-					<th>제목:</th>
+					<th>제목</th>
 					<td><input type="text" name="subject" size="45"/></td>
 				</tr>
 				<tr>
-					<th>이름:</th>
+					<th>이름</th>
 					<td><input type="text" name="writer" size="12"/></td>
 				</tr>
 				<tr>
-					<th>내용:</th>
+					<th>내용</th>
 					<td>
 					<textarea id="content" name="content" cols="50" rows="8"></textarea>
 					<!-- <input type="hidden" name="content2" CKEDITOR.instances.content.getData()> -->
@@ -97,22 +100,27 @@
 					
 				</tr>
 				<tr>
-					<th>첨부파일:</th>
+					<th>첨부파일</th>
 					<td><input type="file" name="file_name"/></td>
 				</tr>
 				<tr>
-					<th>비밀번호:</th>
+					<th>비밀번호</th>
 					<td><input type="password" name="pwd" size="12"/></td>
 				</tr>
+				</tbody>
+				<tfoot align="center">
 				<tr>
 					<td colspan="2">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;
+
 						<input type="button" value="보내기" onclick="sendData()"/>
 						<input type="reset" value="다시"/>
 						<input type="button" value="목록" onclick="list_go()"/>
 						<input type="hidden" name="chk" value="chk" />
 					</td>
 				</tr>
-			</tbody>
+				</tfoot>
 		</table>
 	</form>
 	</div>

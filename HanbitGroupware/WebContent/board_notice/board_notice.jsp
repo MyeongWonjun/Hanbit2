@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#bbs table {
-	    width:580px;
+	    width:1000px;
 	    margin-left:10px;
 	    border:1px solid black;
 	    border-collapse:collapse;
@@ -77,16 +77,38 @@
 	    color:white;
 	    font-weight:bold;
 	}
-		
+	.tab_vertical{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width:180px;
+	float: left;}
+	.tab-title {
+	list-style-type: none;  
+ 	margin: 0;
+	padding: 0;
+	width:180px;
+
+	}
+	.tab-title:HOVER{
+		background-color: #9ad3de;
+		width:180px;
+	}  
+	.name{
+	color: #89bdd3;}
 </style>
 </head>
 <body>
 <jsp:include page="../home/top_menu.jsp"></jsp:include>
-<br/>
-	
+	<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게시판</h2>
+	<ul class="tab_vertical" d >
+		<li class="tab-title"><a href=# >공지사항</a></li>
+		<li class="tab-title"><a href=#>자유게시판</a></li>
+	</ul>
 	<div id="bbs" align="center">
 		<table summary="게시판 목록">
-			<caption>공지사항</caption>
+			<caption class="name">공지사항</caption>
+			<br/>
 			<thead style="outline: none;">
 				<tr class="title">
 					<th class="no">NO</th>
@@ -152,6 +174,17 @@
 				</tr>
 			</tfoot>
 		</table>
+				<br/><br/>
+		<div>
+		<select name="search">
+			<option>제목</option>
+			<option>작성자</option>
+		</select>
+		
+		<input type="text" id="search_what">
+		<input type="button" value="검색" >
+	 	
+		</div>
 	</div>
 </body>
 </html>
