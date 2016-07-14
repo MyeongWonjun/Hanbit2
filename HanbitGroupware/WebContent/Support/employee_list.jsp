@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
 #info table {
 	width: 1200px;
 	margin-left: 10px;
@@ -107,59 +106,80 @@ table tfoot ol.paging li a:hover {
 </style>
 </head>
 <body>
-	<h1>임직원정보</h1>
-	<div style="text-align: right">
-		<form>
-			<select name="search">
-				<option>사번</option>
-				<option>이름</option>
-				<option>직무</option>
-				<option>부서</option>
-				<option>직급</option>
-			</select> 
-			<input type="text" name="search_what" />
-			<input type="submit" value="검색" />
-		</form>
-	</div>
+	<table align="center">
+		<thead>
+			<tr>
+				<th colspan="2" width="1280" height="200"><jsp:include
+						page="../home/top_menu.jsp"></jsp:include></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td width="200px">
+					<h2 align="center">업무지원</h2>
+					<ul class="tab_vertical">
+						<li class="tab-title"><a href="#">업무자료실</a></li>
+						<li class="tab-title"><a href="#">공용문서함</a></li>
+						<li class="tab-title" style="background-color: #9ad3de;"><a
+							href="#">임직원정보</a></li>
+					</ul>
+				</td>
+				<td valign="top" align="center">
+					<h1>임직원정보</h1>
+					<div style="text-align: right">
+						<form>
+							<select name="search">
+								<option>사번</option>
+								<option>이름</option>
+								<option>직무</option>
+								<option>부서</option>
+								<option>직급</option>
+							</select> <input type="text" name="search_what" /> <input type="submit"
+								value="검색" />
+						</form>
+					</div>
+					<div id="info" align="center">
+						<table summary="임직원 정보 테이블">
+							<thead>
+								<tr class="title">
+									<td class="id">사번</td>
+									<td class="name">이름</td>
+									<td class="email_addr">이메일</td>
+									<td class="phone">전화번호</td>
+									<td class="job_id">직무</td>
+									<td class="department_id">부서</td>
+									<td class="manager_id">매니저</td>
+									<td class="hire_date">입사일</td>
+									<td class="grade">직급</td>
+								</tr>
+							</thead>
 
-	<div id="info" align="center">
-		<table summary="임직원 정보 테이블">
-			<thead>
-				<tr class="title">
-					<td class="id">사번</td>
-					<td class="name">이름</td>
-					<td class="email_addr">이메일</td>
-					<td class="phone">전화번호</td>
-					<td class="job_id">직무</td>
-					<td class="department_id">부서</td>
-					<td class="manager_id">매니저</td>
-					<td class="hire_date">입사일</td>
-					<td class="grade">직급</td>
-				</tr>
-			</thead>
-
-			<tbody>
-				<c:if test="${empty list}">
-					<tr>
-						<td colspan="9">검색된 사원이 없음</td>
-					</tr>
-				</c:if>
-				<c:if test="${!empty list}">
-					<c:forEach items="${list}" var="k">
-						<tr>
-							<td>${k.id}</td>
-							<td>${k.name}</td>
-							<td>${k.email_addr}</td>
-							<td>${k.phone}</td>
-							<td>${k.department_id}</td>
-							<td>${k.manager_id}</td>
-							<td>${k.hire_date}</td>
-							<td>${k.grade}</td>
-						</tr>
-					</c:forEach>
-				</c:if>
-			</tbody>
-		</table>
-	</div>
+							<tbody>
+								<c:if test="${empty list}">
+									<tr>
+										<td colspan="9">검색된 사원이 없음</td>
+									</tr>
+								</c:if>
+								<c:if test="${!empty list}">
+									<c:forEach items="${list}" var="k">
+										<tr>
+											<td>${k.id}</td>
+											<td>${k.name}</td>
+											<td>${k.email_addr}</td>
+											<td>${k.phone}</td>
+											<td>${k.department_id}</td>
+											<td>${k.manager_id}</td>
+											<td>${k.hire_date}</td>
+											<td>${k.grade}</td>
+										</tr>
+									</c:forEach>
+								</c:if>
+							</tbody>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
