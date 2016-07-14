@@ -32,12 +32,16 @@ li a, .menu_drop {
     display: block;
     color: #ffffff;
     text-align: center;
+    font-size: 20px;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li:hover:not(.active), #menu:hover #menu_drop{
     background-color: #9ad3de;
+}
+li div a{
+	font-size: 16px;
 }
 
 li a.active {
@@ -122,15 +126,10 @@ li a.active {
 			</div>
 		</li>
 		<li id="menu">
-			<a href="#download" id="menu_drop">Download</a>
-			<div id="drop_content">
-				<a href="#">업무자료실</a>
-				<a href="#">공용문서함</a>
-			</div>
-		</li>
-		<li id="menu">
 			<a href="#support" id="menu_drop">업무지원</a>
 			<div id="drop_content">
+			<a href="#">업무자료실</a>
+				<a href="#">공용문서함</a>
 				<a href="#">임직원정보</a>
 			</div>
 		</li>
