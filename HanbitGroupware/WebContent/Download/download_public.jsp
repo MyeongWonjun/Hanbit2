@@ -176,8 +176,9 @@ li a.active {
 <body>
 	<jsp:include page="../home/top_menu.jsp"></jsp:include>
 
-	<h2>DownLoad</h2>
-	<ul class="tab_vertical" data-tab>
+	<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DownLoad</h2>
+	
+	<ul class="tab_vertical" >
 		<li class="tab-title"><a href="download_public.jsp" >공용문서함</a></li>
 		<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
 	</ul>
@@ -185,7 +186,7 @@ li a.active {
 	<div id="bbs" align="center" >
 		<table summary="게시판 목록">
 			<caption><h2>공용문서함</h2></caption>
-			<thead>
+			<thead style="outline: none;">
 				<tr class="title">
 					<th class="no">번호</th>
 					<th class="subject">제목</th>
@@ -212,7 +213,10 @@ li a.active {
 			</tbody> 
 			<tfoot>
 				<tr>
-					<td colspan="4">
+					<td><input type="button" value="글쓰기"  
+					onclick="javascript:window.open('download_p_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')"/></td>
+					
+					<td colspan="5" align="center">
 						<ol class="paging">
 						<!--  이전버튼 은 beginPage가 pagePerBlock보다 작으면 비활성화 -->
 						<c:choose>
@@ -244,12 +248,25 @@ li a.active {
 						</c:choose>
 						</ol>
 					</td>
-					<td>
-						<input type="button" value="글쓰기" onclick="javascript:location.href='/0625_jsp_MVC_BBS/MyController?type=write'"/>
-					</td>
+					
 				</tr>
 			</tfoot>
 		</table>
+			<br/><br/>
+		<div align="center">
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<select name="search">
+				<option>제목</option>
+				<option>작성자</option>
+			</select>
+			
+			<input type="text" id="search_what">
+			<input type="button" value="검색" >
+	 	
+		</div>
+		
+		
 	</div>
 	
 	

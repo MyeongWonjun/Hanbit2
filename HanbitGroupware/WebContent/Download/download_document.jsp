@@ -99,8 +99,8 @@ body {
 </head>
 <body>
 	<jsp:include page="../home/top_menu.jsp"></jsp:include>
-	<h2>DownLoad</h2>
-	<ul class="tab_vertical" data-tab>
+	<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DownLoad</h2>
+	<ul class="tab_vertical" >
 		<li class="tab-title"><a href="download_public.jsp">공용문서함</a></li>
 		<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
 	</ul>
@@ -136,7 +136,9 @@ body {
 			</tbody> 
 			<tfoot>
 				<tr>
-					<td colspan="4">
+				<td><input type="button" value="글쓰기"  
+					onclick="javascript:window.open('download_d_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')"/></td>
+					<td colspan="5" align="center">
 						<ol class="paging">
 						<!--  이전버튼 은 beginPage가 pagePerBlock보다 작으면 비활성화 -->
 						<c:choose>
@@ -168,24 +170,23 @@ body {
 						</c:choose>
 						</ol>
 					</td>
-					<td>
-						<input type="button" value="글쓰기" onclick="javascript:location.href='/0625_jsp_MVC_BBS/MyController?type=write'"/>
-					</td>
+					
 				</tr>
 			</tfoot>
 		</table>
 		<br/><br/>
-		<div>
-		<select name="search">
-			<option>제목</option>
-			<option>작성자</option>
-		</select>
-		
-		<input type="text" id="search_what">
-		<input type="button" value="검색" >
+	<div align="center">
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<select name="search">
+				<option>제목</option>
+				<option>작성자</option>
+			</select>
+			
+			<input type="text" id="search_what">
+			<input type="button" value="검색" >
 	 	
 		</div>
-		
 		
 	</div>
 	
