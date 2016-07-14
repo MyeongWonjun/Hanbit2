@@ -17,5 +17,4 @@ public class EmployeeCommand implements Command {
 		request.setAttribute("list", list);
 		return "/Support/employee_list";
 	}
-
 }

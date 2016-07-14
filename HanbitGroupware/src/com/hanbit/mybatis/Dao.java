@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.hanbit.vo.VO_email;
 import com.hanbit.vo.VO_employees;
 
 public class Dao {
@@ -16,9 +17,15 @@ private static SqlSession ss;
 		return ss;
 	}
 	
-	// 임직원정보 리스트
+	// employee list
 		public List<VO_employees> getList(){
 			List<VO_employees> list = getSql().selectList("list");
+			return list;
+		}
+	
+	// GetEmail list
+		public List<VO_email> getEmailList(){
+			List<VO_email> list = getSql().selectList("getEmailList");
 			return list;
 		}
 }
