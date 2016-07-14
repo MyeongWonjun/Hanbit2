@@ -98,14 +98,24 @@ body {
 </style>
 </head>
 <body>
-	<jsp:include page="../home/top_menu.jsp"></jsp:include>
-	<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DownLoad</h2>
-	<ul class="tab_vertical" >
-		<li class="tab-title"><a href="download_public.jsp">공용문서함</a></li>
-		<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
-	</ul>
-	
-	<div id="bbs" align="center" >
+<table border="1" align="center">
+      <thead>
+         <tr>
+            <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td width="200px">
+            	<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;업무지원</h2>
+				<ul class="tab_vertical" >
+					<li class="tab-title"><a href="download_public.jsp">공용문서함</a></li>
+					<li class="tab-title"><a href="download_document.jsp">업무자료실</a></li>
+					<li class="tab-title"><a href="employee_info.jsp">임직원정보</a></li>
+				</ul>
+			</td>
+            <td>
+            	<div id="bbs" align="center" >
 	
 		<table summary="게시판 목록">
 			<caption><h2>업무자료실</h2></caption>
@@ -189,6 +199,11 @@ body {
 		</div>
 		
 	</div>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+	
 	
 	
 	
@@ -199,4 +214,6 @@ body {
 	
 </body>
 </html>
+
+
 
