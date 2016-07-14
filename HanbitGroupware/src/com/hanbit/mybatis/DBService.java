@@ -9,7 +9,7 @@ public class DBService {
 	
 	static{
 		try {
-			factory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("com/hb/mybatis/config.xml"));
+			factory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("com/hanbit/mybatis/config.xml"));
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
