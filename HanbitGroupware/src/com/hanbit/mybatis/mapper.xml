@@ -8,7 +8,12 @@
 	<select id="employee_list" resultType="com.hanbit.vo.VO_employees">
 		select * from gw_member order by id
 	</select>
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'master' of https://github.com/MyeongWonjun/Hanbit2.git
 	<select id="getEmailList" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email order by regdate desc
 	</select>
+	
 </mapper>
