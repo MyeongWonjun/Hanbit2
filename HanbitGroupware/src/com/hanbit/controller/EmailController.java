@@ -27,6 +27,7 @@ public class EmailController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		String type = request.getParameter("type");
+		
 		String path = null;
 		Command comm = null;
 		
