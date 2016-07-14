@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
+import com.hanbit.command.EmpSearchCommand;
 import com.hanbit.command.EmployeeCommand;
 
 @WebServlet("/Support")
@@ -28,6 +29,8 @@ public class SupportController extends HttpServlet {
 		String path = null;
 		if(type.equals("employee_list")){
 			comm = new EmployeeCommand();
+		}else if(type.equals("search")){
+			comm = new EmpSearchCommand();
 		}
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);
