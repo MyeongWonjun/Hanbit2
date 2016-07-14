@@ -15,7 +15,7 @@
 	border-collapse: collapse;
 	font-size: 14px;
 }
-
+   
 #bbs table caption {
 	font-size: 20px;
 	font-weight: bold;
