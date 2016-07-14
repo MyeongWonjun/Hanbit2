@@ -78,10 +78,10 @@ td {
       </thead>
       <tbody>
          <tr>
-            <td width="200px">사이드바</td>
+            
             <td><table align="center" width="800" height="50"cellpadding="2" cellspacing="1">
 		<tr>
-			<td align="center" ><a
+			<td align="center"><a
 				href="schedule.jsp?year=<%=preYear%>&month=<%=preMonth%>">◀</a> <b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
 			</b> <a href="schedule.jsp?year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
 			</td>
