@@ -44,35 +44,35 @@
 }
 
 .id {
-	width: 11%
+	width: 10%
 }
 
 .name {
-	width: 11%
+	width: 10%
 }
 
 .email_addr {
-	width: 12%
+	width: 15%
 }
 
 .phone {
-	width: 11%
+	width: 10%
 }
 
 .job_id {
-	width: 11%
+	width: 10%
 }
 
 .department_id {
-	width: 11%
+	width: 10%
 }
 
 .manager_id {
-	width: 11%
+	width: 10%
 }
 
 .hire_date {
-	width: 11%
+	width: 25%
 }
 
 .grade {
@@ -141,7 +141,7 @@ table tfoot ol.paging li a:hover {
 					</ul>
 				</td>
 				<td valign="top" align="center">
-					<h1>임직원정보</h1>
+					&nbsp;&nbsp;&nbsp;<h4 align="left">업무지원 > 임직원정보</h4>
 					<div style="text-align: right">
 						<form>
 							<select name="search">
@@ -186,7 +186,7 @@ table tfoot ol.paging li a:hover {
 											<td>${k.job_id}</td>
 											<td>${k.department_name}</td>
 											<td>${k.manager_id}</td>
-											<td>${k.hire_date}</td>
+											<td>${k.hire_date.substring(0,10)}</td>
 											<td>${k.grade}</td>
 										</tr>
 									</c:forEach>

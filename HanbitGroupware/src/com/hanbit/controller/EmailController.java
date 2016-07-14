@@ -29,7 +29,13 @@ public class EmailController extends HttpServlet {
 		String type = request.getParameter("type");
 		
 		String path = null;
+
 		Command comm = null;
+
+		
+		System.out.println("222");
+		System.out.println(type);
+
 		
 		if(type.equals("getEmailList")){
 			comm = new GetEmailListCommand();
