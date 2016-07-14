@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -149,15 +150,17 @@
             		<tbody>
             			<table>
             				<tbody>
+            					<c:forEach var="k" items="${list}">
             					<tr>
             						<td width="25px">
             							<input id="list" type="checkbox"/>
             						<hr/></td>
-            						<td width="175px">test<hr/></td>
-            						<td width="570px">subject<hr/></td>
-            						<td width="100px" align="right">sysdate<hr/></td>
-            						<td width="100px" align="right">byte<hr/></td>
-            					</tr>				
+            						<td width="175px">${k.sender_addr}<hr/></td>
+            						<td width="570px">${k.subject}<hr/></td>
+            						<td width="100px" align="right">${k.regdate}<hr/></td>
+            						<td width="100px" align="right">${k.mail_file}<hr/></td>
+            					</tr>
+            					</c:forEach>		
             				</tbody>
             				<tfoot>
             					<!-- 페이징기법 -->
