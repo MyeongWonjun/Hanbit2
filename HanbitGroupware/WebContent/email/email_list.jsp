@@ -157,7 +157,6 @@
             						<hr/></td>
             						<td width="175px">${k.sender_addr}<hr/></td>
             						<td width="570px">${k.subject}<hr/></td>
-            						<td width="100px" align="right">${k.regdate}<hr/></td>
             						<td width="100px" align="right">${k.regdate.substring(0,16)}<hr/></td>
             						<td width="100px" align="right">${k.email_file}<hr/></td>
             					</tr>
