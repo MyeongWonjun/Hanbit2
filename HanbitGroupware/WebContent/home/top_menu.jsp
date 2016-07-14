@@ -86,19 +86,13 @@ li a.active {
 </style>
 </head>
 <body>
-	<h2 id="mainTop">
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		HANBIT SYSTEM
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		
-		<input id="btn" type="button" value="MY">
-		<input id="btn" type="button" value="LOGOUT">
-	</h2>
+	<h1 id="mainTop" align="center">
+		HANBIT SYSTEM	
+	</h1>
+	<p align="right">
+	<input id="btn" type="button" value="MY" />
+	<input id="btn" type="button" value="LOGOUT" />
+	<p>
 	<div>
 	<ul>
 		<li><a href="#home">Home</a></li>
@@ -148,9 +142,6 @@ li a.active {
 		</li>
 	</ul>
 	</div>
-	<!-- <div>
-		<img alt="img" src="../img/img1.png" align="right" hspace="20" vspace="20">
-	</div> -->
 </body>
 </html>
 
