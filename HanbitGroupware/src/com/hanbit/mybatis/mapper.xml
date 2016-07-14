@@ -8,7 +8,7 @@
 	<select id="employee_list" resultType="com.hanbit.vo.VO_employees">
 		select * from gw_member order by id
 	</select>
-	<select id="getEmailList" resultType="com.habit.vo.VO_email">
+	<select id="getEmailList" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email order by regdate desc
 	</select>
 </mapper>

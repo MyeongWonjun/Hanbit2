@@ -158,7 +158,7 @@
             						<td width="175px">${k.sender_addr}<hr/></td>
             						<td width="570px">${k.subject}<hr/></td>
             						<td width="100px" align="right">${k.regdate}<hr/></td>
-            						<td width="100px" align="right">${k.mail_file}<hr/></td>
+            						<td width="100px" align="right">${k.email_file}<hr/></td>
             					</tr>
             					</c:forEach>		
             				</tbody>
