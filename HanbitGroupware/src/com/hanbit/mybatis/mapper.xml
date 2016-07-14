@@ -12,4 +12,5 @@
 	<select id="getEmailList" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email order by regdate desc
 	</select>
+	
 </mapper>

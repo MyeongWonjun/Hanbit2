@@ -160,6 +160,7 @@
             						<td width="100px" align="right">${k.regdate.substring(0,16)}<hr/></td>
             						<td width="100px" align="right">${k.email_file}<hr/></td>
             					</tr>
+            					
             					</c:forEach>		
             				</tbody>
             				<tfoot>
