@@ -24,6 +24,7 @@ public class SupportController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		
 		String type = request.getParameter("type");
+		System.out.println("Here!");
 		Command comm = null;
 		String path = null;
 		if(type.equals("employee_list")){
