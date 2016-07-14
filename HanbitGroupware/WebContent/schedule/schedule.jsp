@@ -57,66 +57,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP 만년달력</title>
-<STYLE type="text/css">
+<title>일정</title>
+ <STYLE type="text/css">
 body {
-	font-size: 9pt;
+	font-size: 12pt;
 }
 
 td {
-	font-size: 9pt;
+	font-size: 12pt;
 }
 
-a:link {
-	text-decoration: none;
-	color: red
-}
-
-a:active {
-	text-decoration: none;
-	color: red
-}
-
-a:visited {
-	text-decoration: none;
-	color: red
-}
-
-a:hover {
-	text-decoration: none;
-	color: red
-}
-</STYLE>
+</STYLE> 
 </head>
 <body>
-	<br />&nbsp;
-	<br />
-	<table align="center" width="210" cellpadding="2" cellspacing="1">
+<table border="1" align="center">
+      <thead>
+         <tr>
+            <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td width="200px">사이드바</td>
+            <td><table align="center" width="800" height="50"cellpadding="2" cellspacing="1">
 		<tr>
-			<td align="center"><a
+			<td align="center" ><a
 				href="schedule.jsp?year=<%=preYear%>&month=<%=preMonth%>">◀</a> <b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
 			</b> <a href="schedule.jsp?year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
 			</td>
 		</tr>
 	</table>
 	<!-- 달력표시 -->
-	<table align="center" width="210" cellpadding="0" cellspacing="1"
-		bgcolor="#cccccc">
+	<table align="center" width="800" cellpadding="0" cellspacing="1"
+		bgcolor="#89bdd3">
 		<tr>
-			<td bgcolor="#e6e4e6" align="center"><font color="red">일</font>
+			<td bgcolor="#89bdd3" align="center"><font color="red">일</font>
 			</td>
-			<td bgcolor="#e6e4e6" align="center">월</td>
-			<td bgcolor="#e6e4e6" align="center">화</td>
-			<td bgcolor="#e6e4e6" align="center">수</td>
-			<td bgcolor="#e6e4e6" align="center">목</td>
-			<td bgcolor="#e6e4e6" align="center">금</td>
-			<td bgcolor="#e6e4e6" align="center"><font color="blue">토</font>
+			<td bgcolor="#89bdd3" align="center">월</td>
+			<td bgcolor="#89bdd3" align="center">화</td>
+			<td bgcolor="#89bdd3" align="center">수</td>
+			<td bgcolor="#89bdd3" align="center">목</td>
+			<td bgcolor="#89bdd3" align="center">금</td>
+			<td bgcolor="#89bdd3" align="center"><font color="blue">토</font>
 			</td>
 		</tr>
 		<%
 			//한주가 지나면 줄바꿈을 할 것이다.
 			int newLine = 0;
-			out.print("<tr height='20'>");
+			out.print("<tr height='70'>");
 			for (int i = 1; i < week; i++) {
 				out.print("<td bgcolor='#ffffff'>&nbsp;</td>");
 				newLine++;
@@ -130,7 +118,7 @@ a:hover {
 						+ "</font></td>");
 				newLine++;
 				if (newLine == 7 && i != endDay) {//7일째거나 말일이면 달력 줄바꿈이 일어난다.
-					out.print("</tr><tr height='20'>");
+					out.print("</tr><tr height='70'>");
 					newLine = 0;
 				}
 			} //3항 연산자로 for문으로 요일별 색상을 정한다. 
@@ -142,6 +130,14 @@ a:hover {
 			out.print("</tr>");
 		%>
 	</table>
+	  <br />
+	  <br />
+	  <br />
+	</td>
+         </tr>
+      </tbody>
+   </table>
+	
 </body>
 </html>
 
