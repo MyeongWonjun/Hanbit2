@@ -141,7 +141,7 @@ table tfoot ol.paging li a:hover {
 					</ul>
 				</td>
 				<td valign="top" align="center">
-					<h1>임직원정보</h1>
+					&nbsp;&nbsp;&nbsp;<h4 align="left">업무지원 > 임직원정보</h4>
 					<div style="text-align: right">
 						<form>
 							<select name="search">
