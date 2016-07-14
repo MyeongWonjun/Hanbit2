@@ -7,6 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.tab_vertical>li {
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	text-decoration: none;
+	text-align: center;
+	width: 200px;
+}
+
+.tab-title:HOVER {
+	background-color: #9ad3de;
+	width: 200px;
+}
+
 #info table {
 	width: 1200px;
 	margin-left: 10px;
@@ -147,7 +163,7 @@ table tfoot ol.paging li a:hover {
 									<td class="email_addr">이메일</td>
 									<td class="phone">전화번호</td>
 									<td class="job_id">직무</td>
-									<td class="department_id">부서</td>
+									<td class="department_name">부서</td>
 									<td class="manager_id">매니저</td>
 									<td class="hire_date">입사일</td>
 									<td class="grade">직급</td>
@@ -167,7 +183,8 @@ table tfoot ol.paging li a:hover {
 											<td>${k.name}</td>
 											<td>${k.email_addr}</td>
 											<td>${k.phone}</td>
-											<td>${k.department_id}</td>
+											<td>${k.job_id}</td>
+											<td>${k.department_name}</td>
 											<td>${k.manager_id}</td>
 											<td>${k.hire_date}</td>
 											<td>${k.grade}</td>

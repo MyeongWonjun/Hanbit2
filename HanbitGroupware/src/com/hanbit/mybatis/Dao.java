@@ -17,9 +17,13 @@ private static SqlSession ss;
 		return ss;
 	}
 	
+
 	// employee list
+
+	// employees list
+	//github.com/MyeongWonjun/Hanbit2.git
 		public List<VO_employees> getList(){
-			List<VO_employees> list = getSql().selectList("list");
+			List<VO_employees> list = getSql().selectList("employee_list");
 			return list;
 		}
 	
