@@ -16,7 +16,7 @@
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	background-color: #6ebcfa;
+	background-color: #89bdd3;
 	color: white;
 	
 }
@@ -24,7 +24,9 @@
 	td{
 		text-align: center
 	}
-
+h2{
+  color: #89bdd3;
+}
 </style>
 
 </head>
@@ -39,13 +41,19 @@
       <tbody>
          <tr>
          <td width="200px">
+					<h2 class="name">환경설정</h2>
+					<ul class="tab_vertical" d>
+						<li class="tab-title"><a href=#>사원목록</a></li>
+						<li class="tab-title"><a href=#>사원정보수정</a></li>
+						<li class="tab-title"><a href=#>사원등록</a></li>
+					</ul>
          </td>
             <td><form method="post" action="inputPro.jsp" name="userinput"
 		onSubmit="return checkIt()">
 		<table width="700" height="500" border="1" cellspacing="0" cellpadding="0"
 			align="center" >
 			<tr>
-				<td colspan="2" height="45" align="center" bgcolor="#6ebcfa" >
+				<td colspan="2" height="45" align="center" bgcolor="#89bdd3" >
 					<font size="+1" font color="white" ><b>사원등록</b></font>
 				</td>
 			</tr>

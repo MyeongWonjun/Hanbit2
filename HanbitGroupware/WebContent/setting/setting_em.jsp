@@ -16,7 +16,7 @@
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	background-color: #6ebcfa;
+	background-color: #89bdd3;
 	color: white;
 	
 }
@@ -43,7 +43,7 @@
 		<table width="700" height="500" border="1" cellspacing="0" cellpadding="0"
 			align="center" >
 			<tr>
-				<td colspan="2" height="45" align="center" bgcolor="#6ebcfa" >
+				<td colspan="2" height="45" align="center" bgcolor="#89bdd3" >
 					<font size="+1" font color="white" ><b>기본정보수정</b></font>
 				</td>
 			</tr>
