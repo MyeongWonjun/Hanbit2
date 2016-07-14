@@ -23,7 +23,7 @@
 }  
 
 #info table {
-	    width:1000px;
+	    width:1200px;
 	    margin-left:10px;
 	    border:1px solid black;
 	    border-collapse:collapse;
@@ -43,26 +43,70 @@
 	    padding:4px 10px;
 	}
 	
-	.id{width:10% }
-	.name {width:10%}
-	.email_addr{width:10%}
-	.phone{width:10%}
-	.job_id{width:10%}
-	.department_id{width:10%}
-	.manager_id{width:10%}
-	.hire_date{width:10%}
-	.grate{width:10% }
+	.id{width:11% }
+	.name {width:11%}
+	.email_addr{width:12%}
+	.phone{width:11%}
+	.job_id{width:11%}
+	.department_id{width:11%}
+	.manager_id{width:11%}
+	.hire_date{width:11%}
+	.grade{width:11% }
+	
+	
+	table tfoot ol.paging {
+	    list-style:none;
+	}
+	
+	table tfoot ol.paging li {
+	    float:left;
+	    margin-right:8px;
+	}
+	
+	table tfoot ol.paging li a {
+	    display:block;
+	    padding:3px 7px;
+	    border:1px solid #00B3DC;
+	    color:#2f313e;
+	    font-weight:bold;
+	}
+	
+	table tfoot ol.paging li a:hover {
+	    background:#00B3DC;
+	    color:white;
+	    font-weight:bold;
+	}
+	
+	.disable {
+	    padding:3px 7px;
+	    border:1px solid silver;
+	    color:silver;
+	}
+	
+	.now {
+	   padding:3px 7px;
+	    border:1px solid #ff4aa5;
+	    background:#ff4aa5;
+	    color:white;
+	    font-weight:bold;
+	}
+	
+	.title{
+	background-color: #89bdd3;
+	}
 	
 
 </style>
 </head>
 <body>
 	<jsp:include page="../home/top_menu.jsp"/>
+	
 	<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;업무지원</h2>
 	<ul class="tab_vertical" >
 		<li class="tab-title"><a href="download_public.jsp">임직원정보</a></li>
 	</ul>
 		<div id="search" align="center">
+		<caption><h2>임직원정보</h2></caption>
 			<select name="search">
 				<option>사번</option>
 				<option>이름</option>
