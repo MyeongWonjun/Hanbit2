@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.hanbit.command.Command;
 import com.hanbit.command.GetEmailListCommand;
 
-/**
- * Servlet implementation class EmailController
- */
 @WebServlet("/Email")
 public class EmailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,16 +24,9 @@ public class EmailController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		String type = request.getParameter("type");
-		
 		String path = null;
-
 		Command comm = null;
-
-		
-		System.out.println("222");
-		System.out.println(type);
-
-		
+	
 		if(type.equals("getEmailList")){
 			comm = new GetEmailListCommand();
 		}
