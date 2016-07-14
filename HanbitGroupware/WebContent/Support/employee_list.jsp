@@ -108,8 +108,8 @@ table tfoot ol.paging li a:hover {
 </head>
 <body>
 	<h1>임직원정보</h1>
-	<div>
-		<form align="right">
+	<div style="text-align: right">
+		<form>
 			<select name="search">
 				<option>사번</option>
 				<option>이름</option>
@@ -155,7 +155,6 @@ table tfoot ol.paging li a:hover {
 							<td>${k.manager_id}</td>
 							<td>${k.hire_date}</td>
 							<td>${k.grade}</td>
-
 						</tr>
 					</c:forEach>
 				</c:if>
