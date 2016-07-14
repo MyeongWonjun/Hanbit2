@@ -101,7 +101,7 @@
 <body>
 	<jsp:include page="../home/top_menu.jsp"/>
 	
-	<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;업무지원</h2>
+	<h2 class="name" align="center">업무지원</h2>
 	<ul class="tab_vertical" >
 		<li class="tab-title"><a href="download_public.jsp">임직원정보</a></li>
 	</ul>
@@ -163,8 +163,5 @@
 	
 	
 	</div>
-
-
-
 </body>
 </html>
