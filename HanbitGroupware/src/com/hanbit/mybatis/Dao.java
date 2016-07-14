@@ -16,9 +16,9 @@ private static SqlSession ss;
 		return ss;
 	}
 	
-	// 임직원정보 리스트
+	// employees list
 		public List<VO_employees> getList(){
-			List<VO_employees> list = getSql().selectList("list");
+			List<VO_employees> list = getSql().selectList("employee_list");
 			return list;
 		}
 }

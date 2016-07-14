@@ -15,7 +15,7 @@ public class EmployeeCommand implements Command {
 		Dao dao = new Dao();
 		List<VO_employees> list = dao.getList();
 		request.setAttribute("list", list);
-		return "/Support/employee_list";
+		return "/Support/employee_list.jsp";
 	}
 
 }
