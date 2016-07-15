@@ -22,5 +22,4 @@ public class EmpSearchCommand implements Command {
 		request.setAttribute("list", list);
 		return "/Support/employee_list.jsp";
 	}
-
 }
