@@ -22,13 +22,17 @@ public class WriteEmailCommand implements Command{
 					new DefaultFileRenamePolicy()
 					);
 			VO_email vo_email = new VO_email();
-			vo_email.setEmail_addr(mr.getParameter("email_addr"));
+			vo_email.setSender_addr(mr.getParameter("email_addr"));
+			System.out.println(vo_email.getSender_addr());
+			vo_email.setEmail_addr(mr.getParameter("receiver"));
 			vo_email.setSubject(mr.getParameter("subject"));
 			vo_email.setContent(mr.getParameter("content"));
 			if(mr.getFile("email_file") != null){
-				vo_email.setEmail_file();
+				vo_email.setEmail_file(mr.getFilesystemName("email_file"));
+				vo_email.setReal_file(mr.getOriginalFileName("email_file"));
 			}else{
 				vo_email.setEmail_file("");
+				vo_email.setReal_file("");
 			}
 			Dao dao = new Dao();
 			dao.writeEmail(vo_email);

@@ -1,5 +1,10 @@
+<%@page import="com.hanbit.vo.VO_employees"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	VO_employees vo_employees = (VO_employees)request.getAttribute("vo_employees");
+	session.setAttribute("info", vo_employees);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -150,7 +155,7 @@ body{
             			<tbody>
             				<tr>
             					<td width="100">받는 사람</td>
-            					<td><input type="text" name="email_addr" size="50" value="Email Address"></td>
+            					<td><input type="text" name="receiver" size="50" value="Email Address">${info.email_addr}</td>
             				</tr>
             				<tr>
             					<td width="100">제목</td>

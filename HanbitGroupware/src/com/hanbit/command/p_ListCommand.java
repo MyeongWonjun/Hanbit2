@@ -6,17 +6,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.mybatis.Dao;
-import com.hanbit.vo.VO_email;
+import com.hanbit.vo.VO_board;
 
-public class GetEmailListCommand implements Command{
+public class p_ListCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String email_addr = request.getParameter("email_addr");
+		String type = request.getParameter("type");
 		Dao dao = new Dao();
-		List<VO_email> list = dao.getEmailList(email_addr);
+		List<VO_board> list = dao.getp_list(type);
 		request.setAttribute("list", list);
-		return "/email/email_list.jsp";
+		return "/download/download_public.jsp";
+		
 	}
 
 }

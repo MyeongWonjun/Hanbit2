@@ -7,6 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+a{
+	text-decoration: none;
+	color: #6ebcfa;
+}
 #btn1 input {
 	width: 100px;
 	height: 50px;
@@ -95,6 +99,7 @@
 	function write_go(f) {
 		f.action="email/email_write.jsp";
 		f.submit();
+		
 	}
 </script>
 </head>
@@ -163,8 +168,15 @@
             							<input id="list" type="checkbox"/>
             						<hr/></td>
             						<td width="175px">${k.sender_addr}<hr/></td>
+<<<<<<< HEAD
+            						<td width="530px"><a href="/HanbitGroupware/Email?type=email_oneList&idx=${k.idx}">${k.subject}</a><hr/></td>
+=======
             						<td width="530px">${k.subject}<hr/></td>
+>>>>>>> branch 'master' of https://github.com/MyeongWonjun/Hanbit2.git
             						<td width="150px" align="right">${k.regdate.substring(0,16)}<hr/></td>
+<<<<<<< HEAD
+            						<td width="100px" align="right">${k.real_file}<hr/></td>
+=======
             						<td width="100px" align="right">${k.email_file}
             						<c:if test="${k.email_file==null}">0KB</c:if>
             						<hr/>
@@ -172,8 +184,8 @@
             						<td width="570px">${k.subject}<hr/></td>
             						<td width="100px" align="right">${k.regdate.substring(0,16)}<hr/></td>
             						<td width="100px" align="right">${k.email_file}<hr/></td>
+>>>>>>> branch 'master' of https://github.com/MyeongWonjun/Hanbit2.git
             					</tr>
-            					
             					</c:forEach>		
             				</tbody>
             				<tfoot>

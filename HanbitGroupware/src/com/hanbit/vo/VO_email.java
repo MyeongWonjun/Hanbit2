@@ -1,16 +1,38 @@
 package com.hanbit.vo;
 
 public class VO_email {
-	private String sender_addr, email_addr, subject, content, regdate;
-	
-	private byte[] email_file;
+	private String idx, sender_addr, receiver, email_addr, subject, content, regdate, email_file, real_file;
 	
 
-	public byte[] getEmail_file() {
+	public String getReceiver() {
+		return receiver;
+	}
+
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
+	}
+
+	public String getReal_file() {
+		return real_file;
+	}
+
+	public void setReal_file(String real_file) {
+		this.real_file = real_file;
+	}
+
+	public String getIdx() {
+		return idx;
+	}
+
+	public void setIdx(String idx) {
+		this.idx = idx;
+	}
+
+	public String getEmail_file() {
 		return email_file;
 	}
 
-	public void setEmail_file(byte[] email_file) {
+	public void setEmail_file(String email_file) {
 		this.email_file = email_file;
 	}
 
