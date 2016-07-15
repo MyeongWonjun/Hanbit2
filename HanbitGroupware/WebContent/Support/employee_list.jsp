@@ -24,7 +24,7 @@
 }
 
 #info table {
-	width: 1200px;
+	width: 1080px;
 	margin-left: 10px;
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -56,7 +56,7 @@
 }
 
 .phone {
-	width: 10%
+	width: 15%
 }
 
 .job_id {
@@ -64,7 +64,7 @@
 }
 
 .department_id {
-	width: 10%
+	width: 15%
 }
 
 .manager_id {
@@ -72,7 +72,7 @@
 }
 
 .hire_date {
-	width: 25%
+	width: 15%
 }
 
 .grade {
@@ -122,11 +122,12 @@ table tfoot ol.paging li a:hover {
 </style>
 </head>
 <body>
-	<table align="center">
+	<table align="center" border="1px">
 		<thead>
 			<tr>
-				<th colspan="2" width="1280" height="200"><jsp:include
-						page="../home/top_menu.jsp"></jsp:include></th>
+				<th colspan="2" width="500" height="200">
+					<jsp:include page="../home/top_menu.jsp" />
+				</th>
 			</tr>
 		</thead>
 		<tbody>
