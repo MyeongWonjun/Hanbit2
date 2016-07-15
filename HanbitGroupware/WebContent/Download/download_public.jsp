@@ -22,7 +22,7 @@ ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	overflow: hidden;b 
 	border: 1px solid #e7e7e7;
 	background-color: #89bdd3;
 }
