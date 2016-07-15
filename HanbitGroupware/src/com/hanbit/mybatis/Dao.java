@@ -29,13 +29,12 @@ private static SqlSession ss;
 	
 	// GetEmail list
 		public List<VO_email> getEmailList(){
-			System.out.println("Here!");
 			List<VO_email> list = getSql().selectList("getEmailList");
-			if(!list.isEmpty()){
-				System.out.println("리스트 있음");
-			}else{
-				System.out.println("리스트 없음");
-			}
 			return list;
+		}
+		
+		public void writeEmail(VO_email vo_email){
+			System.out.println(vo_email.getEmail_addr());
+			getSql().insert("writeEmail", vo_email);
 		}
 }

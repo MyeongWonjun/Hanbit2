@@ -11,5 +11,7 @@
 	<select id="getEmailList" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email order by regdate desc
 	</select>
-	
+	<insert id="writeEmail" parameterType="com.hanbit.vo.VO_email">
+		insert into gw_email values('kyk@gmail.com', #{email_addr}, #{subject}, #{content}, #{email_file}, sysdate)
+	</insert>
 </mapper>

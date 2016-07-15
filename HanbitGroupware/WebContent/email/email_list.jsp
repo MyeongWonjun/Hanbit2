@@ -91,10 +91,17 @@
 }
 
 </style>
+<script type="text/javascript">
+	function write_go(f) {
+		f.action="email/email_write.jsp";
+		f.submit();
+	}
+</script>
 </head>
 <body>
 
-<table border="1" align="center">
+<form method="post">
+<table align="center" border="1">
       <thead>
          <tr>
             <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
@@ -104,7 +111,7 @@
          <tr>
             <td width="200px">
             	<span id="btn1">
-					<input type="button" value="메일쓰기"/>
+					<input type="button" value="메일쓰기" onclick="write_go(this.form)"/>
 					<input type="button" value="내게쓰기"/>
 				</span>
 				<div id="btn2">
@@ -120,7 +127,7 @@
 				</div>
             </td>
             <td  style="vertical-align: top;" >
-            	<table border="1">
+            	<table>
             	<thead>
             		<tr>
             			<th colspan="2" width="995px" align="left">
@@ -156,10 +163,12 @@
             							<input id="list" type="checkbox"/>
             						<hr/></td>
             						<td width="175px">${k.sender_addr}<hr/></td>
-            						<td width="570px">${k.subject}<hr/></td>
-            						<td width="100px" align="right">${k.regdate}<hr/></td>
-            						<td width="100px" align="right">${k.regdate.substring(0,16)}<hr/></td>
-            						<td width="100px" align="right">${k.email_file}<hr/></td>
+            						<td width="530px">${k.subject}<hr/></td>
+            						<td width="150px" align="right">${k.regdate.substring(0,16)}<hr/></td>
+            						<td width="100px" align="right">${k.email_file}
+            						<c:if test="${k.email_file==null}">0KB</c:if>
+            						<hr/>
+            						</td>
             					</tr>
             					
             					</c:forEach>		
@@ -174,7 +183,8 @@
          </tr>
       </tbody>
    </table>
-</br>
+   </form>
+
 </body>
 </html>
 

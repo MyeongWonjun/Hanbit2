@@ -96,10 +96,17 @@ body{
 }
 
 </style>
+<script type="text/javascript">
+	function write_ok(f) {
+		f.action="/HanbitGroupware/Email?type=write";
+		f.submit();
+	}
+</script>
 </head>
 <body>
 
-<table border="1" align="center">
+<form method="post" enctype="multipart/form-data">
+<table align="center">
       <thead>
          <tr>
             <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
@@ -131,8 +138,7 @@ body{
             			<th colspan="3" width="995px" align="left">
 							<p>
 							<sapn id="btn4">
-								<input type="button" value="삭제"/>
-								<input type="button" value="답장"/>
+								<input type="button" value="보내기" onclick="write_ok(this.form)"/>
 								<hr/>
 							</span>
 							</p>
@@ -140,69 +146,36 @@ body{
             		</tr>
             	</thead>
             	<tbody>
-            		<tr>
-            			<td width="10%">test subject</td>
-            		</tr>
-            		<tr>
-            			<td width="10%">tester</td>
-            		</tr>
-            		<tr>
-            			<td width="10%">sysdate</td>
-            		</tr>
-            		<tr>
-            			<td colspan="2">
-            				<hr style="position: relative; top: 10px"/>
-            			</td>
-            		</tr>
+            		<table width="1000">
+            			<tbody>
+            				<tr>
+            					<td width="100">받는 사람</td>
+            					<td><input type="text" name="email_addr" size="50" value="Email Address"></td>
+            				</tr>
+            				<tr>
+            					<td width="100">제목</td>
+            					<td><input type="text" name="subject" size="50" value="Subject"></td>
+            				</tr>
+            				<tr>
+            					<td width="100">파일첨부</td>
+            					<td><input type="file" name="email_file"></td>
+            				</tr>
+            				<tr>
+            					<td colspan="2"><hr/></td>
+            				</tr>
+            			</tbody>
+            			<tfoot>
+            				<tr>
+            					<td colspan="2" style="position: relative; left: 30px"><textarea rows="23" cols="130" name="content">content</textarea></td>
+            				</tr>
+            			</tfoot>
+            		</table>
             	</tbody>
-            	<tfoot>
-            		<tr>
-            			<td colspan="3">
-            				<div rows="25" cols="130" style="position: relative; left: 10px">content</div>
-            			</td>
-            		</tr>
-            	</tfoot>
             </td>
          </tr>
       </tbody>
 </table>
+</form>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

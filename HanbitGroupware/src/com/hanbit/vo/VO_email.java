@@ -1,7 +1,18 @@
 package com.hanbit.vo;
 
 public class VO_email {
-	private String sender_addr, email_addr, subject, content, email_file, regdate;
+	private String sender_addr, email_addr, subject, content, regdate;
+	
+	private byte[] email_file;
+	
+
+	public byte[] getEmail_file() {
+		return email_file;
+	}
+
+	public void setEmail_file(byte[] email_file) {
+		this.email_file = email_file;
+	}
 
 	public String getSender_addr() {
 		return sender_addr;
@@ -33,14 +44,6 @@ public class VO_email {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public String getEmail_file() {
-		return email_file;
-	}
-
-	public void setEmail_file(String email_file) {
-		this.email_file = email_file;
 	}
 
 	public String getRegdate() {

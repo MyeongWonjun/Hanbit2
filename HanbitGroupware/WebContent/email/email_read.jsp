@@ -12,7 +12,7 @@ body{
 #btn1 input {
 	width: 100px;
 	height: 50px;
-	margin: 20px;
+	margin: 10px;
 	color:white;
 	background-color: #6ebcfa;
 	font-family:Helvetica;
@@ -29,7 +29,6 @@ body{
 #btn2 input {
 	width: 270px;
 	height: 100px;
-	margin-left: 15px;
 	background-color: white;
 	text-transform: capitalize;
 	font-weight: bolder;
@@ -80,6 +79,8 @@ body{
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	position: relative;
+	top: 6px;
 }
 #btn4 span{
 	position: relative;
@@ -98,59 +99,73 @@ body{
 </head>
 <body>
 
-<jsp:include page="../home/top_menu.jsp"/>
-
-<span id="btn1">
-	<input type="button" value="메일쓰기"/>
-	<input type="button" value="내게쓰기"/>
-</span>
-
-<!-- <span>
-	<img alt="img2" src="../img/img2.png" style="margin-left: 100px; " >
-</span> -->
-
-<span id="text">
-	<input type="text" value="search.."/>
-</span>
-
-<span id="btn3">
-	<input type="button" value="검색"/>
-</span>
-
-</br>
-
-<div id="btn2">
-	<input type="button" value="전체메일"/>
-	<br/>
-	<input type="button" value="받은메일함"/>
-	<br/>
-	<input type="button" value="보낸메일함"/>
-	<br/>
-	<input type="button" value="내게쓴메일함"/>
-	<br/>
-	<input type="button" value="스팸메일함"/>
-</div>
-
-<div id="btn4" style="position: relative; right: -320px; top: -490px;">
-	<input type="button" value="삭제">
-	<input type="button" value="답장">
-	<hr style="width: 77%; position: relative; left: -177px"/>
-	<hr style="width: 77%; position: relative; left: -177px; top:-12px"/>
-	&nbsp;&nbsp;&nbsp;test subject
-	<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	sysdate
-	<br/>
-	&nbsp;&nbsp;&nbsp;tester
-	<hr style="width: 77%; position: relative; left: -177px"/>
-	&nbsp;&nbsp;&nbsp;content
-</div>
+<table border="1" align="center">
+      <thead>
+         <tr>
+            <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td width="200px">
+            	<span id="btn1">
+					<input type="button" value="메일쓰기"/>
+					<input type="button" value="내게쓰기"/>
+				</span>
+				<div id="btn2">
+					<input type="button" value="전체메일"/>
+					<br/>
+					<input type="button" value="받은메일함"/>
+					<br/>
+					<input type="button" value="보낸메일함"/>
+					<br/>
+					<input type="button" value="내게쓴메일함"/>
+					<br/>
+					<input type="button" value="스팸메일함"/>
+				</div>
+            </td>
+            <td  style="vertical-align: top;" >
+            	<table>
+            	<thead>
+            		<tr>
+            			<th colspan="3" width="995px" align="left">
+							<p>
+							<sapn id="btn4">
+								<input type="button" value="삭제"/>
+								<input type="button" value="답장"/>
+								<hr/>
+							</span>
+							</p>
+            			</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<td width="10%">test subject</td>
+            		</tr>
+            		<tr>
+            			<td width="10%">tester</td>
+            		</tr>
+            		<tr>
+            			<td width="10%">sysdate</td>
+            		</tr>
+            		<tr>
+            			<td colspan="2">
+            				<hr style="position: relative; top: 10px"/>
+            			</td>
+            		</tr>
+            	</tbody>
+            	<tfoot>
+            		<tr>
+            			<td colspan="3">
+            				<div rows="25" cols="130" style="position: relative; left: 10px">content</div>
+            			</td>
+            		</tr>
+            	</tfoot>
+            </td>
+         </tr>
+      </tbody>
+</table>
 
 </body>
 </html>
