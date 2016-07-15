@@ -15,31 +15,31 @@ import com.hanbit.command.Command;
 
 @WebServlet("/BoardController")
 public class BoardController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    public BoardController() {
-        super();
-        
-    }
+private static final long serialVersionUID = 1L;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	doPost(request, response);
+		doPost(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
-		
 		String type = request.getParameter("type");
-		Command comm = null;
 		String path = null;
+		Command comm = null;
+		
+		
 		if(type.equals("boardList")){
 			comm = new Board_ListCommand();
+		
 		}
 		
 		
+		path = comm.exec(request, response);
 		
-		
+		System.out.println("path2"+path);
+		request.getRequestDispatcher(path).forward(request, response);
+	
 	}
 
 }

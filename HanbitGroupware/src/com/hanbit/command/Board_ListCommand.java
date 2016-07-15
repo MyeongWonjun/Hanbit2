@@ -10,12 +10,12 @@ import com.hanbit.vo.VO_board;
 
 public class Board_ListCommand implements Command {
 
-	@Override
+	@Override  
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		Dao dao = new Dao();
 		List<VO_board> boardList = dao.getBoardList();
 		request.setAttribute("boardList", boardList);
-		return "board_free.jsp";
+		return "/board_notice/board_free.jsp";
 	}
 }

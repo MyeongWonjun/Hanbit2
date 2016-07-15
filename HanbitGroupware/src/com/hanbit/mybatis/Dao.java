@@ -56,8 +56,8 @@ private static SqlSession ss;
 		
 		// Board_list
 		public List<VO_board> getBoardList(){
-			List<VO_board> list = ss.selectList("boardList");
-			return list;
+			List<VO_board> boardList = getSql().selectList("boardList");
+			return boardList;
 		}
 
 
