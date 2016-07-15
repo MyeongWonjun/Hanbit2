@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.hanbit.vo.VO_board;
 import com.hanbit.vo.VO_email;
 import com.hanbit.vo.VO_employees;
 
@@ -43,5 +44,11 @@ private static SqlSession ss;
 		public void writeEmail(VO_email vo_email){
 			System.out.println(vo_email.getEmail_addr());
 			getSql().insert("writeEmail", vo_email);
+		}
+		
+		// Board_list
+		public List<VO_board> getBoardList(){
+			List<VO_board> list = ss.selectList("boardList");
+			return list;
 		}
 }
