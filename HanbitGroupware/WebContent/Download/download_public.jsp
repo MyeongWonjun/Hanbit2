@@ -229,7 +229,7 @@ table tfoot ol.paging li a:hover {
 						<tr>
 							<td>${k.b_idx}</td>
 							<td><a
-								href="/0625_jsp_MVC_BBS/MyController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td>
+								href="/HanbitGroupware/d_publicController?type=p_view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td>
 							<td>${k.writer}</td>
 							<td>${k.write_date.substring(0,10)}</td>
 							<td>${k.hit}</td>
@@ -251,7 +251,7 @@ table tfoot ol.paging li a:hover {
 								</c:when>
 								<c:otherwise>
 									<li><a
-										href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
+										href="/HanbitGroupware/d_publicController?type=p_]list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
 								</c:otherwise>
 							</c:choose>
 
@@ -263,7 +263,7 @@ table tfoot ol.paging li a:hover {
 									</c:when>
 									<c:otherwise>
 										<li><a
-											href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${k}">${k}</a></li>
+											href="/HanbitGroupware/d_publicController?type=p_list&cPage=${k}">${k}</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -273,7 +273,7 @@ table tfoot ol.paging li a:hover {
 								</c:when>
 								<c:otherwise>
 									<li><a
-										href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로</a></li>
+										href="/HanbitGroupware/d_publicController?type=p_list&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로</a></li>
 								</c:otherwise>
 							</c:choose>
 						</ol>
