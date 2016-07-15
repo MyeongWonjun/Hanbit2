@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
 import com.hanbit.command.GetEmailListCommand;
+import com.hanbit.command.GetEmailOneListCommand;
 import com.hanbit.command.WriteEmailCommand;
 
 @WebServlet("/Email")
@@ -33,6 +34,9 @@ public class EmailController extends HttpServlet {
 		}
 		if(type.equals("write")){
 			comm = new WriteEmailCommand();
+		}
+		if(type.equals("email_oneList")){
+			comm = new GetEmailOneListCommand();
 		}
 		
 		path = comm.exec(request, response);

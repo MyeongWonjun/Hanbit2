@@ -128,8 +128,15 @@
 	background-color: silver;
 }
 </style>
+<script type="text/javascript">
+	function login_go(f) {
+		f.action="/HanbitGroupware/Login?type=login";
+		f.submit();
+	}
+</script>
 </head>
 <body>
+	<form method="post">
 	<div class="back" style="position: absolute; top: 0; left: 0;">
 		<div class="LoginBackground" align="center"style="vertical-align: middle; position: absolute; margin-left: 37%; margin-top: 11%">
 			<div>&nbsp;</div>
@@ -139,13 +146,13 @@
 			<br/>
 			<div class="LOGIN">LOGIN</div>
 			<div>&nbsp;</div>
-			<input type="text" class="Field" value="username"style="color: #fff;"><br />
-			<input type="text"class="Field" value="password" style="color: #fff;" /><br />
-			<input class="RoundedRectangle"type="submit" value="Sign In" style="font-family: Helvetica; font-size: 14px; font-weight: bold; color: #fff;"/>
+			<input type="text" name="id" class="Field" value=""style="color: #fff;"><br />
+			<input type="password" name="pwd" class="Field" value="" style="color: #fff;" /><br />
+			<input class="RoundedRectangle"type="submit" value="Sign In" onclick="login_go(this.form)" style="font-family: Helvetica; font-size: 14px; font-weight: bold; color: #fff;"/>
 
 		</div>
 	</div>
-
+	</form>
 </body>
 </html>
 

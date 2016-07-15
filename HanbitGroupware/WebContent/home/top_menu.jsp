@@ -101,7 +101,7 @@ li a.active {
 	<ul>
 		<li><a href="#home">Home</a></li>
 		<li id="menu">
-			<a href="/HanbitGroupware/Email?type=getEmailList" id="menu_drop">E-mail</a>
+			<a href="/HanbitGroupware/Email?type=getEmailList&email_addr=${info.email_addr}" id="menu_drop">E-mail</a>
 			<div id="drop_content">
 				<a href="#">전체메일</a>
 				<a href="/HanbitGroupware/Email?type=getEmailList">받은메일함</a>

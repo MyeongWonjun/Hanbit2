@@ -1,5 +1,6 @@
 package com.hanbit.mybatis;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,8 +19,14 @@ private static SqlSession ss;
 		return ss;
 	}
 	
-
-	
+	// login
+	public VO_employees getLogin(String id, String pwd){
+		Map<String, String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("pwd", pwd);
+		VO_employees vo_employees = getSql().selectOne("loginList", map);
+		return vo_employees;
+	}
 
 	// employees list
 	//github.com/MyeongWonjun/Hanbit2.git
@@ -35,13 +42,34 @@ private static SqlSession ss;
 		}
 	
 	// GetEmail list
-		public List<VO_email> getEmailList(){
-			List<VO_email> list = getSql().selectList("getEmailList");
+		public List<VO_email> getEmailList(String email_addr){
+			List<VO_email> list = getSql().selectList("getEmailList", email_addr);
 			return list;
 		}
-		
+	// email write
 		public void writeEmail(VO_email vo_email){
-			System.out.println(vo_email.getEmail_addr());
 			getSql().insert("writeEmail", vo_email);
+			getSql().commit();
+		}
+	// email oneList
+		public VO_email getEmailOneList(String idx){
+			VO_email vo_email = new VO_email();
+			vo_email = getSql().selectOne("getEmailOneList", idx);
+			return vo_email;
 		}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
