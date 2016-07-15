@@ -19,4 +19,7 @@
 	<insert id="writeEmail" parameterType="com.hanbit.vo.VO_email">
 		insert into gw_email values('kyk@gmail.com', #{email_addr}, #{subject}, #{content}, #{email_file}, sysdate)
 	</insert>
+	<select id="boardList" resultType="com.hanbit.vo.VO_board">
+		select * from gw_board	
+	</select>
 </mapper>
