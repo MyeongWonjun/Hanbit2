@@ -7,7 +7,15 @@ public class p_viewCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		String path = null;
+		String chk = request.getParameter("chk");
+		if(chk==null){
+			path = "/download/download_p_write.jsp";
+		}else{
+			
+			
+			
+		}
 		return null;
 	}
 
