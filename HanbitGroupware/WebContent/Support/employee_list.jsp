@@ -143,15 +143,17 @@ table tfoot ol.paging li a:hover {
 				<td valign="top" align="center">
 					&nbsp;&nbsp;&nbsp;<h4 align="left">업무지원 > 임직원정보</h4>
 					<div style="text-align: right">
-						<form>
+						<form action="/HanbitGroupware/Support">
 							<select name="search">
-								<option>사번</option>
-								<option>이름</option>
-								<option>직무</option>
-								<option>부서</option>
-								<option>직급</option>
-							</select> <input type="text" name="search_what" /> <input type="submit"
-								value="검색" />
+								<option value="id">사번</option>
+								<option value="name">이름</option>
+								<option value="job_id">직무</option>
+								<option value="department_name">부서</option>
+								<option value="grade">직급</option>
+							</select> 
+							<input type="text" name="search_what" />
+							<input type="hidden" name="type" value="search" />
+							<input type="submit"value="검색" />
 						</form>
 					</div>
 					<div id="info" align="center">

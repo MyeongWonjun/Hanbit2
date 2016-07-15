@@ -163,12 +163,18 @@
             							<input id="list" type="checkbox"/>
             						<hr/></td>
             						<td width="175px">${k.sender_addr}<hr/></td>
+<<<<<<< HEAD
             						<td width="530px">${k.subject}<hr/></td>
             						<td width="150px" align="right">${k.regdate.substring(0,16)}<hr/></td>
             						<td width="100px" align="right">${k.email_file}
             						<c:if test="${k.email_file==null}">0KB</c:if>
             						<hr/>
             						</td>
+=======
+            						<td width="570px">${k.subject}<hr/></td>
+            						<td width="100px" align="right">${k.regdate.substring(0,16)}<hr/></td>
+            						<td width="100px" align="right">${k.email_file}<hr/></td>
+>>>>>>> branch 'master' of https://github.com/MyeongWonjun/Hanbit2.git
             					</tr>
             					
             					</c:forEach>		
