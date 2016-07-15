@@ -5,12 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	function start() {
-		location.href="/HanbitGroupware/BoardController?type=boardList";
-	}
-</script>
 </head>
-<body onload="start()">
+<body>
+
 </body>
 </html>

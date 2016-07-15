@@ -140,7 +140,6 @@ table tfoot ol.paging li a:hover {
 					</ul>
 				</td>
 				<td>
-
 					<div id="bbs" align="center">
 						<table summary="게시판 목록">
 							<caption class="name">자유게시판</caption>
@@ -161,13 +160,14 @@ table tfoot ol.paging li a:hover {
 									</tr>
 								</c:if>
 								<c:if test="${!empty list}">
-									<c:forEach items="${list}" var="k">
+									<c:forEach items="${boardList}" var="k" varStatus="index">
 										<tr>
-											<td>${k.b_idx}</td>
-											<td><a
-												href="/0625_jsp_MVC_BBS/MyController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td>
+											<td>${index.count}</td>
+											<%-- <td><a
+												href="/HanbitGroupware/BoardController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> --%>
+											<td>${k.subject}</a></td>
 											<td>${k.writer}</td>
-											<td>${k.write_date.substring(0,10)}</td>
+											<td>${k.regdate.substring(0,10)}</td>
 											<td>${k.hit}</td>
 										</tr>
 									</c:forEach>
