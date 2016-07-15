@@ -23,10 +23,10 @@
 	int year = nowYear;
 	int month = nowMonth;
 
-	if (strYear != null) {// 값이 없으면
+	if (strYear != null) {// 값이 있으면
 		year = Integer.parseInt(strYear);//클라이언트가 선택한 값을 입력
 	}
-	if (strMonth != null) {// 값이 없으면
+	if (strMonth != null) {// 값이 있으면
 		month = Integer.parseInt(strMonth);//클라이언트가 선택한 값을 입력
 	}
 
@@ -58,7 +58,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>일정</title>
- <STYLE type="text/css">
+<STYLE type="text/css">
 body {
 	font-size: 12pt;
 }
@@ -66,78 +66,72 @@ body {
 td {
 	font-size: 12pt;
 }
-
-</STYLE> 
+</STYLE>
 </head>
 <body>
-<table border="1" align="center">
-      <thead>
-         <tr>
-            <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            
-            <td><table align="center" width="800" height="50"cellpadding="2" cellspacing="1">
-		<tr>
-			<td align="center"><a
-				href="schedule.jsp?year=<%=preYear%>&month=<%=preMonth%>">◀</a> <b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
-			</b> <a href="schedule.jsp?year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
-			</td>
-		</tr>
+	<table border="1" align="center">
+		<thead>
+			<tr>
+				<th colspan="2" width="1280" height="200"><jsp:include
+						page="../home/top_menu.jsp"></jsp:include></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+
+				<td><table align="center" width="800" height="50"
+						cellpadding="2" cellspacing="1">
+						<tr>
+							<td align="center"><a
+								href="schedule.jsp?year=<%=preYear%>&month=<%=preMonth%>">◀</a>
+								<b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
+							</b> <a href="schedule.jsp?year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
+							</td>
+						</tr>
+					</table> <!-- 달력표시 -->
+					<table align="center" width="800" cellpadding="0" cellspacing="1"
+						bgcolor="#89bdd3">
+						<tr>
+							<td bgcolor="#89bdd3" align="center"><font color="red">일</font></td>
+							<td bgcolor="#89bdd3" align="center">월</td>
+							<td bgcolor="#89bdd3" align="center">화</td>
+							<td bgcolor="#89bdd3" align="center">수</td>
+							<td bgcolor="#89bdd3" align="center">목</td>
+							<td bgcolor="#89bdd3" align="center">금</td>
+							<td bgcolor="#89bdd3" align="center"><font color="blue">토</font>
+							</td>
+						</tr>
+						<%
+							//한주가 지나면 줄바꿈을 할 것이다.
+							int newLine = 0;
+							out.print("<tr height='70'>");
+							for (int i = 1; i < week; i++) {
+								out.print("<td bgcolor='#ffffff'>&nbsp;</td>");
+								newLine++;
+							}
+
+							for (int i = startDay; i <= endDay; i++) {//1일 부터 말일까지 반복
+								String fontColor = (newLine == 0) ? "red" : (newLine == 6) ? "blue" : "black";
+								String bgColor = (nowYear == year) && (nowMonth == month) && (nowDay == i) ? "#e6e6e6" : "#fff";//오늘날짜음영
+
+								out.print("<td align='center' bgcolor='" + bgColor + "'><font color='" + fontColor + "'>" + i
+										+ "</font></td>");
+								newLine++;
+								if (newLine == 7 && i != endDay) {//7일째거나 말일이면 달력 줄바꿈이 일어난다.
+									out.print("</tr><tr height='70'>");
+									newLine = 0;
+								}
+							} //3항 연산자로 for문으로 요일별 색상을 정한다. 
+
+							while (newLine > 0 && newLine < 7) {//마지막날 이후 달력 채우기
+								out.print("<td bgcolor='#ffffff'>&nbsp;</td>");
+								newLine++;
+							}
+							out.print("</tr>");
+						%>
+					</table> <br /> <br /> <br /></td>
+			</tr>
+		</tbody>
 	</table>
-	<!-- 달력표시 -->
-	<table align="center" width="800" cellpadding="0" cellspacing="1"
-		bgcolor="#89bdd3">
-		<tr>
-			<td bgcolor="#89bdd3" align="center"><font color="red">일</font>
-			</td>
-			<td bgcolor="#89bdd3" align="center">월</td>
-			<td bgcolor="#89bdd3" align="center">화</td>
-			<td bgcolor="#89bdd3" align="center">수</td>
-			<td bgcolor="#89bdd3" align="center">목</td>
-			<td bgcolor="#89bdd3" align="center">금</td>
-			<td bgcolor="#89bdd3" align="center"><font color="blue">토</font>
-			</td>
-		</tr>
-		<%
-			//한주가 지나면 줄바꿈을 할 것이다.
-			int newLine = 0;
-			out.print("<tr height='70'>");
-			for (int i = 1; i < week; i++) {
-				out.print("<td bgcolor='#ffffff'>&nbsp;</td>");
-				newLine++;
-			}
-
-			for (int i = startDay; i <= endDay; i++) {//1일 부터 말일까지 반복
-				String fontColor = (newLine == 0) ? "red" : (newLine == 6) ? "blue" : "black";
-				String bgColor = (nowYear == year) && (nowMonth == month) && (nowDay == i) ? "#e6e6e6" : "#fff";//오늘날짜음영
-
-				out.print("<td align='center' bgcolor='" + bgColor + "'><font color='" + fontColor + "'>" + i
-						+ "</font></td>");
-				newLine++;
-				if (newLine == 7 && i != endDay) {//7일째거나 말일이면 달력 줄바꿈이 일어난다.
-					out.print("</tr><tr height='70'>");
-					newLine = 0;
-				}
-			} //3항 연산자로 for문으로 요일별 색상을 정한다. 
-
-			while (newLine > 0 && newLine < 7) {//마지막날 이후 달력 채우기
-				out.print("<td bgcolor='#ffffff'>&nbsp;</td>");
-				newLine++;
-			}
-			out.print("</tr>");
-		%>
-	</table>
-	  <br />
-	  <br />
-	  <br />
-	</td>
-         </tr>
-      </tbody>
-   </table>
-	
 </body>
 </html>
-
