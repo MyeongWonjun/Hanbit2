@@ -115,6 +115,7 @@
 						<input type="reset" value="다시"/>
 						<input type="button" value="목록" onclick="list_go()"/>
 						<input type="hidden" name="chk" value="chk" />
+						<input type="hidden" name="board_type" value="자유" />
 					</td>
 				</tr>
 				</tfoot>

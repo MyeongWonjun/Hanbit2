@@ -25,10 +25,10 @@
 
 
 	<select id="boardList" resultType="com.hanbit.vo.VO_board">
-		select * from gw_board	
+		select * from gw_board where board_type = #{board_type}
 	</select>
 	<select id="boardInsert" parameterType="com.hanbit.vo.VO_board">
-		insert into gw_board values(GW_BOARD_SEQ, #{type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
+		insert into gw_board values(gw_board_seq.nextval, #{board_type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
 	</select>
 
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">

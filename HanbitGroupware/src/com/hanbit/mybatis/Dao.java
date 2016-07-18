@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.hanbit.vo.VO_board;
 import com.hanbit.vo.VO_email;
 import com.hanbit.vo.VO_employees;
 import com.hanbit.vo.VO_schedule;
@@ -64,6 +65,22 @@ private static SqlSession ss;
 			List<VO_schedule> list = getSql().selectList("schedule", id);
 			return list;
 		}
+		
+	 public static List<VO_board> getBoardList(String board_type){ 
+         List<VO_board> boardList =getSql().selectList("boardList",board_type);
+         System.out.println("dao끝");
+         return boardList;
+         
+      }
+	 public static int getBoardInsert(VO_board vo){
+			int res = getSql().insert("boardInsert", vo);
+			ss.commit();
+			return res;
+	 }
+	      
+	   //공용문서함 insert 
+	   
+	    
 }
 
 

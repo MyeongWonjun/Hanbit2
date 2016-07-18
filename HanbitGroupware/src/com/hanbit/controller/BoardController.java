@@ -27,11 +27,13 @@ private static final long serialVersionUID = 1L;
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		String type = request.getParameter("type");
+		System.out.println("보드컨트롤러"+type);
 		String path = null;
 		Command comm = null;
 		
 		
 		if(type.equals("boardList")){
+			System.out.println("보드리스트");
 			comm = new Board_ListCommand();
 		}else if(type.equals("boardWrite")){
 			comm = new Board_WriteCommand();
