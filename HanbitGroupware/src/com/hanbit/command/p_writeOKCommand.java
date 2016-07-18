@@ -16,6 +16,7 @@ public class p_writeOKCommand implements Command{
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		 String path = null;
 			String r_path = request.getServletContext().getRealPath("/upload") ;
+			
 			try {
 				MultipartRequest mr = new MultipartRequest(
 									request,
@@ -42,6 +43,7 @@ public class p_writeOKCommand implements Command{
 				// DB처리 후 성공하면 list.jsp, 실패하면 write.jsp로 이동
 				  int result =  Dao.insert_plist(vo);
 				  
+				 
 				  
 				  if(result >0){
 					 path = "public?type=p_list"; 

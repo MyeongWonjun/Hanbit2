@@ -64,11 +64,11 @@
 		location.href="/HanbitGroupware/public?type=p_list";
 	}
 </script>
- <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+ <script type="text/javascript" src="/HanbitGroupware/ckeditor/ckeditor.js"></script>
 
 <script>
 	window.onload=function(){
- 		CKEDITOR.replace('content2',{
+ 		CKEDITOR.replace('content',{
  		});
  		CKEDITOR.instances.content.getData();
 	}
@@ -97,7 +97,7 @@
             <td>
             
             <div id="bbs">
-	<form action="/HanbitGroupware/public?type=writeok" method="post" encType="multipart/form-data">
+	<form action="/HanbitGroupware/public?type=p_writeOK" method="post" encType="multipart/form-data">
 		<table summary="게시판 글쓰기">
 			<caption>게시판 글쓰기</caption>
 			<tbody>
@@ -107,13 +107,13 @@
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" name="writer" size="12"/></td>
+					<td><input type="text" name="name" size="12"/></td>
 				</tr>
 				<tr>
 					<th>내용</th>
 					<td>
 					<textarea id="content" name="content" cols="50" rows="8"></textarea>
-					<input type="hidden" name="content2" CKEDITOR.instances.content.getData()>
+					
 					</td>
 					
 					
