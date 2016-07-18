@@ -35,7 +35,7 @@
 		<!--download public list insert-->
 		
 	<insert id="p_insert" parameterType="com.hanbit.vo.VO_board">
-		insert into gw_board values('공용문서함',#{name},#{subject},#{content},#{board_file},sysdate,'0')
+		insert into gw_board values(gw_board_seq.nextval,'공용문서함',#{name},#{subject},#{content},#{board_file},sysdate,'0')
 	</insert>
 	
 </mapper>

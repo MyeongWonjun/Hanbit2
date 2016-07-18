@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/HanbitGroupware/Support?type=employee_list">임직원정보</a>
+	<a href="/HanbitGroupware/public?type=p_list">공용문서함</a>
 </body>
 </html>
