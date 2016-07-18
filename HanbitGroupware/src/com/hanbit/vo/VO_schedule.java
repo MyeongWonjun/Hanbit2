@@ -1,7 +1,19 @@
 package com.hanbit.vo;
 
+
 public class VO_schedule {
-	String type, id, subject, content, start_date, end_date;
+private	String type, id, subject, content, start_date, end_date;
+public VO_schedule() {}
+
+	public VO_schedule(String type, String id, String subject, String content, String start_date, String end_date) {
+	
+	this.type = type;
+	this.id = id;
+	this.subject = subject;
+	this.content = content;
+	this.start_date = start_date;
+	this.end_date = end_date;
+}
 
 	public String getType() {
 		return type;

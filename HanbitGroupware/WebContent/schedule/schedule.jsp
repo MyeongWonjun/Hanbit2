@@ -1,9 +1,10 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.hanbit.vo.VO_schedule"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Calendar"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 	List<VO_schedule> list =(List<VO_schedule>)request.getAttribute("list"); 
 	request.setCharacterEncoding("utf-8");
@@ -87,10 +88,13 @@ td {
 				<td><table align="center" width="800" height="50"
 						cellpadding="2" cellspacing="1">
 						<tr>
-							<td align="center"><a
-								href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
-								<b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
-							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
+							<td align="center">
+							<a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=preYear-1%>">◀</a>
+							<b>&nbsp;<%=year%>년
+							<a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=nextYear+1%>">▶</a>
+							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&month=<%=preMonth%>">◀</a>
+								&nbsp;&nbsp;<%=month%>월
+							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&month=<%=nextMonth%>">▶</a>
 							</td>
 						</tr>
 					</table> <!-- 달력표시 -->
