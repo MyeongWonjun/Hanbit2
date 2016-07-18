@@ -125,11 +125,13 @@ table tfoot ol.paging li a:hover {
 </head>
 
 <body>
+
 	<table align="center">
 		<thead>
 			<tr>
 				<th colspan="2" width="1280" height="200"><jsp:include
 						page="../home/top_menu.jsp"></jsp:include></th>
+						
 			</tr>
 		</thead>
 		<tbody>
@@ -140,6 +142,7 @@ table tfoot ol.paging li a:hover {
 						<li class="tab-title"><a href=#>공지사항</a></li>
 						<li class="tab-title"><a href=#>자유게시판</a></li>
 					</ul>
+					
 				</td>
 				<td>
 					<div id="bbs" align="center">
@@ -163,8 +166,6 @@ table tfoot ol.paging li a:hover {
 								</c:if>
 								<c:if test="${!empty boardList}">
 									<c:forEach items="${boardList}" var="k" varStatus="status">
-										
-										<h2>${k.type }</h2>
 										<tr>
 											<td>${status.count}</td>
 											<%-- <td><a
@@ -185,6 +186,7 @@ table tfoot ol.paging li a:hover {
 										onclick="javascript:window.open('board_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')" /></td> -->
 									<td>
 										<input type="button" value="글쓰기" onclick="javascript:location.href='/HanbitGroupware/BoardController?type=boardWrite'"/>
+										
 									</td>
 									<td colspan="5" align="center">
 										<ol class="paging">
@@ -236,14 +238,16 @@ table tfoot ol.paging li a:hover {
 							<select name="search">
 								<option>제목</option>
 								<option>작성자</option>
-							</select> <input type="text" id="search_what"> <input
-								type="button" value="검색">
+							</select> <input type="text" id="search_what"> 
+							<input type="button" value="검색">
+							
 
 						</div>
 						</div>
+						
 				</td>
 			</tr>
-		</tbody>
+		</tbody>	
 	</table>
 
 

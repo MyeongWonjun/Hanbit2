@@ -25,17 +25,37 @@
 
 
 	<select id="boardList" resultType="com.hanbit.vo.VO_board">
-		select * from gw_board	
+		select * from gw_board where board_type = #{board_type}
 	</select>
 	<select id="boardInsert" parameterType="com.hanbit.vo.VO_board">
-		insert into gw_board values(GW_BOARD_SEQ, #{type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
+		insert into gw_board values(gw_board_seq.nextval, #{board_type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
 	</select>
 
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email where idx = #{idx}
 	</select>
+	
+	<select id="getp_list" resultType="com.hanbit.vo.VO_board">
+		select * from gw_board 
+	
+	</select>
+	
+		<!--download public list insert-->
+		
+	<insert id="p_insert" parameterType="com.hanbit.vo.VO_board">
+		insert into gw_board values(gw_board_seq.nextval,'공용문서함',#{name},#{subject},#{content},#{board_file},sysdate,'0')
+	</insert>
+
 	<!-- schedule list -->
 	<select id="schedule" parameterType="String" resultType="com.hanbit.vo.VO_schedule">
 		select * from gw_schedule where id=#{id} order by start_date
 	</select>
+
+	<select id="p_onelist" resultType="com.hanbit.vo.VO_board" parameterType="String">
+		select * from gw_board  where b_idx = #{b_idx}
+	</select>
+	
+	<update id="p_hit">
+	update gw_board set hit = #{hit} where b_idx = #{b_idx} 
+	</update>
 </mapper>

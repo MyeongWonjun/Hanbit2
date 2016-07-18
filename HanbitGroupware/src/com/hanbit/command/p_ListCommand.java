@@ -1,5 +1,6 @@
 package com.hanbit.command;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,11 +13,15 @@ public class p_ListCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String type = request.getParameter("type");
+		
+		
 		Dao dao = new Dao();
-		List<VO_board> list = dao.getp_list(type);
-		request.setAttribute("list", list);
-		return "/download/download_public.jsp";
+		
+		List<VO_board> list2 = dao.getp_list();
+		
+		request.setAttribute("list", list2);
+		
+		return "/Download/download_public.jsp";
 		
 	}
 

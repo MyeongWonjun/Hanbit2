@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.hanbit.vo.VO_board;
 import com.hanbit.vo.VO_email;
 import com.hanbit.vo.VO_employees;
 import com.hanbit.vo.VO_schedule;
@@ -59,11 +60,60 @@ private static SqlSession ss;
 			return vo_email;
 		}
 		
+
+		//공용문서함 list 가져오기
+		
+		public List<VO_board> getp_list(){
+			
+			List<VO_board> list =getSql().selectList("getp_list");
+			
+			
+			System.out.println(list.size());
+			return list;
+		}
+		
+	//공용문서함 insert 
+	
+		public static int insert_plist(VO_board vo){
+			int res = getSql().insert("p_insert",vo);
+			ss.commit();
+			return res;
+			
+		}
+		
+		//p_onelist
+		public static VO_board getp_oneList(String b_idx){
+			VO_board bvo = getSql().selectOne("p_onelist", b_idx);
+			return bvo;
+		}
+
+		
+		//p_list hit수 증가
+		public static void getphit_Update(VO_board bvo){
+			getSql().update("p_hit", bvo);
+			ss.commit();
+		}
+		
 	// schedule list
 		public List<VO_schedule> scheduleList(String id){
 			List<VO_schedule> list = getSql().selectList("schedule", id);
 			return list;
 		}
+
+		
+	 public static List<VO_board> getBoardList(String board_type){ 
+         List<VO_board> boardList =getSql().selectList("boardList",board_type);
+         System.out.println("dao끝");
+         return boardList;
+         
+      }
+	 public static int getBoardInsert(VO_board vo){
+			int res = getSql().insert("boardInsert", vo);
+			ss.commit();
+			return res;
+	 }
+	      
+
 }
 
 

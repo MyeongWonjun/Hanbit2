@@ -225,14 +225,15 @@ table tfoot ol.paging li a:hover {
 					</tr>
 				</c:if>
 				<c:if test="${!empty list}">
-					<c:forEach items="${list}" var="k">
+					<c:forEach items="${list}" var="k" varStatus="status">
 						<tr>
-							<td>${k.b_idx}</td>
+							<td>${status.count}</td>
 							<td><a
-								href="/HanbitGroupware/d_publicController?type=p_view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td>
-							<td>${k.writer}</td>
-							<td>${k.write_date.substring(0,10)}</td>
+								href="/HanbitGroupware/public?type=p_view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> 
+							<td>${k.name}</td>
+							<td>${k.regdate.substring(0,10)}</td>
 							<td>${k.hit}</td>
+							
 						</tr>
 					</c:forEach>
 				</c:if>
@@ -240,7 +241,7 @@ table tfoot ol.paging li a:hover {
 			<tfoot>
 				<tr>
 					<td><input type="button" value="글쓰기"
-						onclick="javascript:window.open('download_p_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')" /></td>
+						onclick="javascript:location.href='/HanbitGroupware/public?type=p_write'" /></td>
 
 					<td colspan="5" align="center">
 						<ol class="paging">
@@ -251,7 +252,7 @@ table tfoot ol.paging li a:hover {
 								</c:when>
 								<c:otherwise>
 									<li><a
-										href="/HanbitGroupware/d_publicController?type=p_]list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
+										href="/HanbitGroupware/public?type=p_list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
 								</c:otherwise>
 							</c:choose>
 
@@ -263,7 +264,7 @@ table tfoot ol.paging li a:hover {
 									</c:when>
 									<c:otherwise>
 										<li><a
-											href="/HanbitGroupware/d_publicController?type=p_list&cPage=${k}">${k}</a></li>
+											href="/HanbitGroupware/public?type=p_list&cPage=${k}">${k}</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -273,7 +274,7 @@ table tfoot ol.paging li a:hover {
 								</c:when>
 								<c:otherwise>
 									<li><a
-										href="/HanbitGroupware/d_publicController?type=p_list&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로</a></li>
+										href="/HanbitGroupware/public?type=p_list&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로</a></li>
 								</c:otherwise>
 							</c:choose>
 						</ol>

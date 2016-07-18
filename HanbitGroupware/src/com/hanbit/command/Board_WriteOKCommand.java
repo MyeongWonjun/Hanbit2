@@ -15,7 +15,9 @@ public class Board_WriteOKCommand implements Command{
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		  String path = null;
 			String r_path = request.getServletContext().getRealPath("/upload") ;
-			System.out.println(r_path);
+			
+			
+			
 			try {
 				MultipartRequest mr = new MultipartRequest(
 									request,
@@ -24,8 +26,10 @@ public class Board_WriteOKCommand implements Command{
 									"utf-8",
 									new DefaultFileRenamePolicy());
 				VO_board bvo = new VO_board();
-				bvo.setType("자유");
-				System.out.println("제목"+mr.getParameter("subject"));
+				
+				//System.out.println("제목"+mr.getParameter("subject"));
+				bvo.setBoard_type(mr.getParameter("board_type"));
+				System.out.println("커맨드"+bvo.getBoard_type());
 				bvo.setSubject(mr.getParameter("subject"));
 				bvo.setName(mr.getParameter("name"));
 				bvo.setContent(mr.getParameter("content"));
@@ -42,10 +46,10 @@ public class Board_WriteOKCommand implements Command{
 				
 				
 				// DB처리 후 성공하면 list.jsp, 실패하면 write.jsp로 이동
-				  int result =  Dao.getBoardInsert(bvo);
+				  int result = Dao.getBoardInsert(bvo);
 				  
 				  if(result >0){
-					 path = "BoardController?type=boardList"; 
+					 path = "BoardController?type=boardList&board_type=자유"; 
 				  }else{
 					 path = "BoardController?type=boardWrite" ;  
 				  }

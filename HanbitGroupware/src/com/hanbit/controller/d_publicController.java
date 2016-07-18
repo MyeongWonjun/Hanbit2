@@ -19,7 +19,7 @@ import com.hanbit.command.p_viewCommand;
 import com.hanbit.command.p_writeCommand;
 import com.hanbit.command.p_writeOKCommand;
 
-@WebServlet("/Download")
+@WebServlet("/public")
 public class d_publicController extends HttpServlet{
 private static final long serialVersionUID = 1L;
 	
@@ -55,8 +55,10 @@ private static final long serialVersionUID = 1L;
 		if(type.equals("p_modify")){
 			comm = new p_ModifyCommand();
 		}
-				
+		
+		
 		path = comm.exec(request, response);
+		
 		request.getRequestDispatcher(path).forward(request, response);
 		
 	}

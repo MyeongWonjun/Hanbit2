@@ -7,10 +7,13 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function start() {
-		location.href="/HanbitGroupware/BoardController?type=boardList";
-	}
+		location.href="/HanbitGroupware/BoardController?type=boardList&board_type=자유";
+		
+		}
+	
 </script>
 </head>
 <body onload="start()">
+<input>
 </body>
 </html>

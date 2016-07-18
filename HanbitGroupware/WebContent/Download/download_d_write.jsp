@@ -59,9 +59,11 @@
 			}
 		}
 		document.forms[0].submit();
+		
+		/* location.href="/HanbitGroupware/public?type=p_writeOK"; */
 	}
 	function list_go() {
-		location.href="/0625_jsp_MVC_BBS/MyController?type=list";
+		location.href="/HanbitGroupware/public?type=p_list";
 	}
 </script>
  <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
@@ -71,6 +73,7 @@
  		CKEDITOR.replace('content',{
  		});
  		CKEDITOR.instances.content.getData();
+ 		
 	}
 </script>
 
@@ -78,7 +81,7 @@
 </head>
 <body>
 	<div id="bbs">
-	<form action="/0625_jsp_MVC_BBS/MyController?type=writeok" method="post" encType="multipart/form-data">
+	<form action="/HanbitGroupware/public?type=writeok" method="post" encType="multipart/form-data">
 		<table summary="게시판 글쓰기">
 			<caption>게시판 글쓰기</caption>
 			<tbody>
@@ -101,7 +104,7 @@
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td><input type="file" name="file_name"/></td>
+					<td><input type="file" name="board_file"/></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
