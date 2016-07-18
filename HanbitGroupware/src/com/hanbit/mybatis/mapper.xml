@@ -27,7 +27,7 @@
 		select * from gw_board	
 	</select>
 	<select id="boardInsert" parameterType="com.hanbit.vo.VO_board">
-		insert into gw_board values(#{type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
+		insert into gw_board values(GW_BOARD_SEQ, #{type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
 	</select>
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email where idx = #{idx}
