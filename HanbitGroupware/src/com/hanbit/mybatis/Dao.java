@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.hanbit.vo.VO_board;
 import com.hanbit.vo.VO_email;
 import com.hanbit.vo.VO_employees;
+import com.hanbit.vo.VO_schedule;
 
 public class Dao {
 private static SqlSession ss;
@@ -59,6 +60,7 @@ private static SqlSession ss;
 			return vo_email;
 		}
 		
+
 		//공용문서함 list 가져오기
 		
 		public List<VO_board> getp_list(){
@@ -80,6 +82,13 @@ private static SqlSession ss;
 		}
 		
 		
+
+	// schedule list
+		public List<VO_schedule> scheduleList(String id){
+			List<VO_schedule> list = getSql().selectList("schedule", id);
+			return list;
+		}
+
 }
 
 

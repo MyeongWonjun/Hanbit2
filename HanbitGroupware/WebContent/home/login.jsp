@@ -149,45 +149,8 @@
 			<input type="text" name="id" class="Field" value=""style="color: #fff;"><br />
 			<input type="password" name="pwd" class="Field" value="" style="color: #fff;" /><br />
 			<input class="RoundedRectangle"type="submit" value="Sign In" onclick="login_go(this.form)" style="font-family: Helvetica; font-size: 14px; font-weight: bold; color: #fff;"/>
-
 		</div>
 	</div>
 	</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

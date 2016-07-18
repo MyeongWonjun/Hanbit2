@@ -97,6 +97,7 @@
 	.name{
 	color: #89bdd3;}
 </style>
+
 </head>
 <body>
 <jsp:include page="../home/top_menu.jsp"></jsp:include>
