@@ -1,6 +1,6 @@
 package com.hanbit.vo;
 
-public class VO_board {
+public class VO_board {  
 
 	private String b_idx,type, name, subject, content, board_file, regdate, hit;
 
