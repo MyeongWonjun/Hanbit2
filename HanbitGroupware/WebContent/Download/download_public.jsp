@@ -228,12 +228,12 @@ table tfoot ol.paging li a:hover {
 					<c:forEach items="${list}" var="k" varStatus="status">
 						<tr>
 							<td>${status.count}</td>
-							<td>${k.subject}</td>
-							<%-- <td><a
-								href="/HanbitGroupware/d_publicController?type=p_view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> --%>
+							<td><a
+								href="/HanbitGroupware/public?type=p_view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> 
 							<td>${k.name}</td>
 							<td>${k.regdate.substring(0,10)}</td>
 							<td>${k.hit}</td>
+							
 						</tr>
 					</c:forEach>
 				</c:if>

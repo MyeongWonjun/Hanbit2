@@ -48,8 +48,8 @@ body {
 	
 	.no {width:15%}
 	.subject {width:30%}
-	.writer {width:20%}
-	.reg {width:20%}
+	.name {width:20%}
+	.reg_date {width:20%}
 	.hit {width:15%}
 	.title{background:lightsteelblue}
 	
@@ -123,8 +123,8 @@ body {
 				<tr class="title">
 					<th class="no">번호</th>
 					<th class="subject">제목</th>
-					<th class="writer">글쓴이</th>
-					<th class="reg">날짜</th>
+					<th class="name">글쓴이</th>
+					<th class="regdate">날짜</th>
 					<th class="hit">조회수</th>
 				</tr>
 			</thead>
@@ -136,9 +136,9 @@ body {
 					<c:forEach items="${list}" var="k">
 						<tr>
 							<td>${k.b_idx}</td>
-							<td><a href="/0625_jsp_MVC_BBS/MyController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td>
-							<td>${k.writer}</td>
-							<td>${k.write_date.substring(0,10)}</td>
+							<td><a href="/HanbitGroupware/public?type=p_view&b_idx=${k.b_idx}&cPage=${cPage}>">${k.subject}</a></td>
+							<td>${k.name}</td>
+							<td>${k.reg_date.substring(0,10)}</td>
 							<td>${k.hit}</td>
 						</tr>
 					</c:forEach>

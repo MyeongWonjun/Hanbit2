@@ -104,7 +104,7 @@
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td><input type="file" name="file_name"/></td>
+					<td><input type="file" name="board_file"/></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
