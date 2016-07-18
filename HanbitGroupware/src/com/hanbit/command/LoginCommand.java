@@ -20,11 +20,12 @@ public class LoginCommand implements Command{
 		VO_employees vo_employees = dao.getLogin(id, pwd);
 		request.setAttribute("vo_employees", vo_employees);
 		if(vo_employees!=null){
-			path = "/home/home.jsp";
+			path = "/home/main.jsp";
 		}else{
 			path = "/home/loginFail.jsp";
 		}
 		return path;
+		
 	}
 	
 }

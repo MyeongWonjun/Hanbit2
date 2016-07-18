@@ -100,6 +100,20 @@ private static SqlSession ss;
 			return list;
 		}
 
+		
+	 public static List<VO_board> getBoardList(String board_type){ 
+         List<VO_board> boardList =getSql().selectList("boardList",board_type);
+         System.out.println("dao끝");
+         return boardList;
+         
+      }
+	 public static int getBoardInsert(VO_board vo){
+			int res = getSql().insert("boardInsert", vo);
+			ss.commit();
+			return res;
+	 }
+	      
+
 }
 
 
