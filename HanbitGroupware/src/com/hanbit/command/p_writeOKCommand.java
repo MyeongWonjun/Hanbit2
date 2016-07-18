@@ -1,5 +1,7 @@
 package com.hanbit.command;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,19 +34,19 @@ public class p_writeOKCommand implements Command{
 					vo.setBoard_file(mr.getFilesystemName("file_name"));
 					
 				}else{
-					vo.setFile_name("");
-					vo.setOri_name("");
+					vo.setBoard_file("");
+					
 				}
 				
 				
 				// DB처리 후 성공하면 list.jsp, 실패하면 write.jsp로 이동
-				  int result =  Dao.getInsert(vo);
+				  int result =  Dao.insert_plist(vo);
 				  
 				  
 				  if(result >0){
-					 path = "MyController?type=p_list"; 
+					 path = "public?type=p_list"; 
 				  }else{
-					 path = "MyController?type=p_write" ;  
+					 path = "public?type=p_write";  
 				  }
 				
 			} catch (IOException e) {

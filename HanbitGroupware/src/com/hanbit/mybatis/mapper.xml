@@ -26,8 +26,15 @@
 		select * from gw_email where idx = #{idx}
 	</select>
 	
+	
 	<select id="getp_list" resultType="com.hanbit.vo.VO_board">
 		select * from gw_board 
 	
 	</select>
+		<!--원글삽입-->
+		
+	<insert id="insert" parameterType="com.hanbit.vo.VO_board">
+		insert into gw_board values("공용문서함",#{name},#{subject},#{content},#{board_file},regdate,#{hit})
+	</insert>
+	
 </mapper>

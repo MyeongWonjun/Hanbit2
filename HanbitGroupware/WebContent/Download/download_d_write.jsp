@@ -60,7 +60,7 @@
 		}
 		document.forms[0].submit();
 		
-		location.href="/HanbitGroupware/public?type=p_writeOK";
+		/* location.href="/HanbitGroupware/public?type=p_writeOK"; */
 	}
 	function list_go() {
 		location.href="/HanbitGroupware/public?type=p_list";
@@ -81,7 +81,7 @@
 </head>
 <body>
 	<div id="bbs">
-	<form action="/0625_jsp_MVC_BBS/MyController?type=writeok" method="post" encType="multipart/form-data">
+	<form action="/HanbitGroupware/public?type=writeok" method="post" encType="multipart/form-data">
 		<table summary="게시판 글쓰기">
 			<caption>게시판 글쓰기</caption>
 			<tbody>

@@ -1,12 +1,12 @@
 package com.hanbit.vo;
 
 public class VO_board {
-	private String type, name, subject, content, board_file, regdate, hit, file_name;
+	private String type, name, subject, content, board_file, regdate, hit;
 	public VO_board() {
 		// TODO Auto-generated constructor stub
 	}     
 	public VO_board(String type, String name, String subject, String content, String board_file, String regdate,
-			String hit, String file_name) {
+			String hit) {
 		super();      
 		this.type = type;
 		this.name = name;
@@ -15,7 +15,7 @@ public class VO_board {
 		this.board_file = board_file;
 		this.regdate = regdate;
 		this.hit = hit;
-		this.file_name = file_name;
+		
 	}
 	public String getType() {
 		return type;
@@ -58,12 +58,6 @@ public class VO_board {
 	}
 	public void setHit(String hit) {
 		this.hit = hit;
-	}
-	public String getFile_name() {
-		return file_name;
-	}
-	public void setFile_name(String file_name) {
-		this.file_name = file_name;
 	}
 	
 }
