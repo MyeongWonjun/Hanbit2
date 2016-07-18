@@ -25,6 +25,7 @@ public class LoginCommand implements Command{
 			path = "/home/loginFail.jsp";
 		}
 		return path;
+		
 	}
 	
 }

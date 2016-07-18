@@ -84,7 +84,6 @@ td {
 		</thead>
 		<tbody>
 			<tr>
-
 				<td><table align="center" width="800" height="50"
 						cellpadding="2" cellspacing="1">
 						<tr>
