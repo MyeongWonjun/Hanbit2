@@ -17,7 +17,8 @@ public class p_viewCommand implements Command{
 		   String cPage = request.getParameter("cPage");
 		   
 		  VO_board bvo = Dao.getp_oneList(b_idx);
-		   
+		  request.setAttribute("bvo", bvo);
+		 
 		 
 		   		   		   
 		   // 히트수 증가

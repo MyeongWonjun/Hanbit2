@@ -252,7 +252,7 @@ table tfoot ol.paging li a:hover {
 								</c:when>
 								<c:otherwise>
 									<li><a
-										href="/HanbitGroupware/public?type=p_]list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
+										href="/HanbitGroupware/public?type=p_list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
 								</c:otherwise>
 							</c:choose>
 

@@ -109,17 +109,15 @@
 					
 				</tr>
 				<tr>
-					<th>첨부파일</th>
+					 <th>첨부파일</th>
 					<td>
 					  <c:choose>
 					  	<c:when test="${bvo.board_file != null }">
-					  		<a href="p_download.jsp?board_file=${bvo.board_file }">${bvo.board_file}</a>
+					  		<a href="/Download/p_download.jsp?board_file=${bvo.board_file }">${bvo.board_file}</a>
 					  	</c:when>
-					    <c:otherwise>
-					    	첨부파일 없음
-					    </c:otherwise>
+					    
 					  </c:choose>
-					</td>
+					</td> 
 				</tr>
 				
 				</tbody>
@@ -128,7 +126,6 @@
 					<td colspan="2">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;
-
 						<input type="button" value="수정" onclick=""/>
 						<input type="reset" value="삭제"/>
 						<input type="button" value="목록" onclick=""/>
