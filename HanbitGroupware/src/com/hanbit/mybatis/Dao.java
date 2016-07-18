@@ -81,8 +81,19 @@ private static SqlSession ss;
 			
 		}
 		
-		
+		//p_onelist
+		public static VO_board getp_oneList(String b_idx){
+			VO_board bvo = getSql().selectOne("p_onelist", b_idx);
+			return bvo;
+		}
 
+		
+		//p_list hit수 증가
+		public static void getphit_Update(VO_board bvo){
+			getSql().update("p_hit", bvo);
+			ss.commit();
+		}
+		
 	// schedule list
 		public List<VO_schedule> scheduleList(String id){
 			List<VO_schedule> list = getSql().selectList("schedule", id);
