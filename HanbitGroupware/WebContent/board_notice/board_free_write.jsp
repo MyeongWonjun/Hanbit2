@@ -61,24 +61,24 @@
 		document.forms[0].submit();
 	}
 	function list_go() {
-		location.href="/0625_jsp_MVC_BBS/MyController?type=list";
+		location.href="/HanbitGroupware/BoardController?type=boardList";
 	}
 </script>
- <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
-<script>
-	window.onload=function(){
+
+<script type="text/javascript" src="/HanbitGroupware/ckeditor/ckeditor.js">
+
  		CKEDITOR.replace('content',{
  		});
  		CKEDITOR.instances.content.getData();
-	}
+	
 </script>
 
 
 </head>
 <body>
 	<div id="bbs">
-	<form action="/0625_jsp_MVC_BBS/MyController?type=writeok" method="post" encType="multipart/form-data">
+	<form action="/HanbitGroupware/BoardController?type=boardWriteOK" method="post" encType="multipart/form-data">
 		<table summary="게시판 글쓰기">
 			<caption>게시판 글쓰기</caption>
 			<tbody>
@@ -88,12 +88,12 @@
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" name="writer" size="12"/></td>
+					<td><input type="text" name="name" size="12"/></td>
 				</tr>
 				<tr>
 					<th>내용</th>
 					<td>
-					<textarea id="content" name="content" cols="50" rows="8"></textarea>
+					<textarea class="ckeditor" id="content" name="content" cols="50" rows="8"></textarea>
 					<!-- <input type="hidden" name="content2" CKEDITOR.instances.content.getData()> -->
 					</td>
 					
@@ -101,12 +101,9 @@
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td><input type="file" name="file_name"/></td>
+					<td><input type="file" name="board_file"/></td>
 				</tr>
-				<tr>
-					<th>비밀번호</th>
-					<td><input type="password" name="pwd" size="12"/></td>
-				</tr>
+				
 				</tbody>
 				<tfoot align="center">
 				<tr>

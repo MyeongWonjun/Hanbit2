@@ -55,9 +55,15 @@ private static SqlSession ss;
 
 		
 		// Board_list
-		public List<VO_board> getBoardList(){
+		public static List<VO_board> getBoardList(){
 			List<VO_board> boardList = getSql().selectList("boardList");
 			return boardList;
+		}
+		// board_insert
+		public static int getBoardInsert(VO_board vo){
+			int res = getSql().insert("boardInsert", vo);
+			ss.commit();
+			return res;
 		}
 
 

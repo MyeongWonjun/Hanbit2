@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Board_ListCommand;
+import com.hanbit.command.Board_WriteCommand;
+import com.hanbit.command.Board_WriteOKCommand;
 import com.hanbit.command.Command;
 
 
@@ -31,13 +33,16 @@ private static final long serialVersionUID = 1L;
 		
 		if(type.equals("boardList")){
 			comm = new Board_ListCommand();
-		
+		}else if(type.equals("boardWrite")){
+			comm = new Board_WriteCommand();
+		}else if(type.equals("boardWriteOK")){
+			comm = new Board_WriteOKCommand();
 		}
 		
 		
 		path = comm.exec(request, response);
 		
-		System.out.println("path2"+path);
+		
 		request.getRequestDispatcher(path).forward(request, response);
 	
 	}
