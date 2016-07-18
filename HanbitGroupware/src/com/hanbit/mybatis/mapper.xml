@@ -51,4 +51,11 @@
 		select * from gw_schedule where id=#{id} order by start_date
 	</select>
 
+	<select id="p_onelist" resultType="com.hanbit.vo.VO_board" parameterType="String">
+		select * from gw_board  where b_idx = #{b_idx}
+	</select>
+	
+	<update id="p_hit">
+	update gw_board set hit = #{hit} where b_idx = #{b_idx} 
+	</update>
 </mapper>
