@@ -89,9 +89,9 @@ td {
 						cellpadding="2" cellspacing="1">
 						<tr>
 							<td align="center"><a
-								href="/HanbitGroupware/Schedule?id=${login.id}&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
+								href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
 								<b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
-							</b> <a href="/HanbitGroupware/Schedule?id=${login.id}&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
+							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
 							</td>
 						</tr>
 					</table> <!-- 달력표시 -->
