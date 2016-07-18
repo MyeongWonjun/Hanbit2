@@ -111,7 +111,7 @@ li a.active {
 			</div>
 		</li>
 		<li id="menu">
-			<a href="#schedule" id="menu_drop">Schedule</a>
+			<a href="/HanbitGroupware/Schedule?id=${login.id}" id="menu_drop">Schedule</a>
 			<div id="drop_content">
 				<a href="#">전체일정</a>
 				<a href="#">충장</a>
@@ -122,7 +122,7 @@ li a.active {
 			<a href="#board" id="menu_drop">Board</a>
 			<div id="drop_content">
 				<a href="#">공지사항</a>
-				<a href="/HanbitGroupware/BoardController?type=boardList">자유게시판</a>
+				<a href="#">자유게시판</a>
 			</div>
 		</li>
 		<li id="menu">

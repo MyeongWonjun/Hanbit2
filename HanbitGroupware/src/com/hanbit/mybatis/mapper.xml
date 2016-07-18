@@ -23,14 +23,19 @@
 		insert into gw_email values(gw_email_seq.nextval, #{email_addr}, #{receiver}, #{subject}, #{content}, RAWTOHEX(#{email_file}), sysdate, #{real_file})
 	</insert>
 
+
 	<select id="boardList" resultType="com.hanbit.vo.VO_board">
 		select * from gw_board	
 	</select>
 	<select id="boardInsert" parameterType="com.hanbit.vo.VO_board">
 		insert into gw_board values(GW_BOARD_SEQ, #{type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
 	</select>
+
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email where idx = #{idx}
-
+	</select>
+	<!-- schedule list -->
+	<select id="schedule" parameterType="String" resultType="com.hanbit.vo.VO_schedule">
+		select * from gw_schedule where id=#{id} order by start_date
 	</select>
 </mapper>

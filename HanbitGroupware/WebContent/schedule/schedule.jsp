@@ -1,7 +1,13 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.hanbit.vo.VO_schedule"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.Calendar"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+	List<VO_schedule> list =(List<VO_schedule>)request.getAttribute("list"); 
 	request.setCharacterEncoding("utf-8");
+
 	//Calender 클래스는 추상 클래스 이므로 객체생성이 되지 않는다.
 	//따라서 getInstance() 메서드를 이용하여 하위클래스의 객체를 생성하여 리턴한다.
 	//하위 클래스는 플랫폼의 나라 언어에 맞는 것을 자동으로 리턴해 줍니다. 
@@ -83,9 +89,9 @@ td {
 						cellpadding="2" cellspacing="1">
 						<tr>
 							<td align="center"><a
-								href="schedule.jsp?year=<%=preYear%>&month=<%=preMonth%>">◀</a>
+								href="/HanbitGroupware/Schedule?id=${login.id}&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
 								<b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
-							</b> <a href="schedule.jsp?year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
+							</b> <a href="/HanbitGroupware/Schedule?id=${login.id}&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
 							</td>
 						</tr>
 					</table> <!-- 달력표시 -->
@@ -109,13 +115,33 @@ td {
 								out.print("<td bgcolor='#ffffff'>&nbsp;</td>");
 								newLine++;
 							}
-
+							schedule:
 							for (int i = startDay; i <= endDay; i++) {//1일 부터 말일까지 반복
 								String fontColor = (newLine == 0) ? "red" : (newLine == 6) ? "blue" : "black";
 								String bgColor = (nowYear == year) && (nowMonth == month) && (nowDay == i) ? "#e6e6e6" : "#fff";//오늘날짜음영
-
+								String content = null;
+								for(VO_schedule k: list){
+									int sd_year = Integer.parseInt((k.getStart_date().substring(0, 4)));
+									int sd_month = Integer.parseInt((k.getStart_date().substring(5, 7)));
+									int sd_day = Integer.parseInt((k.getStart_date().substring(8, 10)));
+									
+									if((sd_year == year) && (sd_month == month) && (sd_day == i)){
+										bgColor="#D1B2FF";
+										content=k.getSubject()+"<br> ~"+k.getEnd_date().substring(0, 10);
+										out.print("<td align='center' bgcolor='" + bgColor + "' width='120'><font color='" + fontColor + "'>" + i
+													+"<br>"+ content+"</font></td>");
+										newLine++;
+										if (newLine == 7 && i != endDay) {//7일째거나 말일이면 달력 줄바꿈이 일어난다.
+											out.print("</tr><tr height='70'>");
+											newLine = 0;
+										}
+										continue schedule;
+									}
+								}
+								
 								out.print("<td align='center' bgcolor='" + bgColor + "'><font color='" + fontColor + "'>" + i
 										+ "</font></td>");
+			
 								newLine++;
 								if (newLine == 7 && i != endDay) {//7일째거나 말일이면 달력 줄바꿈이 일어난다.
 									out.print("</tr><tr height='70'>");
