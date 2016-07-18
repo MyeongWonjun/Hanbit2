@@ -49,15 +49,15 @@
 </style>
 <script type="text/javascript">
 	function sendData(){
-		for(var i=0 ; i<document.forms[0].elements.length ; i++){
+		/* for(var i=0 ; i<document.forms[0].elements.length ; i++){
 			if(document.forms[0].elements[i].value == ""){
-				if(i==3) continue;
+				if(i==1) continue;
 				alert(document.forms[0].elements[i].name+
 						"를 입력하세요");
 				document.forms[0].elements[i].focus();
 				return;//수행 중단
 			}
-		}
+		} */
 		document.forms[0].submit();
 	}
 	function list_go() {
