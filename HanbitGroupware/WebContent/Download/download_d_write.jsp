@@ -59,9 +59,11 @@
 			}
 		}
 		document.forms[0].submit();
+		
+		location.href="/HanbitGroupware/public?type=p_writeOK";
 	}
 	function list_go() {
-		location.href="/0625_jsp_MVC_BBS/MyController?type=list";
+		location.href="/HanbitGroupware/public?type=p_list";
 	}
 </script>
  <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
@@ -71,6 +73,7 @@
  		CKEDITOR.replace('content',{
  		});
  		CKEDITOR.instances.content.getData();
+ 		
 	}
 </script>
 

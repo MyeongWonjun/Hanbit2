@@ -17,10 +17,9 @@ public class p_ListCommand implements Command {
 		
 		Dao dao = new Dao();
 		
-		List<VO_board> list = dao.getp_list();
+		List<VO_board> list2 = dao.getp_list();
 		
-		System.out.println(list.size());
-		request.setAttribute("list", list);
+		request.setAttribute("list", list2);
 		
 		return "/Download/download_public.jsp";
 		

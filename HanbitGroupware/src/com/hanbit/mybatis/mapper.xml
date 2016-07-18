@@ -25,4 +25,9 @@
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email where idx = #{idx}
 	</select>
+	
+	<select id="getp_list" resultType="com.hanbit.vo.VO_board">
+		select * from gw_board 
+	
+	</select>
 </mapper>

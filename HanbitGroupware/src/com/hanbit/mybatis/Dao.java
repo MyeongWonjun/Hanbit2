@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.hanbit.vo.VO_board;
 import com.hanbit.vo.VO_email;
 import com.hanbit.vo.VO_employees;
 
@@ -57,6 +58,21 @@ private static SqlSession ss;
 			vo_email = getSql().selectOne("getEmailOneList", idx);
 			return vo_email;
 		}
+		
+		//공용문서함 list 가져오기
+		
+		public List<VO_board> getp_list(){
+			
+			List<VO_board> list =getSql().selectList("getp_list");
+			
+			
+			System.out.println(list.size());
+			return list;
+		}
+		
+		
+		
+		
 }
 
 
