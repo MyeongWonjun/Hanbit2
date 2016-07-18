@@ -70,7 +70,14 @@ private static SqlSession ss;
 			return list;
 		}
 		
-		
+	//공용문서함 insert 
+	
+		public static int insert_plist(VO_board vo){
+			int res = getSql().insert("p_insert",vo);
+			ss.commit();
+			return res;
+			
+		}
 		
 		
 }

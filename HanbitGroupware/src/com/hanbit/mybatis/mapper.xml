@@ -31,10 +31,11 @@
 		select * from gw_board 
 	
 	</select>
-		<!--원글삽입-->
+	
+		<!--download public list insert-->
 		
-	<insert id="insert" parameterType="com.hanbit.vo.VO_board">
-		insert into gw_board values("공용문서함",#{name},#{subject},#{content},#{board_file},regdate,#{hit})
+	<insert id="p_insert" parameterType="com.hanbit.vo.VO_board">
+		insert into gw_board values('공용문서함',#{name},#{subject},#{content},#{board_file},sysdate,'0')
 	</insert>
 	
 </mapper>
