@@ -15,9 +15,9 @@ public class Board_ListCommand implements Command {
 		// TODO Auto-generated method stub
 		Dao dao = new Dao();
 		String board_type = request.getParameter("board_type");
-		System.out.println("보드리스트커맨드타입"+board_type);
+		
 		List<VO_board> boardList = dao.getBoardList(board_type);
-		System.out.println(boardList.size());
+		
 		request.setAttribute("boardList", boardList);
 		return "/board_notice/board_free.jsp";
 	}

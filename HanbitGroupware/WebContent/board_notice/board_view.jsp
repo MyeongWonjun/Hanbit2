@@ -63,6 +63,25 @@
 	background: silver
 }
 </style>
+<script type="text/javascript">
+	function modify_go(f){
+		f.action = "/HanbitGroupware/BoardController?type=boardModify";
+		f.submit();
+	}
+	function delete_go(f) {
+		var ck = confirm("삭제하시겠습니까?");
+		if (ck) {
+			f.action="/HanbitGroupware/BoardController?type=boardDel";
+		}else{
+			f.action= "/HanbitGroupware/BoardController?type=boardList&board_type=자유";
+		}
+		f.submit();
+	}
+	function list_go() {
+		location.href = "/HanbitGroupware/BoardController?type=boardList&board_type=자유";
+		
+	}
+</script>
 
 </head>
 <body>
@@ -89,30 +108,30 @@
 
 
 					<div id="bbs">
-						<form method="post" name="f">
+						<form method="post" >
 							<table summary="게시판 글보기">
 								<caption>게시판 글보기</caption>
 								<tbody>
 									<tr>
 										<th>제목</th>
-										<td>${bvo.subject }</td>
+										<td>${vo.subject }</td>
 									</tr>
 									<tr>
 										<th>이름</th>
-										<td>${bvo.name }</td>
+										<td>${vo.name }</td>
 									</tr>
 									<tr>
 										<th>내용</th>
-										<td>${bvo.content }</td>
+										<td>${vo.content }</td>
 
 
 									</tr>
 									<tr>
 										<th>첨부파일</th>
 										<td><c:choose>
-												<c:when test="${bvo.board_file != null }">
+												<c:when test="${vo.board_file != null }">
 													<a
-														href="/Download/p_download.jsp?board_file=${bvo.board_file }">${bvo.board_file}</a>
+														href="/Download/p_download.jsp?board_file=${vo.board_file }">${vo.board_file}</a>
 												</c:when>
 
 											</c:choose></td>
@@ -123,10 +142,11 @@
 									<tr>
 										<td colspan="2">
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="수정"
-											onclick="" /> <input type="reset" value="삭제" /> <input
-											type="button" value="목록" onclick="" /> <input type="hidden"
-											name="chk" value="chk" />
+											&nbsp;&nbsp;&nbsp;&nbsp; 
+											<input type="button" value="수정" onclick="modify_go(this.form)"/>
+											<input type="button" value="삭제" onclick="delete_go(this.form)"/>
+											<input type="button" value="목록" onclick="list_go()"/>
+				   							<input type="hidden" name="b_idx" value="${vo.b_idx}" /> 
 										</td>
 									</tr>
 								</tfoot>

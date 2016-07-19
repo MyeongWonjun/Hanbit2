@@ -8,8 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.hanbit.command.Board_ViewCommand;
+import com.hanbit.command.Board_Del_Command;
 import com.hanbit.command.Board_ListCommand;
+import com.hanbit.command.Board_Modi_Command;
+import com.hanbit.command.Board_UpCommand;
 import com.hanbit.command.Board_WriteCommand;
 import com.hanbit.command.Board_WriteOKCommand;
 import com.hanbit.command.Command;
@@ -27,13 +32,10 @@ private static final long serialVersionUID = 1L;
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		String type = request.getParameter("type");
-		System.out.println("보드컨트롤러"+type);
 		String path = null;
 		Command comm = null;
-		
-		
+
 		if(type.equals("boardList")){
-			System.out.println("보드리스트");
 			comm = new Board_ListCommand();
 		}else if(type.equals("boardWrite")){
 			comm = new Board_WriteCommand();
@@ -41,6 +43,14 @@ private static final long serialVersionUID = 1L;
 			comm = new Board_WriteOKCommand();
 		}else if(type.equals("boardView")){
 			comm = new Board_ViewCommand();
+		}else if(type.equals("boardDel")){
+			comm = new Board_Del_Command();
+		}else if(type.equals("boardModify")){
+			comm = new Board_Modi_Command();
+		}else if(type.equals("boardUpdate")){
+			comm = new Board_UpCommand();
+		}
+		
 		
 		
 		path = comm.exec(request, response);

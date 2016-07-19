@@ -167,10 +167,11 @@ table tfoot ol.paging li a:hover {
 								<c:if test="${!empty boardList}">
 									<c:forEach items="${boardList}" var="k" varStatus="status">
 										<tr>
-											<td>${status.count}</td>
+											<td>${k.b_idx}</td>
 											<%-- <td><a
 												href="/HanbitGroupware/BoardController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> --%>
 											<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
+											<%-- <td>${k.subject}</td> --%>
 											<td>${k.name}</td>
 											<td>${k.regdate.substring(0,10)}</td>
 											<td>${k.hit}</td>

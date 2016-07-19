@@ -4,7 +4,16 @@ package com.hanbit.vo;
 
 
 public class VO_board {
-	private String board_type, name, subject, content, board_file, regdate, hit;
+	private String b_idx, board_type, name, subject, content, board_file, regdate, hit;
+
+	
+	public String getB_idx() {
+		return b_idx;
+	}
+
+	public void setB_idx(String b_idx) {
+		this.b_idx = b_idx;
+	}
 
 	public String getBoard_type() {
 		return board_type;
@@ -66,7 +75,7 @@ public class VO_board {
 	
 
 
-	}
+	
 
 	
 

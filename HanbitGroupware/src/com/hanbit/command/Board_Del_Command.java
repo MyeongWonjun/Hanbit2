@@ -1,24 +1,18 @@
 package com.hanbit.command;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.mybatis.Dao;
-import com.hanbit.vo.VO_board;
 
-public class Board_ViewCommand implements Command{
+public class Board_Del_Command implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-				Dao dao = new Dao();
+		Dao dao = new Dao();
 		String b_idx = request.getParameter("b_idx");
-		
-		VO_board vo = dao.getBoardOneList(b_idx);
-				
-		request.setAttribute("vo", vo);
-		return "/board_notice/board_view.jsp";
-		
+		System.out.println("idx  "+b_idx);
+		dao.getBoardDel(b_idx);
+		/*String path = "BoardController?type=boardList&board_type=자유";*/
+		return"BoardController?type=boardList&board_type=자유";
 	}
 }

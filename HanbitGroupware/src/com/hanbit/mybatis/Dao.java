@@ -107,11 +107,9 @@ private static SqlSession ss;
 		}
 
 		
-	 public static List<VO_board> getBoardList(String board_type){ 
+	 public List<VO_board> getBoardList(String board_type){ 
          List<VO_board> boardList =getSql().selectList("boardList",board_type);
-         System.out.println("dao끝");
          return boardList;
-         
       }
 	 public static int getBoardInsert(VO_board vo){
 			int res = getSql().insert("boardInsert", vo);
@@ -119,7 +117,20 @@ private static SqlSession ss;
 			return res;
 	 }
 	      
-
+	
+	 public VO_board getBoardOneList(String b_idx){ 
+         VO_board vo =getSql().selectOne("boardOneList",b_idx);
+         return vo;
+      }
+	 public void getBoardDel(String b_idx){ 
+		 getSql().delete("boardDel",b_idx);
+		 ss.commit();
+	 }
+	 public static int getBoardUpdate(VO_board vo){ 
+		 int result = getSql().update("boardUp", vo);
+		 ss.commit();
+		 return result;
+	 }
 }
 
 

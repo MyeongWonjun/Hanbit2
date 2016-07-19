@@ -23,14 +23,24 @@
 		insert into gw_email values(gw_email_seq.nextval, #{email_addr}, #{receiver}, #{subject}, #{content}, RAWTOHEX(#{email_file}), sysdate, #{real_file})
 	</insert>
 
-
-	<select id="boardList" resultType="com.hanbit.vo.VO_board">
+	<!-- board -->
+	<select id="boardList" parameterType="String" resultType="com.hanbit.vo.VO_board">
 		select * from gw_board where board_type = #{board_type}
 	</select>
-	<select id="boardInsert" parameterType="com.hanbit.vo.VO_board">
+	<insert id="boardInsert" parameterType="com.hanbit.vo.VO_board">
 		insert into gw_board values(gw_board_seq.nextval, #{board_type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
+	</insert>
+	<select id="boardOneList" parameterType="String" resultType="com.hanbit.vo.VO_board">
+		select * from gw_board where b_idx = #{b_idx}
 	</select>
-
+	<delete id="boardDel" parameterType="String">
+		delete from gw_board where b_idx = #{b_idx}
+	</delete>
+	<update id="boardUp" parameterType="com.hanbit.vo.VO_board" >
+		update gw_board set subject=#{subject}, content=#{content}, board_file=#{board_file} where b_idx = #{b_idx}
+	</update>
+	
+	
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email where idx = #{idx}
 	</select>
