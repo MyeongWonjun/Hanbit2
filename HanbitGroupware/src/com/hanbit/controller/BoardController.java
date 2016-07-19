@@ -39,7 +39,8 @@ private static final long serialVersionUID = 1L;
 			comm = new Board_WriteCommand();
 		}else if(type.equals("boardWriteOK")){
 			comm = new Board_WriteOKCommand();
-		}
+		}else if(type.equals("boardView")){
+			comm = new Board_ViewCommand();
 		
 		
 		path = comm.exec(request, response);

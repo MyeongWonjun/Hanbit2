@@ -170,7 +170,7 @@ table tfoot ol.paging li a:hover {
 											<td>${status.count}</td>
 											<%-- <td><a
 												href="/HanbitGroupware/BoardController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> --%>
-											<td><a href="/HanbitGroupware/BoardController?type=view">${k.subject}</a></td>
+											<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
 											<td>${k.name}</td>
 											<td>${k.regdate.substring(0,10)}</td>
 											<td>${k.hit}</td>

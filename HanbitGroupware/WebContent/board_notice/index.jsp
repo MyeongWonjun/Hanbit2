@@ -8,7 +8,7 @@
 <script type="text/javascript">
 	function start() {
 		location.href="/HanbitGroupware/BoardController?type=boardList&board_type=자유";
-		
+		  
 		}
 	
 </script>
