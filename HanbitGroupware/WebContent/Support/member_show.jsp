@@ -41,5 +41,6 @@
 			<td>${vo.hire_date.substring(0,10)}</td>
 		</tr>
 	</table>
+	<p align="center"><input type="button" value="창닫기" onclick="self.close()"></p>
 </body>
 </html>
