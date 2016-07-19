@@ -58,4 +58,9 @@
 	<update id="p_hit">
 	update gw_board set hit = #{hit} where b_idx = #{b_idx} 
 	</update>
+	
+	<!-- emp_show -->
+	<select id="emp_show" parameterType="String" resultType="com.hanbit.vo.VO_employees">
+		select * from gw_member where id=#{id}
+	</select>
 </mapper>

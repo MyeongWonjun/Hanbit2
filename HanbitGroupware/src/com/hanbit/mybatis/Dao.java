@@ -37,6 +37,12 @@ private static SqlSession ss;
 			return list;
 		}
 		
+	// employees show
+		public VO_employees getEmpShow(String id){
+			VO_employees vo = getSql().selectOne("emp_show", id);
+			return vo;
+		}
+		
 	// employee search
 		public List<VO_employees> getEmpSearch(Map<String, String> map){
 			List<VO_employees> list = getSql().selectList("employee_search", map);

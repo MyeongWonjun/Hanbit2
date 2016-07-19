@@ -183,7 +183,7 @@ table tfoot ol.paging li a:hover {
 									<c:forEach items="${list}" var="k">
 										<tr>
 											<td>${k.id}</td>
-											<td>${k.name}</td>
+											<td><a href="" onclick="javascript:window.open('/HanbitGroupware/Support?type=show&id=${k.id}', '_blank', 'width=300,height=300');">${k.name}</a></td>
 											<td>${k.email_addr}</td>
 											<td>${k.phone}</td>
 											<td>${k.job_id}</td>
