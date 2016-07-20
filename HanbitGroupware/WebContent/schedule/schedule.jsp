@@ -88,14 +88,11 @@ td {
 				<td><table align="center" width="800" height="50"
 						cellpadding="2" cellspacing="1">
 						<tr>
-							<td align="center">
-							<a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=preYear-1%>">◀</a>
-							<b>&nbsp;<%=year%>년
-							<a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=nextYear+1%>">▶</a>
-							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&month=<%=preMonth%>">◀</a>
-								&nbsp;&nbsp;<%=month%>월
-							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&month=<%=nextMonth%>">▶</a>
-							</td>
+							<td align="center"><a
+ 								href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
+ 								<b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
+ 							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
+ 							</td>
 						</tr>
 					</table> <!-- 달력표시 -->
 					<table align="center" width="800" cellpadding="0" cellspacing="1"

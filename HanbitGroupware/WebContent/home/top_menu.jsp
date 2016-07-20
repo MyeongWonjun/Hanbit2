@@ -120,7 +120,7 @@ li a.active {
 			</div>
 		</li>
 		<li id="menu">
-			<a href="/HanbitGroupware/Schedule?id=${login.id}" id="menu_drop">Schedule</a>
+			<a href="/HanbitGroupware/Schedule?id=${info.id}" id="menu_drop">Schedule</a>
 			<div id="drop_content">
 				<a href="#">전체일정</a>
 				<a href="#">출장</a>
