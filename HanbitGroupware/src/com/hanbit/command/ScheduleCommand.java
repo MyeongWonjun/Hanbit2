@@ -19,7 +19,6 @@ public class ScheduleCommand implements Command {
 		Dao dao = new Dao();
 		List<VO_schedule> list = dao.scheduleList(id);
 		request.setAttribute("list", list);
-		return "schedule/schedule.jsp";
+		return "schedule/p_schedule.jsp";
 	}
-
 }
