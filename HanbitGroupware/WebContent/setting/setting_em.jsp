@@ -65,13 +65,6 @@
 				<td width="400" >${vo_employees.id}</td>
 			</tr>
 			<tr>
-				<td width="200">비밀번호</td>
-				<td width="400">${vo_employees.pwd}</td>
-			<tr>
-				<td width="200">비밀번호 확인</td>
-				<td width="400">${vo_employees.pwd}</td>
-			</tr>
-			<tr>
 				<td width="200" >이름</td>
 				<td width="400" >${vo_employees.name}</td>
 			</tr>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
 import com.hanbit.command.Em_oneCommand;
+import com.hanbit.command.SetUpdateCommand;
 
 @WebServlet("/s_em")
 public class S_emController extends HttpServlet{
@@ -30,9 +31,13 @@ public class S_emController extends HttpServlet{
 		if(type.equals("setting_em")){
 			comm = new Em_oneCommand();
 		}
+		if(type.equals("setUpdate")){
+			comm = new SetUpdateCommand();
+		}
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);
 		
 	}
+	
 
 }

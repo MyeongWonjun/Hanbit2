@@ -78,4 +78,7 @@
 	<select id="em_one" resultType="com.hanbit.vo.VO_employees" parameterType="String">
 		select * from gw_member where id = #{id} 
 	</select>
+	<update id="setUpdate" parameterType="com.hanbit.vo.VO_employees">
+	  update gw_member set pwd= '${pwd}',email_addr= '${email_addr}',phone='${phone}' where id = #{id}
+	</update>
 </mapper>
