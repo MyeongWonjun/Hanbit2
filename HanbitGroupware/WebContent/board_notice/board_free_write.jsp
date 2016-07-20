@@ -88,7 +88,7 @@
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" name="name" size="12"/></td>
+					<td>${info.name }(${info.id })<input type="hidden" name="name" value="${info.name }(${info.id })"    size="12"/></td>
 				</tr>
 				<tr>
 					<th>내용</th>

@@ -127,7 +127,7 @@
 									</tr>
 									<tr>
 										<th>이름:</th>
-										<td><input type="text" name="name" size="12" value="${vo.name}" /></td>
+										<td>${vo.name }<input type="hidden" name="name" size="12" value="${vo.name}" /></td>
 									</tr>
 									<tr>
 										<th>내용:</th>

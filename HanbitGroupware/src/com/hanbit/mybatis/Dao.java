@@ -20,6 +20,11 @@ private static SqlSession ss;
 		}
 		return ss;
 	}
+	// totalCount(pageing)
+	public static int getTotalCount(String board_type){
+		int count = getSql().selectOne("totalCount",board_type);
+		return count;
+	}
 	
 	// login
 	public VO_employees getLogin(String id, String pwd){
@@ -107,8 +112,8 @@ private static SqlSession ss;
 		}
 
 		
-	 public List<VO_board> getBoardList(String board_type){ 
-         List<VO_board> boardList =getSql().selectList("boardList",board_type);
+	 public List<VO_board> getBoardList(Map<String, String> map){ 
+         List<VO_board> boardList =getSql().selectList("boardList",map);
          return boardList;
       }
 	 public static int getBoardInsert(VO_board vo){

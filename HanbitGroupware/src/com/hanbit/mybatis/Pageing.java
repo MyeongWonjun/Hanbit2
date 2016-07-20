@@ -1,20 +1,20 @@
 package com.hanbit.mybatis;
 
 public class Pageing {
-	   int nowPage = 1 ; // �쁽�옱 �럹�씠吏�
-	   int nowBlock = 1 ; // �쁽�옱釉붾줉
-	   int totalRecord = 0 ; // 珥� 寃뚯떆臾쇱쓽 �닔 (�썝湲��쓽 �닔)
-	   int numPerPage = 3 ; // �븳 �럹�씠�떦 蹂댁뿬吏� 寃뚯떆臾쇱쓽 �닔
-	   int pagePerBlock = 3 ; // 釉붾줉�떦 �몴�쁽�맆 �럹�씠吏��쓽 �닔
-	   int totalPage = 0; // �쟾泥� �럹�씠吏��쓽 �닔
-	   int totalBlock = 0 ; // �쟾泥� 釉붾줉�쓽 �닔
-	   int begin = 0 ; // mapper�뿉 �뱾�뼱媛� �떆�옉 媛�
-	   int end = 0 ;   // mapper�뿉 �뱾�뼱媛� �걹 媛�
-	   int beginPage = 0 ; // 釉붾줉�쓽 �떆�옉
-	   int endPage = 0; // 釉붾줉�쓽 �걹
+	int nowPage = 1 ; // 현재 페이지
+	   int nowBlock = 1 ; // 현재블록
+	   int totalRecord = 0 ; // 총 게시물의 수 (원글의 수)
+	   int numPerPage = 10 ; // 한 페이장 보여질 게시물의 수
+	   int pagePerBlock = 3 ; // 블록당 표현될 페이지의 수
+	   int totalPage = 0; // 전체 페이지의 수
+	   int totalBlock = 0 ; // 전체 블록의 수
+	   int begin = 0 ; // mapper에 들어갈 시작 값
+	   int end = 0 ;   // mapper에 들어갈 끝 값
+	   int beginPage = 0 ; // 블록의 시작
+	   int endPage = 0; // 블록의 끝
 	   
-	// �쟾泥� 寃뚯떆臾쇱쓽 �닔瑜� 媛�吏�怨�  �쟾泥� �럹�씠吏��쓽 �닔瑜� 援ы븳�떎.
-	//  totalPage = �쟾泥� 寃뚯떆臾� / numPerPage  ** �굹癒몄�媛� �엳�쑝硫� totalPage+1
+	// 전체 게시물의 수를 가지고  전체 페이지의 수를 구한다.
+	//  totalPage = 전체 게시물 / numPerPage  ** 나머지가 있으면 totalPage+1
 	 public void setTotalPage(){
 		 totalPage = totalRecord / numPerPage ;
 		   if(totalRecord % numPerPage != 0) totalPage ++ ;

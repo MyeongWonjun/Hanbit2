@@ -24,8 +24,17 @@
 	</insert>
 
 	<!-- board -->
-	<select id="boardList" parameterType="String" resultType="com.hanbit.vo.VO_board">
-		select * from gw_board where board_type = #{board_type}
+	<select id="totalCount" parameterType="String" resultType="int">
+		select count(*) from gw_board where board_type=#{board_type}
+	</select>
+	
+	<select id="boardList" parameterType="Map" resultType="com.hanbit.vo.VO_board">
+		<!-- select * from gw_board where board_type = #{board_type} -->
+		select * from ( 
+            select rownum r_num, a.* from (
+            	select * from gw_board where board_type = #{board_type} order by b_idx
+            	) a 
+              ) where r_num between #{begin} and #{end}
 	</select>
 	<insert id="boardInsert" parameterType="com.hanbit.vo.VO_board">
 		insert into gw_board values(gw_board_seq.nextval, #{board_type},#{name},#{subject},#{content},#{board_file},sysdate,'0')

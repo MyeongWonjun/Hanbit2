@@ -186,7 +186,7 @@ table tfoot ol.paging li a:hover {
 									<!-- <td><input type="button" value="글쓰기"
 										onclick="javascript:window.open('board_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')" /></td> -->
 									<td>
-										<input type="button" value="글쓰기" onclick="javascript:location.href='/HanbitGroupware/BoardController?type=boardWrite'"/>
+										<input type="button" value="글쓰기" onclick="location.href='/HanbitGroupware/BoardController?type=boardWrite'"/>
 										
 									</td>
 									<td colspan="5" align="center">
@@ -198,7 +198,7 @@ table tfoot ol.paging li a:hover {
 												</c:when>
 												<c:otherwise>
 													<li><a
-														href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
+														href="/HanbitGroupware/BoardController?type=boardList&board_type=자유&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
 												</c:otherwise>
 											</c:choose>
 
@@ -210,17 +210,17 @@ table tfoot ol.paging li a:hover {
 													</c:when>
 													<c:otherwise>
 														<li><a
-															href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${k}">${k}</a></li>
+															href="/HanbitGroupware/BoardController?type=boardList&board_type=자유&cPage=${k}">${k}</a></li>
 													</c:otherwise>
 												</c:choose>
 											</c:forEach>
 											<c:choose>
 												<c:when test="${pvo.endPage>=pvo.totalPage}">
-													<li class="disable">다음으로</li>
+													<li class="disable">다음으로${pvo.endPage }</li>
 												</c:when>
 												<c:otherwise>
-													<li><a
-														href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로</a></li>
+													<li><a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로${cPage}</a>
+													</li>
 												</c:otherwise>
 											</c:choose>
 										</ol>

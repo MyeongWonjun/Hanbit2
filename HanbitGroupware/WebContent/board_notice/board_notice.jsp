@@ -138,37 +138,41 @@
 			<tfoot >
 				<tr>
 					<td colspan="5" align="center">
-						<ol class="paging">
-						<!--  이전버튼 은 beginPage가 pagePerBlock보다 작으면 비활성화 -->
-						<c:choose>
-							<c:when test="${pvo.beginPage < pvo.pagePerBlock}">
-								  <li class="disable">이전으로</li>
-							</c:when>
-							<c:otherwise>
-							 <li><a href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
-							</c:otherwise>
-						</c:choose>
-						
-						<c:forEach var="k" begin="${pvo.beginPage}" end="${pvo.endPage}" step="1">
-							<c:choose>
-								<c:when test="${k==pvo.nowPage}">
-									<li class="now">${k}</li>
-								</c:when>
-								<c:otherwise>
-									<li><a href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${k}">${k}</a></li>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						<c:choose>
-							<c:when test="${pvo.endPage>=pvo.totalPage}">
-								  <li class="disable">다음으로</li>
-							</c:when>
-							<c:otherwise>
-								 <li><a href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로</a></li>
-							</c:otherwise>
-						</c:choose>
-						</ol>
-					</td>
+										<ol class="paging">
+											<!--  이전버튼 은 beginPage가 pagePerBlock보다 작으면 비활성화 -->
+											<c:choose>
+												<c:when test="${pvo.beginPage < pvo.pagePerBlock}">
+													<li class="disable">이전으로</li>
+												</c:when>
+												<c:otherwise>
+													<li><a
+														href="/HanbitGroupware/BoardController?type=boardList&board_type=공지&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
+												</c:otherwise>
+											</c:choose>
+
+											<c:forEach var="k" begin="${pvo.beginPage}"
+												end="${pvo.endPage}" step="1">
+												<c:choose>
+													<c:when test="${k==pvo.nowPage}">
+														<li class="now">${k}</li>
+													</c:when>
+													<c:otherwise>
+														<li><a
+															href="/HanbitGroupware/BoardController?type=boardList&board_type=공지&cPage=${k}">${k}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+											<c:choose>
+												<c:when test="${pvo.endPage>=pvo.totalPage}">
+													<li class="disable">다음으로${pvo.endPage }</li>
+												</c:when>
+												<c:otherwise>
+													<li><a href="/HanbitGroupware/BoardController?type=boardList&board_type=공지&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로${cPage}</a>
+													</li>
+												</c:otherwise>
+											</c:choose>
+										</ol>
+									</td>
 					<!-- <td>
 						<input type="button" value="글쓰기" onclick="javascript:location.href='/0625_jsp_MVC_BBS/MyController?type=write'"/>
 					</td> -->

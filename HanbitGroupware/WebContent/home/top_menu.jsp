@@ -130,7 +130,7 @@ li a.active {
 			<div id="drop_content">
 
 			<a href="/HanbitGroupware/public?type=d_list">업무자료실</a>
-				<a href="/HanbitGroupware/public?type=p_list">공용문서함</a>
+				<a href="/HanbitGroupware/BoardController?type=boardList&board_type=공용문서함">공용문서함</a>
 				<a href="/HanbitGroupware/Support?type=employee_list">임직원정보</a>
 			</div>
 		</li>

@@ -73,12 +73,12 @@
 		if (ck) {
 			f.action="/HanbitGroupware/BoardController?type=boardDel";
 		}else{
-			f.action= "/HanbitGroupware/BoardController?type=boardList&board_type=자유";
+			f.action= "/HanbitGroupware/BoardController?type=boardList&board_type="+vo.getBoard_type;
 		}
 		f.submit();
 	}
 	function list_go() {
-		location.href = "/HanbitGroupware/BoardController?type=boardList&board_type=자유";
+		location.href = "/HanbitGroupware/BoardController?type=boardList&board_type="+vo.getBoard_type;
 		
 	}
 </script>
