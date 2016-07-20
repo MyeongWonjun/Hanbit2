@@ -118,7 +118,11 @@ private static SqlSession ss;
 			ss.commit();
 			return res;
 	 }
-	      
+	 public VO_employees getsetem(String id) {
+			VO_employees vo_employees= getSql().selectOne("em_one",id);
+			return vo_employees;
+		}
+
 
 }
 

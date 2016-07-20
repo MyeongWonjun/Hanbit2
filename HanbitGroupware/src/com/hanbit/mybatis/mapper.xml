@@ -63,4 +63,7 @@
 	<select id="emp_show" parameterType="String" resultType="com.hanbit.vo.VO_employees">
 		select * from gw_member where id=#{id}
 	</select>
+	<select id="em_one" resultType="com.hanbit.vo.VO_employees" parameterType="String">
+		select * from gw_member where id = #{id} 
+	</select>
 </mapper>
