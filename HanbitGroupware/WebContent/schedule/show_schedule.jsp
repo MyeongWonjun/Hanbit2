@@ -9,12 +9,12 @@
 </head>
 <body>
 	<h3 align="center">스케쥴</h3>
-	<form action="">
+	<form action="/HanbitGroupware/Schedule">
 	<table border="1" align="center">
 		<tbody align="center">
 			<tr>
 				<th>종류</th>
-				<td><input type="text" name="type" value="${sc.type}"></td>
+				<td><input type="text" name="type2" value="${sc.type}"></td>
 			</tr>
 			<tr>
 				<th>제목</th>
@@ -35,6 +35,9 @@
 		</tbody>
 	</table>
 	<p align="center"><input type="submit" value="수정"><input type="button" value="창닫기" onclick="self.close()"></p>
+	<input type="hidden" name="type" value="update" />
+	<input type="hidden" name="id" value="${sc.id}" />
+	<input type="hidden" name="idx" value="${sc.idx}" />
 	</form>
 </body>
 </html>

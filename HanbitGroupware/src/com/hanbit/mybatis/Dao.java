@@ -117,10 +117,16 @@ private static SqlSession ss;
 			List<VO_schedule> list = getSql().selectList("bt");
 			return list;
 		}
-	// vacation list
+	// schedule show
 		public VO_schedule scheduleShow(String idx){
 			VO_schedule sc = getSql().selectOne("schedule_show", idx);
 			return sc;
+		}
+	// schedule update
+		public void updateSchedule(VO_schedule vo){
+			System.out.println(vo.getId());
+			System.out.println(vo.getIdx());
+			getSql().update("schedule_update", vo);
 		}
 
 
