@@ -159,7 +159,7 @@ td {
 									
 									if((sd_year == year) && (sd_month == month) && (sd_day == i)){
 										bgColor="#D1B2FF";
-										content=k.getSubject()+"<br> ~"+k.getEnd_date().substring(0, 10);
+										content=k.getName()+"<br> ~"+k.getEnd_date().substring(0, 10);
 										out.print("<td align='center' bgcolor='" + bgColor + "' width='120'><font color='" + fontColor + "'>" + i
 													+"<br>"+ content+"</font></td>");
 										newLine++;
