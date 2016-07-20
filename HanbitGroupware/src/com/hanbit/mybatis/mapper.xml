@@ -89,6 +89,10 @@
 	<update id="schedule_update" parameterType="com.hanbit.vo.VO_schedule">
 		update gw_schedule set type=#{type}, subject=#{subject}, content=#{content}, start_date=#{start_date}, end_date=#{end_date} where idx=#{idx}	
 	</update>
+	<!-- schedule insert -->
+	<insert id="schedule_insert" parameterType="com.hanbit.vo.VO_schedule">
+		insert into gw_schedule values(schedule_seq.nextval,#{type},#{id},#{subject},#{content},#{start_date},#{end_date});
+	</insert>
 
 	<select id="p_onelist" resultType="com.hanbit.vo.VO_board" parameterType="String">
 		select * from gw_board  where b_idx = #{b_idx}
