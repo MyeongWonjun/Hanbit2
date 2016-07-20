@@ -85,6 +85,24 @@
 	background-color: #9ad3de;
 	width: 200px;
 }
+
+#modify{
+	background-color: #89bdd3;
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	text-decoration: none;
+	text-align: center;
+	width: 200px;
+}
+
+#modify:HOVER {
+	background-color: #9ad3de;
+	cursor: pointer;
+	width: 200px;
+}
 body {
 	font-size: 12pt;
 }
@@ -95,7 +113,7 @@ td {
 </STYLE>
 </head>
 <body>
-<%
+	<%
 		if(!login){
 			response.sendRedirect("../home/login.jsp");
 		}else{
@@ -117,7 +135,7 @@ td {
 						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=vacation">연차</a></li>
 					</ul>
 				</td>
-				<td><table align="center" width="800" height="50"
+				<td align="center"><table align="center" width="800" height="50"
 						cellpadding="2" cellspacing="1">
 						<tr>
 							<td align="center"><a
@@ -194,7 +212,7 @@ td {
 							}
 							out.print("</tr>");
 						%>
-					</table> <br /> <br /> <br /></td>
+					</table> <p id="modify">일정 수정</p></td>
 			</tr>
 		</tbody>
 	</table>
