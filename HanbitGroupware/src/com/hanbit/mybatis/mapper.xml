@@ -62,6 +62,10 @@
 			(select gw_schedule.*, gw_member.name from gw_schedule, gw_member where gw_schedule.id=gw_member.id)
 		where type='출장'
 	</select>
+	<!-- schedule show -->
+	<select id="schedule_show" parameterType="String" resultType="com.hanbit.vo.VO_schedule">
+		select * from gw_schedule where idx=#{idx}
+	</select>
 
 	<select id="p_onelist" resultType="com.hanbit.vo.VO_board" parameterType="String">
 		select * from gw_board  where b_idx = #{b_idx}
@@ -78,7 +82,4 @@
 	<select id="em_one" resultType="com.hanbit.vo.VO_employees" parameterType="String">
 		select * from gw_member where id = #{id} 
 	</select>
-	<update id="setUpdate" parameterType="com.hanbit.vo.VO_employees">
-	  update gw_member set pwd= '${pwd}',email_addr= '${email_addr}',phone='${phone}' where id = #{id}
-	</update>
 </mapper>

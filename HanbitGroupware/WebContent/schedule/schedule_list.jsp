@@ -19,7 +19,7 @@
 			<c:forEach var="k" items="${list}">
 				<tr>
 					<td>${k.type}</td>
-					<td>${k.subject}</td>
+					<td><a href="/HanbitGroupware/Schedule?type=show&idx=${k.idx}">${k.subject}</a></td>
 					<td>${k.content}</td>
 					<td>${k.start_date.substring(0,10)}</td>
 					<td>${k.end_date.substring(0,10)}</td>

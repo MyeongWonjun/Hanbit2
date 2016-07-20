@@ -117,6 +117,11 @@ private static SqlSession ss;
 			List<VO_schedule> list = getSql().selectList("bt");
 			return list;
 		}
+	// vacation list
+		public VO_schedule scheduleShow(String idx){
+			VO_schedule sc = getSql().selectOne("schedule_show", idx);
+			return sc;
+		}
 
 
 		
@@ -135,10 +140,6 @@ private static SqlSession ss;
 			VO_employees vo_employees= getSql().selectOne("em_one",id);
 			return vo_employees;
 		}
-	 public void getSetUpdate(VO_employees vo_employees){
-	      getSql().update("setUpdate", vo_employees);
-	    	ss.commit();
-	}
 
 
 }

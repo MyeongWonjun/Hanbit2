@@ -11,6 +11,7 @@ import com.hanbit.command.Command;
 import com.hanbit.command.Schedule_btCommand;
 import com.hanbit.command.Schedule_listCommand;
 import com.hanbit.command.Schedule_pCommand;
+import com.hanbit.command.Schedule_showCommand;
 import com.hanbit.command.Schedule_vacationCommand;
 
 @WebServlet("/Schedule")
@@ -29,6 +30,7 @@ public class ScheduleController extends HttpServlet {
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String id = request.getParameter("id");
+		String idx = request.getParameter("idx");
 		
 		Command comm = null;
 		String path = null;
@@ -41,6 +43,8 @@ public class ScheduleController extends HttpServlet {
 			comm = new Schedule_btCommand();
 		}else if(type.equals("list")){
 			comm = new Schedule_listCommand(id);
+		}else if(type.equals("show")){
+			comm = new Schedule_showCommand(idx);
 		}
 		
 		path = comm.exec(request, response);
