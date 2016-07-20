@@ -1,10 +1,14 @@
+<%@page import="com.hanbit.vo.VO_employees"%>
 <%@page import="com.hanbit.vo.VO_schedule"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Calendar"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%
+	VO_employees member = (VO_employees)session.getAttribute("info");
+	boolean login = member == null ? false : true;
+%>
 <%
 	List<VO_schedule> list =(List<VO_schedule>)request.getAttribute("list"); 
 	request.setCharacterEncoding("utf-8");
@@ -66,6 +70,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>일정</title>
 <STYLE type="text/css">
+.tab_vertical>li {
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	text-decoration: none;
+	text-align: center;
+	width: 200px;
+}
+
+.tab-title:HOVER {
+	background-color: #9ad3de;
+	width: 200px;
+}
 body {
 	font-size: 12pt;
 }
@@ -76,6 +95,11 @@ td {
 </STYLE>
 </head>
 <body>
+<%
+		if(!login){
+			response.sendRedirect("../home/login.jsp");
+		}else{
+	%>
 	<table border="1" align="center">
 		<thead>
 			<tr>
@@ -85,6 +109,14 @@ td {
 		</thead>
 		<tbody>
 			<tr>
+				<td width="200px" valign="top">
+					<h2 align="center">스케쥴</h2>
+					<ul class="tab_vertical">
+						<li class="tab-title" style="background-color: #9ad3de;"><a href="#">개인일정</a></li>
+						<li class="tab-title"><a href="#">출장</a></li>
+						<li class="tab-title"><a href="#">연차</a></li>
+					</ul>
+				</td>
 				<td><table align="center" width="800" height="50"
 						cellpadding="2" cellspacing="1">
 						<tr>
@@ -159,5 +191,8 @@ td {
 			</tr>
 		</tbody>
 	</table>
+	<%
+		}
+	%>
 </body>
 </html>
