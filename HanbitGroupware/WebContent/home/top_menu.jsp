@@ -144,9 +144,9 @@ li a.active {
 			</div>
 		</li>
 		<li id="menu">
-			<a href="#configuration" id="menu_drop">환경설정</a>
+			<a href="#s_em" id="menu_drop">환경설정</a>
 			<div id="drop_content">
-				<a href="/HanbitGroupware/setting?id=${login.id}" id=mene_drop>개인정보</a>
+				<a href="/HanbitGroupware/s_em?type=setting_em&id=${info.id}">개인정보</a>
 			</div>
 		</li>
 	</ul>
