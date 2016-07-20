@@ -1,6 +1,11 @@
+<%@page import="com.hanbit.vo.VO_employees"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	VO_employees member = (VO_employees)session.getAttribute("info");
+	boolean login = member == null ? false : true;
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -122,6 +127,11 @@ table tfoot ol.paging li a:hover {
 </style>
 </head>
 <body>
+	<%
+		if(!login){
+			response.sendRedirect("../home/login.jsp");
+		}else{
+	%>
 	<table align="center" border="1px">
 		<thead>
 			<tr>
@@ -201,5 +211,8 @@ table tfoot ol.paging li a:hover {
 			</tr>
 		</tbody>
 	</table>
+	<%
+		}
+	%>
 </body>
 </html>

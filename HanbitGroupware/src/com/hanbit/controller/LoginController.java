@@ -1,6 +1,7 @@
 package com.hanbit.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.hanbit.command.Command;
 import com.hanbit.command.LoginCommand;
+import com.hanbit.command.LogoutCommand;
 
 @WebServlet("/Login")
 public class LoginController extends HttpServlet {
@@ -29,6 +31,8 @@ public class LoginController extends HttpServlet {
 		Command comm = null;
 		if(type.equals("login")){
 			comm = new LoginCommand();
+		}else if(type.equals("logout")){
+			comm = new LogoutCommand();
 		}
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);
