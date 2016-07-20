@@ -131,10 +131,12 @@ private static SqlSession ss;
 		public void updateSchedule(VO_schedule vo){
 			System.out.println(vo.getId());
 			getSql().update("schedule_update", vo);
+			ss.commit();
 		}
-	// schedule update
+	// schedule insert
 		public void insertSchedule(VO_schedule vo){
 			getSql().insert("schedule_insert", vo);
+			ss.commit();
 		}
 
 
