@@ -27,6 +27,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<p align="center"><input type="button" value="일정추가" onclick="javascript:location.href='#'"><input type="button" value="창닫기" onclick="self.close()"></p>
+	<p align="center"><input type="button" value="일정추가" onclick="javascript:location.href='/HanbitGroupware/schedule/insert_schedule.jsp'"><input type="button" value="창닫기" onclick="self.close()"></p>
 </body>
 </html>
