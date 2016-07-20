@@ -8,7 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
-import com.hanbit.command.ScheduleCommand;
+import com.hanbit.command.Schedule_btCommand;
+import com.hanbit.command.Schedule_listCommand;
+import com.hanbit.command.Schedule_pCommand;
+import com.hanbit.command.Schedule_showCommand;
+import com.hanbit.command.Schedule_updateCommand;
+import com.hanbit.command.Schedule_vacationCommand;
 
 @WebServlet("/Schedule")
 public class ScheduleController extends HttpServlet {
@@ -23,16 +28,31 @@ public class ScheduleController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		
 		String type = request.getParameter("type");
-		String path = null;
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
-			
 		String id = request.getParameter("id");
-		Command comm = new ScheduleCommand(id);
+		String idx = request.getParameter("idx");
+		
+		Command comm = null;
+		String path = null;
+		
+		if(type.equals("personal")){
+			comm = new Schedule_pCommand(id);
+		}else if(type.equals("vacation")){
+			comm = new Schedule_vacationCommand();
+		}else if(type.equals("bt")){
+			comm = new Schedule_btCommand();
+		}else if(type.equals("list")){
+			comm = new Schedule_listCommand(id);
+		}else if(type.equals("show")){
+			comm = new Schedule_showCommand(idx);
+		}else if(type.equals("update")){
+			comm = new Schedule_updateCommand(idx, id);
+		}
+		
 		path = comm.exec(request, response);
 		request.setAttribute("year", year);
 		request.setAttribute("month", month);
 		request.getRequestDispatcher(path).forward(request, response);
 	}
-
 }

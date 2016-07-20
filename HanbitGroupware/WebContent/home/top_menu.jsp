@@ -88,6 +88,15 @@ li a.active {
 }
 
 </style>
+<script type="text/javascript">
+	function logout_go() {
+		if(confirm("로그아웃 하시겠습니까?")){
+			location.href="/HanbitGroupware/Login?type=logout";
+		}else{
+			return;
+		}
+	}
+</script>
 </head>
 <body>
 	<h1 id="mainTop" align="center">
@@ -95,7 +104,7 @@ li a.active {
 	</h1>
 	<p align="right">
 	<input id="btn" type="button" value="MY" />
-	<input id="btn" type="button" value="LOGOUT" />
+	<input id="btn" type="button" value="LOGOUT" onclick="logout_go()" />
 	<p>
 	<div>
 	<ul>
@@ -111,11 +120,11 @@ li a.active {
 			</div>
 		</li>
 		<li id="menu">
-			<a href="/HanbitGroupware/Schedule?id=${login.id}" id="menu_drop">Schedule</a>
+			<a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}" id="menu_drop">Schedule</a>
 			<div id="drop_content">
-				<a href="#">전체일정</a>
-				<a href="#">충장</a>
-				<a href="#">연차</a>
+				<a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}">개인일정</a>
+				<a href="/HanbitGroupware/Schedule?type=bt">출장</a>
+				<a href="/HanbitGroupware/Schedule?type=vacation">연차</a>
 			</div>
 		</li>
 		<li id="menu">
@@ -135,46 +144,12 @@ li a.active {
 			</div>
 		</li>
 		<li id="menu">
-			<a href="#configuration" id="menu_drop">환경설정</a>
+			<a href="#s_em" id="menu_drop">환경설정</a>
 			<div id="drop_content">
-				<a href="/HanbitGroupware/setting?id=${login.id}" id=mene_drop>개인정보</a>
+				<a href="/HanbitGroupware/s_em?type=setting_em&id=${info.id}">개인정보</a>
 			</div>
 		</li>
 	</ul>
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

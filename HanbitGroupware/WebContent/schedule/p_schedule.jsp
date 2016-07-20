@@ -1,17 +1,21 @@
+<%@page import="com.hanbit.vo.VO_employees"%>
 <%@page import="com.hanbit.vo.VO_schedule"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Calendar"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%
+	VO_employees member = (VO_employees)session.getAttribute("info");
+	boolean login = member == null ? false : true;
+%>
 <%
 	List<VO_schedule> list =(List<VO_schedule>)request.getAttribute("list"); 
 	request.setCharacterEncoding("utf-8");
 
 	//Calender 클래스는 추상 클래스 이므로 객체생성이 되지 않는다.
 	//따라서 getInstance() 메서드를 이용하여 하위클래스의 객체를 생성하여 리턴한다.
-	//하위 클래스는 플랫폼의 나라 언어에 맞는 것을 자동으로 리턴해 줍니다. 
+	//하위 클래스는 플랫폼의 나라 언어에 맞는 것을 자동으로 리턴해 줍니다.
 
 	//칼렌더 객체 생성
 	Calendar cal = Calendar.getInstance();
@@ -66,6 +70,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>일정</title>
 <STYLE type="text/css">
+.tab_vertical>li {
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	text-decoration: none;
+	text-align: center;
+	width: 200px;
+}
+
+.tab-title:HOVER {
+	background-color: #9ad3de;
+	width: 200px;
+}
+
+#modify{
+	background-color: #89bdd3;
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	text-decoration: none;
+	text-align: center;
+	width: 200px;
+}
+
+#modify:HOVER {
+	background-color: #9ad3de;
+	cursor: pointer;
+	width: 200px;
+}
 body {
 	font-size: 12pt;
 }
@@ -76,6 +113,11 @@ td {
 </STYLE>
 </head>
 <body>
+	<%
+		if(!login){
+			response.sendRedirect("../home/login.jsp");
+		}else{
+	%>
 	<table border="1" align="center">
 		<thead>
 			<tr>
@@ -85,17 +127,22 @@ td {
 		</thead>
 		<tbody>
 			<tr>
-				<td><table align="center" width="800" height="50"
+				<td width="200px" valign="top">
+					<h2 align="center">스케쥴</h2>
+					<ul class="tab_vertical">
+						<li class="tab-title" style="background-color: #9ad3de;"><a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}">개인일정</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=bt">출장</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=vacation">연차</a></li>
+					</ul>
+				</td>
+				<td align="center"><table align="center" width="800" height="50"
 						cellpadding="2" cellspacing="1">
 						<tr>
-							<td align="center">
-							<a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=preYear-1%>">◀</a>
-							<b>&nbsp;<%=year%>년
-							<a href="/HanbitGroupware/Schedule?id=${info.id}&year=<%=nextYear+1%>">▶</a>
-							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&month=<%=preMonth%>">◀</a>
-								&nbsp;&nbsp;<%=month%>월
-							</b> <a href="/HanbitGroupware/Schedule?id=${info.id}&month=<%=nextMonth%>">▶</a>
-							</td>
+							<td align="center"><a
+ 								href="/HanbitGroupware/Schedule?type=personal&id=${info.id}&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
+ 								<b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
+ 							</b> <a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
+ 							</td>
 						</tr>
 					</table> <!-- 달력표시 -->
 					<table align="center" width="800" cellpadding="0" cellspacing="1"
@@ -129,7 +176,14 @@ td {
 									int sd_day = Integer.parseInt((k.getStart_date().substring(8, 10)));
 									
 									if((sd_year == year) && (sd_month == month) && (sd_day == i)){
-										bgColor="#D1B2FF";
+										if(k.getType().equals("휴가")){
+											bgColor="#D1B2FF";
+										}else if(k.getType().equals("출장")){
+											bgColor="#5CD1E5";
+										}else{
+											bgColor="#FFB2D9";
+										}
+										
 										content=k.getSubject()+"<br> ~"+k.getEnd_date().substring(0, 10);
 										out.print("<td align='center' bgcolor='" + bgColor + "' width='120'><font color='" + fontColor + "'>" + i
 													+"<br>"+ content+"</font></td>");
@@ -158,9 +212,12 @@ td {
 							}
 							out.print("</tr>");
 						%>
-					</table> <br /> <br /> <br /></td>
+					</table> <p id="modify"><a href="" onclick="javascript:window.open('/HanbitGroupware/Schedule?type=list&id=${info.id}', '_blank', 'top=300, left=700, width=700, height=500,resizable=no');">일정 수정</a></p></td>
 			</tr>
 		</tbody>
 	</table>
+	<%
+		}
+	%>
 </body>
 </html>

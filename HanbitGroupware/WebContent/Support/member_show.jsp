@@ -5,6 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	th{
+		background-color: #9ad3de;
+	}
+	td{
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 	<% 

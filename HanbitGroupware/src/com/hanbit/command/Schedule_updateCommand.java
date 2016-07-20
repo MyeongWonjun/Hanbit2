@@ -1,0 +1,35 @@
+package com.hanbit.command;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.hanbit.mybatis.Dao;
+import com.hanbit.vo.VO_schedule;
+
+public class Schedule_updateCommand implements Command {
+	String idx = null;
+	String id = null;
+	public Schedule_updateCommand(String idx, String id) {
+		this.idx = idx;
+		this.id = id;
+	}
+
+	@Override
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		Dao dao = new Dao();
+		VO_schedule vo = new VO_schedule();
+		vo.setIdx(idx);
+		vo.setId(id);
+		vo.setType(request.getParameter("type2"));
+		vo.setSubject(request.getParameter("subject"));
+		vo.setContent(request.getParameter("content"));
+		vo.setStart_date(request.getParameter("start_date"));
+		vo.setEnd_date(request.getParameter("end_date"));
+		dao.updateSchedule(vo);
+		List<VO_schedule> list = dao.scheduleList(id);
+		request.setAttribute("list", list);
+		return "schedule/schedule_list.jsp";
+	}
+}

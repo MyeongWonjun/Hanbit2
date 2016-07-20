@@ -110,6 +110,30 @@ private static SqlSession ss;
 			List<VO_schedule> list = getSql().selectList("schedule", id);
 			return list;
 		}
+		
+	// vacation list
+		public List<VO_schedule> vacationList(){
+			List<VO_schedule> list = getSql().selectList("vacation");
+			return list;
+		}
+		
+	// vacation list
+		public List<VO_schedule> btList(){
+			List<VO_schedule> list = getSql().selectList("bt");
+			return list;
+		}
+	// schedule show
+		public VO_schedule scheduleShow(String idx){
+			VO_schedule sc = getSql().selectOne("schedule_show", idx);
+			return sc;
+		}
+	// schedule update
+		public void updateSchedule(VO_schedule vo){
+			System.out.println(vo.getId());
+			System.out.println(vo.getIdx());
+			getSql().update("schedule_update", vo);
+		}
+
 
 		
 	 public List<VO_board> getBoardList(Map<String, String> map){ 
@@ -121,6 +145,7 @@ private static SqlSession ss;
 			ss.commit();
 			return res;
 	 }
+
 	      
 	
 	 public VO_board getBoardOneList(String b_idx){ 
@@ -136,6 +161,14 @@ private static SqlSession ss;
 		 ss.commit();
 		 return result;
 	 }
+
+	 public VO_employees getsetem(String id) {
+			VO_employees vo_employees= getSql().selectOne("em_one",id);
+			return vo_employees;
+		}
+
+
+
 }
 
 
