@@ -212,7 +212,7 @@ td {
 							}
 							out.print("</tr>");
 						%>
-					</table> <p id="modify">일정 수정</p></td>
+					</table> <p id="modify"><a href="" onclick="javascript:window.open('/HanbitGroupware/Schedule?type=list&id=${info.id}', '_blank', 'top=300, left=700, width=700, height=500,resizable=no');">일정 수정</a></p></td>
 			</tr>
 		</tbody>
 	</table>
