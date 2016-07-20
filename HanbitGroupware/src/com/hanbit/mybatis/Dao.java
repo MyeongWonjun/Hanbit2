@@ -130,14 +130,18 @@ private static SqlSession ss;
 	// schedule update
 		public void updateSchedule(VO_schedule vo){
 			System.out.println(vo.getId());
-			System.out.println(vo.getIdx());
 			getSql().update("schedule_update", vo);
+		}
+	// schedule update
+		public void insertSchedule(VO_schedule vo){
+			getSql().insert("schedule_insert", vo);
 		}
 
 
 		
-	 public List<VO_board> getBoardList(Map<String, String> map){ 
-         List<VO_board> boardList =getSql().selectList("boardList",map);
+	 public static List<VO_board> getBoardList(String board_type){ 
+         List<VO_board> boardList =getSql().selectList("boardList",board_type);
+         System.out.println("dao끝");
          return boardList;
       }
 	 public static int getBoardInsert(VO_board vo){

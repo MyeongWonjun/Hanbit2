@@ -8,12 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.hanbit.mybatis.Dao;
 import com.hanbit.vo.VO_schedule;
 
-public class Schedule_updateCommand implements Command {
+public class Schedule_insertCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		Dao dao = new Dao();
 		VO_schedule vo = new VO_schedule();
-		vo.setIdx(request.getParameter("idx"));
 		vo.setId(request.getParameter("id"));
 		vo.setType(request.getParameter("type2"));
 		vo.setSubject(request.getParameter("subject"));

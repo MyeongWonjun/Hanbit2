@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
 import com.hanbit.command.Schedule_btCommand;
+import com.hanbit.command.Schedule_insertCommand;
 import com.hanbit.command.Schedule_listCommand;
 import com.hanbit.command.Schedule_pCommand;
 import com.hanbit.command.Schedule_showCommand;
@@ -47,7 +48,9 @@ public class ScheduleController extends HttpServlet {
 		}else if(type.equals("show")){
 			comm = new Schedule_showCommand(idx);
 		}else if(type.equals("update")){
-			comm = new Schedule_updateCommand(idx, id);
+			comm = new Schedule_updateCommand();
+		}else if(type.equals("insert")){
+			comm = new Schedule_insertCommand();
 		}
 		
 		path = comm.exec(request, response);
