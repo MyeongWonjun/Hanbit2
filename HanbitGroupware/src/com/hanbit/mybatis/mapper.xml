@@ -54,6 +54,10 @@
 	<select id="vacation" resultType="com.hanbit.vo.VO_schedule">
 		select * from gw_schedule where type='휴가'
 	</select>
+	<!-- bt list -->
+	<select id="bt" resultType="com.hanbit.vo.VO_schedule">
+		select * from gw_schedule where type='출장'
+	</select>
 
 	<select id="p_onelist" resultType="com.hanbit.vo.VO_board" parameterType="String">
 		select * from gw_board  where b_idx = #{b_idx}

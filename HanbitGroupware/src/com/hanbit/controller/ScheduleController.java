@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
+import com.hanbit.command.Schedule_btCommand;
 import com.hanbit.command.Schedule_pCommand;
 import com.hanbit.command.Schedule_vacationCommand;
 
@@ -35,6 +36,8 @@ public class ScheduleController extends HttpServlet {
 			comm = new Schedule_pCommand(id);
 		}else if(type.equals("vacation")){
 			comm = new Schedule_vacationCommand();
+		}else if(type.equals("bt")){
+			comm = new Schedule_btCommand();
 		}
 		
 		path = comm.exec(request, response);
@@ -42,5 +45,4 @@ public class ScheduleController extends HttpServlet {
 		request.setAttribute("month", month);
 		request.getRequestDispatcher(path).forward(request, response);
 	}
-
 }
