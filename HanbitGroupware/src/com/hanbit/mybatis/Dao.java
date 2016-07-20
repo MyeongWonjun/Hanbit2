@@ -105,6 +105,12 @@ private static SqlSession ss;
 			List<VO_schedule> list = getSql().selectList("schedule", id);
 			return list;
 		}
+		
+	// vacation list
+		public List<VO_schedule> vacationList(){
+			List<VO_schedule> list = getSql().selectList("vacation");
+			return list;
+		}
 
 		
 	 public static List<VO_board> getBoardList(String board_type){ 

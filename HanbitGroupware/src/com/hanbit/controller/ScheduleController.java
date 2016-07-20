@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
-import com.hanbit.command.ScheduleCommand;
+import com.hanbit.command.Schedule_pCommand;
+import com.hanbit.command.Schedule_vacationCommand;
 
 @WebServlet("/Schedule")
 public class ScheduleController extends HttpServlet {
@@ -23,12 +24,19 @@ public class ScheduleController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		
 		String type = request.getParameter("type");
-		String path = null;
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
-			
 		String id = request.getParameter("id");
-		Command comm = new ScheduleCommand(id);
+		
+		Command comm = null;
+		String path = null;
+		
+		if(type.equals("personal")){
+			comm = new Schedule_pCommand(id);
+		}else if(type.equals("vacation")){
+			comm = new Schedule_vacationCommand();
+		}
+		
 		path = comm.exec(request, response);
 		request.setAttribute("year", year);
 		request.setAttribute("month", month);

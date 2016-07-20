@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.hanbit.mybatis.Dao;
 import com.hanbit.vo.VO_schedule;
 
-public class ScheduleCommand implements Command {
+public class Schedule_pCommand implements Command {
 	String id = null;
-	public ScheduleCommand(String id) {
+	public Schedule_pCommand(String id) {
 		this.id = id;
 	}
 

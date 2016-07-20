@@ -50,6 +50,10 @@
 	<select id="schedule" parameterType="String" resultType="com.hanbit.vo.VO_schedule">
 		select * from gw_schedule where id=#{id} order by start_date
 	</select>
+	<!-- vacation list -->
+	<select id="vacation" resultType="com.hanbit.vo.VO_schedule">
+		select * from gw_schedule where type='휴가'
+	</select>
 
 	<select id="p_onelist" resultType="com.hanbit.vo.VO_board" parameterType="String">
 		select * from gw_board  where b_idx = #{b_idx}
