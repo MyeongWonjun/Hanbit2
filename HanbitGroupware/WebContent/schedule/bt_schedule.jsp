@@ -113,17 +113,17 @@ td {
 					<h2 align="center">스케쥴</h2>
 					<ul class="tab_vertical">
 						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}">개인일정</a></li>
-						<li class="tab-title"><a href="#">출장</a></li>
-						<li class="tab-title" style="background-color: #9ad3de;"><a href="/HanbitGroupware/Schedule?type=vacation">연차</a></li>
+						<li class="tab-title" style="background-color: #9ad3de;"><a href="/HanbitGroupware/Schedule?type=bt">출장</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=vacation">연차</a></li>
 					</ul>
 				</td>
 				<td><table align="center" width="800" height="50"
 						cellpadding="2" cellspacing="1">
 						<tr>
 							<td align="center"><a
- 								href="/HanbitGroupware/Schedule?type=vacation&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
+ 								href="/HanbitGroupware/Schedule?type=bt&year=<%=preYear%>&month=<%=preMonth%>">◀</a>
  								<b>&nbsp;<%=year%>년&nbsp;&nbsp;<%=month%>월
- 							</b> <a href="/HanbitGroupware/Schedule?type=vacation&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
+ 							</b> <a href="/HanbitGroupware/Schedule?type=bt&year=<%=nextYear%>&month=<%=nextMonth%>">▶</a>
  							</td>
 						</tr>
 					</table> <!-- 달력표시 -->

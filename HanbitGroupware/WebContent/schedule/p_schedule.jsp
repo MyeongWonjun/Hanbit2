@@ -112,9 +112,9 @@ td {
 				<td width="200px" valign="top">
 					<h2 align="center">스케쥴</h2>
 					<ul class="tab_vertical">
-						<li class="tab-title" style="background-color: #9ad3de;"><a href="#">개인일정</a></li>
+						<li class="tab-title" style="background-color: #9ad3de;"><a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}">개인일정</a></li>
 						<li class="tab-title"><a href="#">출장</a></li>
-						<li class="tab-title"><a href="#">연차</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=vacation">연차</a></li>
 					</ul>
 				</td>
 				<td><table align="center" width="800" height="50"
