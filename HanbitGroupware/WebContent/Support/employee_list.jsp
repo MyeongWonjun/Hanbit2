@@ -182,7 +182,6 @@ table tfoot ol.paging li a:hover {
 									<td class="grade">직급</td>
 								</tr>
 							</thead>
-
 							<tbody>
 								<c:if test="${empty list}">
 									<tr>
