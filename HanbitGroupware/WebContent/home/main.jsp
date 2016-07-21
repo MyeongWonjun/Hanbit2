@@ -23,17 +23,10 @@
       <tbody>
          <tr>
             <td width="200px">사이드바</td>
-            <td>${info.id}<br>
-            	${info.pwd}<br>
-            	${info.name}<br>
-            	${info.email_addr}<br>
-            	${info.phone}<br>
-            	${info.job_id}<br>
-            	${info.salary}<br>
-            	${info.department_name}<br>
-            	${info.manager_id}<br>
-            	${info.hire_date.substring(0,10)}<br>
-            	${info.grade}
+            <td>
+            	<div id="email">
+            		
+            	</div>
             </td>
          </tr>
       </tbody>

@@ -1,14 +1,15 @@
 package com.hanbit.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/HomeController")
+import com.hanbit.command.Command;
+
+@WebServlet("/Home")
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,6 +25,15 @@ public class HomeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("TEXT/HTML;CHARSET=UTF-8");
 		
+		String type = request.getParameter("type");
+		String path = null;
+		Command comm = null;
+		
+		if(type.equals("main")){
+			comm = new HomeCommand();
+		}
+		path = comm.exec(request, response);
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }
