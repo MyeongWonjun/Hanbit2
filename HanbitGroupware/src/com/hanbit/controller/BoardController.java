@@ -1,14 +1,18 @@
 package com.hanbit.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hanbit.command.Board_ViewCommand;
+import com.hanbit.command.Board_CommentCommand;
+import com.hanbit.command.Board_CommentDelCommand;
 import com.hanbit.command.Board_Del_Command;
 import com.hanbit.command.Board_ListCommand;
 import com.hanbit.command.Board_Modi_Command;
@@ -47,6 +51,10 @@ private static final long serialVersionUID = 1L;
 			comm = new Board_Modi_Command();
 		}else if(type.equals("boardUpdate")){
 			comm = new Board_UpCommand();
+		}else if(type.equals("boardComment")){
+			comm = new Board_CommentCommand();
+		}else if(type.equals("boardComment_del")){
+			comm = new Board_CommentDelCommand();
 		}
 		
 		

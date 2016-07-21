@@ -27,7 +27,6 @@
 	<select id="totalCount" parameterType="String" resultType="int">
 		select count(*) from gw_board where board_type=#{board_type}
 	</select>
-	
 	<select id="boardList" parameterType="Map" resultType="com.hanbit.vo.VO_board">
 		<!-- select * from gw_board where board_type = #{board_type} -->
 		select * from ( 
@@ -48,6 +47,12 @@
 	<update id="boardUp" parameterType="com.hanbit.vo.VO_board" >
 		update gw_board set subject=#{subject}, content=#{content}, board_file=#{board_file} where b_idx = #{b_idx}
 	</update>
+	<select id="c_list" parameterType="String" resultType="com.hanbit.vo.VO_boardComment">
+		select * from gw_comment where b_idx=#{b_idx} order by c_idx desc
+	</select>
+	<insert id="commentInsert" parameterType="com.hanbit.vo.VO_boardComment">
+		insert into gw_comment values (gw_comment_seq.nextval, #{name}, #{content}, sysdate, #{b_idx})
+	</insert>
 	
 	
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">

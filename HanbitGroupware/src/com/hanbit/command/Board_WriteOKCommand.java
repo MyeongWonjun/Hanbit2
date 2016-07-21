@@ -30,13 +30,12 @@ public class Board_WriteOKCommand implements Command{
 				//System.out.println("제목"+mr.getParameter("subject"));
 				bvo.setBoard_type(mr.getParameter("board_type"));
 				String board_type = bvo.getBoard_type();
-				System.out.println("커맨드"+bvo.getBoard_type());
 				bvo.setSubject(mr.getParameter("subject"));
 				bvo.setName(mr.getParameter("name"));
 				bvo.setContent(mr.getParameter("content"));
 				
-				System.out.println("OK커맨드");
-				System.out.println(bvo.getName());
+				/*System.out.println("OK커맨드");
+				System.out.println(bvo.getName());*/
 				// 파일처리
 				if(mr.getFile("board_file") != null){
 					bvo.setBoard_file(mr.getFilesystemName("board_file"));

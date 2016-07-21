@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function start() {
-		location.href="/HanbitGroupware/BoardController?type=boardList&board_type=자유";
+		location.href="/HanbitGroupware/BoardController?type=boardList&board_type=자유게시판";
 		  
 		}
 	

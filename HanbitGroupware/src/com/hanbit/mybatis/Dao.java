@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.hanbit.vo.VO_board;
+import com.hanbit.vo.VO_boardComment;
 import com.hanbit.vo.VO_email;
 import com.hanbit.vo.VO_employees;
 import com.hanbit.vo.VO_schedule;
@@ -141,31 +142,42 @@ private static SqlSession ss;
 
 
 		
+		// board
 		public List<VO_board> getBoardList(Map<String, String> map){ 
 	         List<VO_board> boardList =getSql().selectList("boardList",map);
 	         return boardList;
 	      }
-	 public static int getBoardInsert(VO_board vo){
-			int res = getSql().insert("boardInsert", vo);
+		public static int getBoardInsert(VO_board vo){
+				int res = getSql().insert("boardInsert", vo);
+				ss.commit();
+				return res;
+		 }
+		public VO_board getBoardOneList(String b_idx){ 
+	         VO_board vo =getSql().selectOne("boardOneList",b_idx);
+	         return vo;
+	      }
+		public void getBoardDel(String b_idx){ 
+			 getSql().delete("boardDel",b_idx);
+			 ss.commit();
+		 }
+		public static int getBoardUpdate(VO_board vo){ 
+			 int result = getSql().update("boardUp", vo);
+			 ss.commit();
+			 return result;
+		 }
+		
+		//board comment
+		public static List<VO_boardComment> getCommentList(String b_idx){
+			List<VO_boardComment> c_list = getSql().selectList("c_list",b_idx);
+			return c_list;
+		}
+		public static int getCommentInsert(VO_boardComment cvo){
+			int res = getSql().insert("commentInsert", cvo);
 			ss.commit();
 			return res;
-	 }
-
-	      
+		}
+		
 	
-	 public VO_board getBoardOneList(String b_idx){ 
-         VO_board vo =getSql().selectOne("boardOneList",b_idx);
-         return vo;
-      }
-	 public void getBoardDel(String b_idx){ 
-		 getSql().delete("boardDel",b_idx);
-		 ss.commit();
-	 }
-	 public static int getBoardUpdate(VO_board vo){ 
-		 int result = getSql().update("boardUp", vo);
-		 ss.commit();
-		 return result;
-	 }
 
 	 public VO_employees getsetem(String id) {
 			VO_employees vo_employees= getSql().selectOne("em_one",id);

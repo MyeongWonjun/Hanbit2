@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -71,15 +72,16 @@
 	function delete_go(f) {
 		var ck = confirm("삭제하시겠습니까?");
 		if (ck) {
+
 			f.action="/HanbitGroupware/BoardController?type=boardDel";
 		}else{
-			f.action= "/HanbitGroupware/BoardController?type=boardList&board_type="+vo.getBoard_type;
+			f.action= "/HanbitGroupware/BoardController?type=boardList&board_type=${vo.getBoard_type()}";
 		}
 		f.submit();
 	}
-	function list_go() {
-		location.href = "/HanbitGroupware/BoardController?type=boardList&board_type="+vo.getBoard_type;
-		
+	function list_go(f) {
+		location.href = "/HanbitGroupware/BoardController?type=boardList&board_type=${vo.getBoard_type()}";
+	
 	}
 </script>
 
@@ -145,13 +147,63 @@
 											&nbsp;&nbsp;&nbsp;&nbsp; 
 											<input type="button" value="수정" onclick="modify_go(this.form)"/>
 											<input type="button" value="삭제" onclick="delete_go(this.form)"/>
-											<input type="button" value="목록" onclick="list_go()"/>
+											<input type="button" value="목록" onclick="list_go(this.form)"/>
 				   							<input type="hidden" name="b_idx" value="${vo.b_idx}" /> 
 										</td>
 									</tr>
 								</tfoot>
 							</table>
 						</form>
+						<hr/> 
+						<p style="color: #89bdd3">&nbsp;&nbsp;&nbsp;&nbsp;댓글</p>
+						<div>
+							<table border="1">
+								<c:forEach items="${c_list }" var="k">
+								<tr>
+									<td>${k.name }</td>
+									<td>${k.content }</td>
+									<td>${k.write_date.substring(0,16) }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<c:if test="${info.name == k.name.substring(0,3) }">
+									<input type="button" value="삭제" onclick="location.href='/HanbitGroupware/BoardController?type=boardComment_del'" /> 
+									</c:if>
+									<input type="hidden" name="c_idx" value="${k.c_idx }"/>
+									</td>
+								</tr>
+								</c:forEach>
+							</table>
+
+						</div>
+						<p style="color: #89bdd3">&nbsp;&nbsp;&nbsp;&nbsp;댓글달기</p>
+						<div>
+							<form method="post"
+								action="/HanbitGroupware//BoardController?type=boardComment">
+								<table>
+									<tr>
+										<th>이름</th>
+										<td>${info.name}(${info.id})
+										<input type="hidden" name="name" size="12" value="${info.name}(${info.id})" /></td>
+									
+										<th>내용</th>
+										<td>
+										<textarea id="content" name="content" cols="50" rows="1"></textarea> 
+										<input type="hidden" name="b_idx"value="${vo.b_idx}">
+										</td>
+									</tr>
+									<tr >
+										<td colspan="4" align="center">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; 
+											<input type="submit" value="댓글 저장" />
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
 					</div>
 
 

@@ -130,8 +130,8 @@ li a.active {
 		<li id="menu">
 			<a href="#board" id="menu_drop">Board</a>
 			<div id="drop_content">
-				<a href="/HanbitGroupware/BoardController?type=boardList&board_type=공지">공지사항</a>
-				<a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유">자유게시판</a>
+				<a href="/HanbitGroupware/BoardController?type=boardList&board_type=공지사항">공지사항</a>
+				<a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유게시판">자유게시판</a>
 			</div>
 		</li>
 		<li id="menu">

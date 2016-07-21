@@ -148,7 +148,7 @@ table tfoot ol.paging li a:hover {
 				<td>
 					<div id="bbs" align="center">
 						<table summary="게시판 목록">
-							<caption class="name">자유게시판${board_type }</caption>
+							<caption class="name">${board_type }</caption>
 							<br />
 							<thead style="outline: none;">
 								<tr class="title">
@@ -168,7 +168,7 @@ table tfoot ol.paging li a:hover {
 								<c:if test="${!empty boardList}">
 									<c:forEach items="${boardList}" var="k" varStatus="status">
 										<tr>
-											<td>${k.b_idx}</td>
+											<td>${boardList.size()-status.count+1}</td>
 											<%-- <td><a
 												href="/HanbitGroupware/BoardController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> --%>
 											<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
@@ -183,12 +183,9 @@ table tfoot ol.paging li a:hover {
 							</tbody>
 							<tfoot>
 								<tr>
-									<!-- style="background-color: #89bdd3; color: white;" -->
-									<!-- <td><input type="button" value="글쓰기"
-										onclick="javascript:window.open('board_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')" /></td> -->
 									<td>
-										<input type="button" value="글쓰기 ${board_type }" onclick="location.href='/HanbitGroupware/BoardController?type=boardWrite'"/>
-										<input type="hidden" name="board_type" value="${board_type }" />
+										<input type="button" value="글쓰기" onclick="location.href='/HanbitGroupware/BoardController?type=boardWrite&board_type=${board_type}'"/>
+										
 									</td>
 									<td colspan="5" align="center">
 										<ol class="paging">
@@ -199,10 +196,9 @@ table tfoot ol.paging li a:hover {
 												</c:when>
 												<c:otherwise>
 													<li><a
-														href="/HanbitGroupware/BoardController?type=boardList&board_type=자유&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
+														href="/HanbitGroupware/BoardController?type=boardList&board_type=${board_type }&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
 												</c:otherwise>
 											</c:choose>
-
 											<c:forEach var="k" begin="${pvo.beginPage}"
 												end="${pvo.endPage}" step="1">
 												<c:choose>
@@ -211,7 +207,7 @@ table tfoot ol.paging li a:hover {
 													</c:when>
 													<c:otherwise>
 														<li><a
-															href="/HanbitGroupware/BoardController?type=boardList&board_type=자유&cPage=${k}">${k}</a></li>
+															href="/HanbitGroupware/BoardController?type=boardList&board_type=${board_type }&cPage=${k}">${k}</a></li>
 													</c:otherwise>
 												</c:choose>
 											</c:forEach>
@@ -220,131 +216,29 @@ table tfoot ol.paging li a:hover {
 													<li class="disable">다음으로${pvo.endPage }</li>
 												</c:when>
 												<c:otherwise>
-													<li><a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로${cPage}</a>
+													<li><a href="/HanbitGroupware/BoardController?type=boardList&board_type=${board_type }&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로${cPage}</a>
 													</li>
 												</c:otherwise>
 											</c:choose>
 										</ol>
 									</td>
-									<!-- <td>
-						<input type="button" value="글쓰기" onclick="javascript:location.href='/0625_jsp_MVC_BBS/MyController?type=write'"/>
-					</td> -->
 								</tr>
 							</tfoot>
 						</table>
 						<br />
 						<br />
 						<div align="center">
-
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<select name="search">
 								<option>제목</option>
 								<option>작성자</option>
 							</select> <input type="text" id="search_what"> 
 							<input type="button" value="검색">
-							
-
 						</div>
 						</div>
-						
 				</td>
 			</tr>
 		</tbody>	
 	</table>
-
-
-
-
-	<%-- <h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게시판</h2>
-	<ul class="tab_vertical" d >
-		<li class="tab-title"><a href=# >공지사항</a></li>
-		<li class="tab-title"><a href=#>자유게시판</a></li>
-	</ul>
-	<div id="bbs" align="center">
-		<table summary="게시판 목록">
-			<caption class="name">자유게시판</caption>
-			<br/>
-			<thead style="outline: none;">
-				<tr class="title">
-					<th class="no">NO</th>
-					<th class="subject">제목</th>
-					<th class="writer">작성자</th>
-					<th class="reg">작성일</th>
-					<th class="hit">조회수</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:if test="${empty list}">
-				  <tr><td colspan="5"> 현재 등록된 자료가 없음 </td></tr>
-				</c:if>
-				<c:if test="${!empty list}">
-					<c:forEach items="${list}" var="k">
-						<tr>
-							<td>${k.b_idx}</td>
-							<td><a href="/0625_jsp_MVC_BBS/MyController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td>
-							<td>${k.writer}</td>
-							<td>${k.write_date.substring(0,10)}</td>
-							<td>${k.hit}</td>
-						</tr>
-					</c:forEach>
-				</c:if>
-			</tbody> 
-			<tfoot >
-				<tr>
-				<!-- style="background-color: #89bdd3; color: white;" -->
-				<td><input type="button" value="글쓰기"  
-					onclick="javascript:window.open('board_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')"/></td>
-					<td colspan="5" align="center">
-						<ol class="paging">
-						<!--  이전버튼 은 beginPage가 pagePerBlock보다 작으면 비활성화 -->
-						<c:choose>
-							<c:when test="${pvo.beginPage < pvo.pagePerBlock}">
-								  <li class="disable">이전으로</li>
-							</c:when>
-							<c:otherwise>
-							 <li><a href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage-pvo.pagePerBlock }">이전으로</a></li>
-							</c:otherwise>
-						</c:choose>
-						
-						<c:forEach var="k" begin="${pvo.beginPage}" end="${pvo.endPage}" step="1">
-							<c:choose>
-								<c:when test="${k==pvo.nowPage}">
-									<li class="now">${k}</li>
-								</c:when>
-								<c:otherwise>
-									<li><a href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${k}">${k}</a></li>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						<c:choose>
-							<c:when test="${pvo.endPage>=pvo.totalPage}">
-								  <li class="disable">다음으로</li>
-							</c:when>
-							<c:otherwise>
-								 <li><a href="/0625_jsp_MVC_BBS/MyController?type=list&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로</a></li>
-							</c:otherwise>
-						</c:choose>
-						</ol>
-					</td>
-					<!-- <td>
-						<input type="button" value="글쓰기" onclick="javascript:location.href='/0625_jsp_MVC_BBS/MyController?type=write'"/>
-					</td> -->
-				</tr>
-			</tfoot>
-		</table>
-				<br/><br/>
-		<div align="center">
-			
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<select name="search">
-				<option>제목</option>
-				<option>작성자</option>
-			</select>
-			
-			<input type="text" id="search_what">
-			<input type="button" value="검색" >
-	 	
-		</div>
-	</div> --%>
 </body>
 </html>

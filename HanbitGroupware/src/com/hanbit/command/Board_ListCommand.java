@@ -62,6 +62,7 @@ public class Board_ListCommand implements Command {
 			 request.setAttribute("pvo", pvo);
 		     request.setAttribute("cPage", cPage);
 		     request.setAttribute("board_type", board_type);
+		    
 		return "/board_notice/board_free.jsp";
 	}
 }
