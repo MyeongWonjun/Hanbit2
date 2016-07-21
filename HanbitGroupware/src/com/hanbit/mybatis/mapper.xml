@@ -91,7 +91,7 @@
 	</update>
 	<!-- schedule insert -->
 	<insert id="schedule_insert" parameterType="com.hanbit.vo.VO_schedule">
-		insert into gw_schedule values(schedule_seq.nextval,#{type},#{id},#{subject},#{content},#{start_date},#{end_date});
+		insert into gw_schedule values(schedule_seq.nextval,#{type},#{id},#{subject},#{content},#{start_date},#{end_date})
 	</insert>
 
 	<select id="p_onelist" resultType="com.hanbit.vo.VO_board" parameterType="String">

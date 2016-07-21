@@ -19,7 +19,7 @@ public class Schedule_insertCommand implements Command {
 		vo.setContent(request.getParameter("content"));
 		vo.setStart_date(request.getParameter("start_date"));
 		vo.setEnd_date(request.getParameter("end_date"));
-		dao.updateSchedule(vo);
+		dao.insertSchedule(vo);
 		List<VO_schedule> list = dao.scheduleList(request.getParameter("id"));
 		request.setAttribute("list", list);
 		return "schedule/schedule_list.jsp";
