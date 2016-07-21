@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
-import com.hanbit.command.GetEmailListCommand;
-import com.hanbit.command.WriteEmailCommand;
 import com.hanbit.command.p_DeleteCommand;
 import com.hanbit.command.p_ListCommand;
 import com.hanbit.command.p_ModifyCommand;
