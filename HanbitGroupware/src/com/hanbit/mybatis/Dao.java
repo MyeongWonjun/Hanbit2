@@ -21,18 +21,39 @@ private static SqlSession ss;
 		}
 		return ss;
 	}
-	// totalCount(pageing)
-	public static int getTotalCount(String board_type){
-		int count = getSql().selectOne("totalCount",board_type);
-		return count;
-	}
+	// paging
+		public static int getTotalCount(String email_addr){
+			int count = getSql().selectOne("totalCount", email_addr);
+			return count;
+		}
+		
+		public static int getTotalCount2(String email_addr){
+			int count = getSql().selectOne("totalCount2", email_addr);
+			return count;
+		}
+		
+		public static int getTotalCount3(String email_addr){
+			int count = getSql().selectOne("totalCount3", email_addr);
+			return count;
+		}
+		
+		public static int getTotalCount4(String email_addr){
+			int count = getSql().selectOne("totalCount4", email_addr);
+			return count;
+		}
+		public static int getTotalCount5(Map<String, String> map){
+			int count = getSql().selectOne("totalCount5", map);
+			return count;
+		}
 	
 	// login
 	public VO_employees getLogin(String id, String pwd){
 		Map<String, String> map = new HashMap<>();
 		map.put("id", id);
 		map.put("pwd", pwd);
+		System.out.println(id+"/"+pwd);
 		VO_employees vo_employees = getSql().selectOne("loginList", map);
+		System.out.println("Here!");
 		return vo_employees;
 	}
 
@@ -217,6 +238,11 @@ private static SqlSession ss;
 		 List<VO_board> list = getSql().selectList("homeNotice");
 		 return list;
 	 }
+	 
+	 public List<VO_email> getHomeEmail(String email_addr){
+			List<VO_email> list = getSql().selectList("getHomeEmail", email_addr);
+			return list;
+		}
 
 
 
