@@ -53,6 +53,9 @@
 	<insert id="commentInsert" parameterType="com.hanbit.vo.VO_boardComment">
 		insert into gw_comment values (gw_comment_seq.nextval, #{name}, #{content}, sysdate, #{b_idx})
 	</insert>
+	<delete id="commentDel" parameterType="String">
+		delete from gw_comment where c_idx=#{idx}
+	</delete>
 	
 	
 	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
@@ -113,5 +116,10 @@
 	</select>
 	<select id="em_one" resultType="com.hanbit.vo.VO_employees" parameterType="String">
 		select * from gw_member where id = #{id} 
+	</select>
+	
+	<!-- Home -->
+	<select id="homeNotice" resultType="com.hanbit.vo.VO_board">
+		select * from gw_board where board_type='공지사항' order by b_idx
 	</select>
 </mapper>

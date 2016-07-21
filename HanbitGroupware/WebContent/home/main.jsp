@@ -14,7 +14,6 @@
 </head>
 <body>
 <table border="1" align="center">
-
       <thead>
          <tr>
             <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
@@ -24,8 +23,30 @@
          <tr>
             <td width="200px">사이드바</td>
             <td>
-            	<div id="email">
-            		
+            	<div id="notice">
+            		<table border="1">
+		<thead>
+			<tr>
+				<th>번호</th> <th>제목</th> <th>작성일</th> 
+			</tr>
+		</thead>
+		<tbody>
+			<c:if test="${empty noticeList}">
+				<tr>
+					<td colspan="9">공지사항이 없습니다.</td>
+				</tr>
+			</c:if>
+			<c:if test="${!empty noticeList}">
+				<c:forEach var="k" items="${noticeList}">
+					<tr>
+						<td>${k.b_idx}</td>
+						<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
+						<td>${k.regdate.substring(0,10)}</td>
+					</tr>
+				</c:forEach>
+			</c:if>
+		</tbody>
+	</table>
             	</div>
             </td>
          </tr>
