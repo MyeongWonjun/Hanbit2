@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -147,7 +148,7 @@ table tfoot ol.paging li a:hover {
 				<td>
 					<div id="bbs" align="center">
 						<table summary="게시판 목록">
-							<caption class="name">자유게시판</caption>
+							<caption class="name">자유게시판${board_type }</caption>
 							<br />
 							<thead style="outline: none;">
 								<tr class="title">
@@ -186,8 +187,8 @@ table tfoot ol.paging li a:hover {
 									<!-- <td><input type="button" value="글쓰기"
 										onclick="javascript:window.open('board_write.jsp','_blank','width=800, height=600, left=300, top=100, menubar=no, status=no, toolbar=no')" /></td> -->
 									<td>
-										<input type="button" value="글쓰기" onclick="location.href='/HanbitGroupware/BoardController?type=boardWrite'"/>
-										
+										<input type="button" value="글쓰기 ${board_type }" onclick="location.href='/HanbitGroupware/BoardController?type=boardWrite'"/>
+										<input type="hidden" name="board_type" value="${board_type }" />
 									</td>
 									<td colspan="5" align="center">
 										<ol class="paging">

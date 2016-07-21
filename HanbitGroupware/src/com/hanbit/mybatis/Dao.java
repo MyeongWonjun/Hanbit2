@@ -141,11 +141,10 @@ private static SqlSession ss;
 
 
 		
-	 public static List<VO_board> getBoardList(String board_type){ 
-         List<VO_board> boardList =getSql().selectList("boardList",board_type);
-         System.out.println("dao끝");
-         return boardList;
-      }
+		public List<VO_board> getBoardList(Map<String, String> map){ 
+	         List<VO_board> boardList =getSql().selectList("boardList",map);
+	         return boardList;
+	      }
 	 public static int getBoardInsert(VO_board vo){
 			int res = getSql().insert("boardInsert", vo);
 			ss.commit();

@@ -17,7 +17,6 @@ public class Board_ListCommand implements Command {
 	@Override  
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String board_type = request.getParameter("board_type");
-		System.out.println("보드타입"+board_type);
 		Dao dao = new Dao();
 		pvo = new Pageing();
 		
@@ -62,7 +61,7 @@ public class Board_ListCommand implements Command {
 			// list.jsp에서 페이징 처리할때 필요하므로
 			 request.setAttribute("pvo", pvo);
 		     request.setAttribute("cPage", cPage);
-		     
+		     request.setAttribute("board_type", board_type);
 		return "/board_notice/board_free.jsp";
 	}
 }
