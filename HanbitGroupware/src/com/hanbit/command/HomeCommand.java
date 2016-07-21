@@ -5,17 +5,27 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.Session;
+
 import com.hanbit.mybatis.Dao;
 import com.hanbit.vo.VO_board;
+import com.hanbit.vo.VO_email;
 
 public class HomeCommand implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		Dao dao = new Dao();
+		
+		// 공지사항 불러오기
 		List<VO_board> noticeList = dao.getHomeNotice();
-		System.out.println(noticeList.isEmpty());
+		
+		// 이메일 불러오기
+		String email_addr = request.getParameter("email_addr");
+		List<VO_email> emailList = dao.getEmailList(email_addr);
+		
 		request.setAttribute("noticeList", noticeList);
+		request.setAttribute("emailList", emailList);
 		return "/home/main.jsp";
 	}
 

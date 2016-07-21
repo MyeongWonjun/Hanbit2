@@ -8,10 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="1">
+	<a href="http://localhost:8090/HanbitGroupware/BoardController?type=boardList&board_type=%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD" style="text-decoration: none;">>>공지사항 전체보기</a>
+	<table>
 		<thead>
 			<tr>
-				<th>번호</th> <th>제목</th> <th>작성일</th> 
+				<th>번호</th> <th width="300">제목</th> <th width="100">작성일</th> 
 			</tr>
 		</thead>
 		<tbody>
@@ -22,9 +23,9 @@
 			</c:if>
 			<c:if test="${!empty noticeList}">
 				<c:forEach var="k" items="${noticeList}" begin="1" end="5">
-					<tr>
-						<td>${k.sender_addr}</td>
-						<td><a href="#">${k.subject}</a></td>
+					<tr align="center">
+						<td>${k.b_idx}</td>
+						<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
 						<td>${k.regdate.substring(0,10)}</td>
 					</tr>
 				</c:forEach>

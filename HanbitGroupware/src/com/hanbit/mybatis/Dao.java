@@ -55,22 +55,51 @@ private static SqlSession ss;
 			return list;
 		}
 	
-	// GetEmail list
-		public List<VO_email> getEmailList(String email_addr){
-			List<VO_email> list = getSql().selectList("getEmailList", email_addr);
-			return list;
-		}
-	// email write
-		public void writeEmail(VO_email vo_email){
-			getSql().insert("writeEmail", vo_email);
-			getSql().commit();
-		}
-	// email oneList
-		public VO_email getEmailOneList(String idx){
-			VO_email vo_email = new VO_email();
-			vo_email = getSql().selectOne("getEmailOneList", idx);
-			return vo_email;
-		}
+		// GetEmail list
+				public static List<VO_email> getEmailList(Map<String, String> map){
+					List<VO_email> list = getSql().selectList("getEmailList", map);
+					return list;
+				}
+			// email write
+				public void writeEmail(VO_email vo_email){
+					getSql().insert("writeEmail", vo_email);
+					getSql().commit();
+				}
+			// email oneList
+				public VO_email getEmailOneList(String idx){
+					VO_email vo_email = new VO_email();
+					vo_email = getSql().selectOne("getEmailOneList", idx);
+					return vo_email;
+				}
+			// email send list
+				public static List<VO_email> getSendEmailList(Map<String, String> map){
+					List<VO_email> list = getSql().selectList("sendEmailList", map);
+					return list;
+				}
+				public static List<VO_email> getSendMEEmailList(Map<String, String> map){
+					List<VO_email> list = getSql().selectList("sendMEEmailList", map);
+					return list;
+				}
+				public static List<VO_email> getAllEmailList(Map<String, String> map){
+					List<VO_email> list = getSql().selectList("getAllEmailList", map);
+					return list;
+				}
+			// email search list
+				public static List<VO_email> getsearchEmailList(Map<String, String> map){
+					List<VO_email> list = getSql().selectList("searchEmailList", map);
+					return list;
+				}
+			
+			// email delete
+				public void getDelete(String idx){
+					getSql().delete("emailDelete", idx);
+					getSql().commit();
+				}
+			// email answer
+				public VO_email getAnswer(String idx){
+					VO_email vo_email = getSql().selectOne("emailAnswer", idx);
+					return vo_email;
+				}
 		
 
 		//공용문서함 list 가져오기

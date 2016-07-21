@@ -24,29 +24,10 @@
             <td width="200px">사이드바</td>
             <td>
             	<div id="notice">
-            		<table border="1">
-		<thead>
-			<tr>
-				<th>번호</th> <th>제목</th> <th>작성일</th> 
-			</tr>
-		</thead>
-		<tbody>
-			<c:if test="${empty noticeList}">
-				<tr>
-					<td colspan="9">공지사항이 없습니다.</td>
-				</tr>
-			</c:if>
-			<c:if test="${!empty noticeList}">
-				<c:forEach var="k" items="${noticeList}">
-					<tr>
-						<td>${k.b_idx}</td>
-						<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
-						<td>${k.regdate.substring(0,10)}</td>
-					</tr>
-				</c:forEach>
-			</c:if>
-		</tbody>
-	</table>
+            		<jsp:include page="/home/notice.jsp" />
+            	</div>
+            	<div id="email">
+            		<jsp:include page="/home/email.jsp" />
             	</div>
             </td>
          </tr>

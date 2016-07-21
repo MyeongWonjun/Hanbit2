@@ -16,12 +16,81 @@
 		select * from gw_member where ${type}=#{content} order by id
 	</select>
 	
-	<select id="getEmailList" resultType="com.hanbit.vo.VO_email" parameterType="String">
-		select * from gw_email where email_addr = #{email_addr} order by regdate desc
+	<select id="totalCount" resultType="int" parameterType="String">
+		select count(*) from gw_email where sender_addr = #{email_addr} or email_addr = #{email_addr}
+	</select>
+	
+	<select id="totalCount2" resultType="int" parameterType="String">
+		select count(*) from gw_email where email_addr = #{email_addr}
+	</select>
+	
+	<select id="totalCount3" resultType="int" parameterType="String">
+		select count(*) from gw_email where sender_addr = #{email_addr}
+	</select>
+	
+	<select id="totalCount4" resultType="int" parameterType="String">
+		select count(*) from gw_email where sender_addr = #{email_addr} and email_addr = #{email_addr}
+	</select>
+	
+	<select id="totalCount5" resultType="int" parameterType="Map">
+		select count(*) from 
+		(select * from gw_email where email_addr = '${email_addr}' or sender_addr = '${email_addr}') 
+		where email_addr like '%${search}%' or sender_addr like '%${search}%' or subject like '%${search}%'
+	</select>
+	
+	<select id="getAllEmailList" parameterType="Map" resultType="com.hanbit.vo.VO_email">
+		select * from (
+			select rownum r_num, a.* from (
+				select * from gw_email where sender_addr = #{email_addr} or email_addr = #{email_addr} order by regdate desc
+			) a
+		) where r_num between #{begin} and #{end}
+	</select>
+	
+	<select id="getEmailList" resultType="com.hanbit.vo.VO_email" parameterType="Map">
+		select * from (
+			select rownum r_num, a.* from (
+				select * from gw_email where email_addr = #{email_addr} order by regdate desc
+			) a
+		) where r_num between #{begin} and #{end}
 	</select>
 	<insert id="writeEmail" parameterType="com.hanbit.vo.VO_email">
-		insert into gw_email values(gw_email_seq.nextval, #{email_addr}, #{receiver}, #{subject}, #{content}, RAWTOHEX(#{email_file}), sysdate, #{real_file})
+		insert into gw_email values(gw_email_seq.nextval, #{sender_addr}, #{receiver}, #{subject}, #{content}, RAWTOHEX(#{email_file}), sysdate, #{real_file})
 	</insert>
+	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
+		select * from gw_email where idx = #{idx} 
+	</select>
+	<select id="sendEmailList" resultType="com.hanbit.vo.VO_email" parameterType="Map">
+		select * from (
+			select rownum r_num, a.* from (
+				select * from gw_email where sender_addr = #{email_addr} order by regdate desc
+			) a
+		) where r_num between #{begin} and #{end}
+	</select>
+	<select id="sendMEEmailList" resultType="com.hanbit.vo.VO_email" parameterType="Map">
+		select * from (
+			select rownum r_num, a.* from (
+				select * from gw_email where sender_addr = #{email_addr} and email_addr = #{email_addr} order by regdate desc
+			) a
+		) where r_num between #{begin} and #{end}
+	</select>
+	
+	<delete id="emailDelete" parameterType="String">
+		delete from gw_email where idx = #{idx}
+	</delete>
+	<select id="emailAnswer" parameterType="String" resultType="com.hanbit.vo.VO_email">
+		select * from gw_email where idx = #{idx}
+	</select>
+	
+	<select id="searchEmailList" parameterType="Map" resultType="com.hanbit.vo.VO_email">
+	<!-- allList중에서 검색한 문자와 비슷한 문자를 출력하기 -->
+		select * from ( 
+			select rownum r_num, a.* from ( 
+				select * from 
+					(select * from gw_email where email_addr = '${email_addr}' or sender_addr = '${email_addr}') 
+						where email_addr like '%${search}%' or sender_addr like '%${search}%' or subject like '%${search}%' order by regdate desc 
+			) a 
+		) where r_num between #{begin} and #{end}
+	</select>
 
 	<!-- board -->
 	<select id="totalCount" parameterType="String" resultType="int">

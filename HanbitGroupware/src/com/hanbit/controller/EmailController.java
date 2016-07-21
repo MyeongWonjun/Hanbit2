@@ -9,8 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
+import com.hanbit.command.GetAllEmailListCommand;
+import com.hanbit.command.GetAnswerCommand;
+import com.hanbit.command.GetAnswerCommand2;
+import com.hanbit.command.GetDeleteCommand;
+import com.hanbit.command.GetDeleteCommand2;
 import com.hanbit.command.GetEmailListCommand;
 import com.hanbit.command.GetEmailOneListCommand;
+import com.hanbit.command.GetSearchEmailListCommand;
+import com.hanbit.command.GetSendEmailListCommand;
+import com.hanbit.command.GetSendMEEmailListCommand;
 import com.hanbit.command.WriteEmailCommand;
 
 @WebServlet("/Email")
@@ -37,6 +45,30 @@ public class EmailController extends HttpServlet {
 		}
 		if(type.equals("email_oneList")){
 			comm = new GetEmailOneListCommand();
+		}
+		if(type.equals("getSendEmailList")){
+			comm = new GetSendEmailListCommand();
+		}
+		if(type.equals("getSendMEEmailList")){
+			comm = new GetSendMEEmailListCommand();
+		}
+		if(type.equals("getAllEmailList")){
+			comm = new GetAllEmailListCommand();
+		}
+		if(type.equals("getSearchEmailList")){
+			comm = new GetSearchEmailListCommand();
+		}
+		if(type.equals("getDelete")){
+			comm = new GetDeleteCommand();
+		}
+		if(type.equals("getAnswer")){
+			comm = new GetAnswerCommand();
+		}
+		if(type.equals("getDelete2")){
+			comm = new GetDeleteCommand2();
+		}
+		if(type.equals("getAnswer2")){
+			comm = new GetAnswerCommand2();
 		}
 		
 		path = comm.exec(request, response);

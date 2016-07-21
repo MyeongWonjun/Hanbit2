@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.command.Command;
+import com.hanbit.command.GetEmailListCommand;
 import com.hanbit.command.HomeCommand;
 
 @WebServlet("/Home")
