@@ -110,14 +110,14 @@ li a.active {
 	<ul>
 		<li><a href="/HanbitGroupware/Home?type=main&email_addr=${info.email_addr}">Home</a></li>
 		<li id="menu">
-			<a href="/HanbitGroupware/Email?type=getEmailList&email_addr=${info.email_addr}" id="menu_drop">E-mail</a>
-			<div id="drop_content">
-				<a href="#">전체메일</a>
-				<a href="/HanbitGroupware/Email?type=getEmailList">받은메일함</a>
-				<a href="#">보낸메일함</a>
-				<a href="#">내게쓴메일함</a>
-				<a href="#">스팸메일함</a>
-			</div>
+			<a href="/HanbitGroupware/Email?type=getAllEmailList&email_addr=${info.email_addr}" id="menu_drop">E-mail</a>
+        	<div id="drop_content">
+           		<a href="/HanbitGroupware/Email?type=getAllEmailList&email_addr=${info.email_addr}">전체메일</a>
+           		<a href="/HanbitGroupware/Email?type=getEmailList&email_addr=${info.email_addr}">받은메일함</a>
+            	<a href="/HanbitGroupware/Email?type=getSendEmailList&email_addr=${info.email_addr}">보낸메일함</a>
+            	<a href="/HanbitGroupware/Email?type=getSendMEEmailList&email_addr=${info.email_addr}">내게쓴메일함</a>
+            	<a href="#">스팸메일함</a>
+         	</div>
 		</li>
 		<li id="menu">
 			<a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}" id="menu_drop">Schedule</a>

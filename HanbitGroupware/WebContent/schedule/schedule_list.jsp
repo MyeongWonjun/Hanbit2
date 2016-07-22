@@ -5,7 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>개인일정 목록</title>
+<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+</style>
 </head>
 <body>
 	<h3 align="center">스케쥴</h3>

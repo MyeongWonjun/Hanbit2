@@ -5,7 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>개인일정 수정</title>
+<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+</style>
 </head>
 <body>
 	<h3 align="center">스케쥴</h3>
@@ -34,7 +39,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<p align="center"><input type="submit" value="수정"><input type="button" value="창닫기" onclick="self.close()"></p>
+	<p align="center"><input type="submit" value="수정"><input type="button" value="취소" onclick="javascript:history.go(-1);"><input type="button" value="창닫기" onclick="self.close()"></p>
 	<input type="hidden" name="type" value="update" />
 	<input type="hidden" name="id" value="${sc.id}" />
 	<input type="hidden" name="idx" value="${sc.idx}" />
