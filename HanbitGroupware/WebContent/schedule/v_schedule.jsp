@@ -6,10 +6,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	VO_employees member = (VO_employees)session.getAttribute("info");
-	boolean login = member == null ? false : true;
-%>
-<%
 	List<VO_schedule> list =(List<VO_schedule>)request.getAttribute("list"); 
 	request.setCharacterEncoding("utf-8");
 
@@ -95,11 +91,6 @@ td {
 </STYLE>
 </head>
 <body>
-<%
-		if(!login){
-			response.sendRedirect("../home/login.jsp");
-		}else{
-	%>
 	<table border="1" align="center">
 		<thead>
 			<tr>
@@ -191,8 +182,5 @@ td {
 			</tr>
 		</tbody>
 	</table>
-	<%
-		}
-	%>
 </body>
 </html>

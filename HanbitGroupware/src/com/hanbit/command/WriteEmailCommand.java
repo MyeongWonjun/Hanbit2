@@ -30,8 +30,8 @@ public class WriteEmailCommand implements Command{
 				vo_email.setEmail_file(mr.getFilesystemName("email_file"));
 				vo_email.setReal_file(mr.getOriginalFileName("email_file"));
 			}else{
-				vo_email.setEmail_file("Ã·ºÎÆÄÀÏ¾øÀ½");
-				vo_email.setReal_file("Ã·ºÎÆÄÀÏ¾øÀ½");
+				vo_email.setEmail_file("ì²¨ë¶€íŒŒì¼ ì—†ìŒ");
+				vo_email.setReal_file("ì²¨ë¶€íŒŒì¼ ì—†ìŒ");
 			}
 			System.out.println(vo_email.getSender_addr());
 			System.out.println(vo_email.getEmail_addr());

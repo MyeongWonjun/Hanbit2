@@ -22,7 +22,7 @@
 				</tr>
 			</c:if>
 			<c:if test="${!empty noticeList}">
-				<c:forEach var="k" items="${noticeList}" begin="1" end="5">
+				<c:forEach var="k" items="${noticeList}" begin="0" end="5">
 					<tr align="center">
 						<td>${k.b_idx}</td>
 						<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
