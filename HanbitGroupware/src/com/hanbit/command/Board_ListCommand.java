@@ -27,7 +27,7 @@ public class Board_ListCommand implements Command {
 			pvo.setNowPage(Integer.parseInt(cPage));
 		}
 		// 전체 게시물의 수
-		int total = dao.getTotalCount(board_type);
+		int total = Dao.getBoardTotalCount(board_type);
 		pvo.setTotalRecord(total);
 		pvo.setTotalPage();
 		

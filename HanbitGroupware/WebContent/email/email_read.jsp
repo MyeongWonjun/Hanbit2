@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	request.setCharacterEncoding("utf-8");
+	String email_addr2 = request.getParameter("email_addr");
+	session.setAttribute("email_addr2", email_addr2);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -97,9 +102,50 @@ body{
 }
 
 </style>
+<script type="text/javascript">
+	function write_go(f) {
+		f.action="email/email_write.jsp?email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+	function write_goME(f) {
+		f.action="email/email_writeME.jsp?email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+	function all_go(f) {
+		f.action="/HanbitGroupware/Email?type=getAllEmailList&email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+	function receive_go(f) {
+		f.action="/HanbitGroupware/Email?type=getEmailList&email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+	function send_go(f) {
+		f.action="/HanbitGroupware/Email?type=getSendEmailList&email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+	function me_go(f) {
+		f.action="/HanbitGroupware/Email?type=getSendMEEmailList&email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+	function search_go(f) {
+		f.action="/HanbitGroupware/Email?type=getSearchEmailList&email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+	function delete_go(f){
+		var ck = confirm("삭제 하시겠습니까?");
+		if(ck==true){
+			f.action = "/HanbitGroupware/Email?type=getDelete&email_addr=<%=email_addr2%>";
+			f.submit();
+		}
+	}
+	function answer_go(f) {
+		f.action="/HanbitGroupware/Email?type=getAnswer2&email_addr=<%=email_addr2%>";
+		f.submit();
+	}
+</script>
 </head>
 <body>
-
+<form method="post">
 <table border="1" align="center">
       <thead>
          <tr>
@@ -110,17 +156,17 @@ body{
          <tr>
             <td width="200px">
             	<span id="btn1">
-					<input type="button" value="메일쓰기"/>
-					<input type="button" value="내게쓰기"/>
+					<input type="button" value="메일쓰기" onclick="write_go(this.form)"/>
+					<input type="button" value="내게쓰기" onclick="write_goME(this.form)"/>
 				</span>
 				<div id="btn2">
-					<input type="button" value="전체메일"/>
+					<input type="button" value="전체메일" onclick="all_go(this.form)"/>
 					<br/>
-					<input type="button" value="받은메일함"/>
+					<input type="button" value="받은메일함" onclick="receive_go(this.form)"/>
 					<br/>
-					<input type="button" value="보낸메일함"/>
+					<input type="button" value="보낸메일함" onclick="send_go(this.form)"/>
 					<br/>
-					<input type="button" value="내게쓴메일함"/>
+					<input type="button" value="내게쓴메일함" onclick="me_go(this.form)"/>
 					<br/>
 					<input type="button" value="스팸메일함"/>
 				</div>
@@ -132,8 +178,8 @@ body{
             			<th colspan="3" width="995px" align="left">
 							<p>
 							<sapn id="btn4">
-								<input type="button" value="삭제"/>
-								<input type="button" value="답장"/>
+								<input type="button" value="삭제" onclick="delete_go(this.form)"/>
+								<input type="button" value="답장" onclick="answer_go(this.form)"/>
 								<hr/>
 							</span>
 							</p>
@@ -145,7 +191,7 @@ body{
             			<td width="10%">${vo_email.subject}</td>
             		</tr>
             		<tr>
-            			<td width="10%">${vo_email.sender_addr}</td>
+            			<td width="10%">from : ${vo_email.sender_addr}</td>
             		</tr>
             		<tr>
             			<td width="10%">${vo_email.regdate.substring(0,16)}</td>
@@ -172,6 +218,7 @@ body{
             		<tr>
             			<td colspan="3">
             				<div rows="25" cols="130" style="position: relative; left: 10px">${vo_email.content}</div>
+ 							<input type="hidden" name="idx" value="${vo_email.idx}">
             			</td>
             		</tr>
             	</tfoot>
@@ -179,7 +226,7 @@ body{
          </tr>
       </tbody>
 </table>
-
+</form>
 </body>
 </html>
 

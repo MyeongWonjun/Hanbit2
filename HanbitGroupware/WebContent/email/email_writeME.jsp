@@ -104,7 +104,30 @@ body{
 </style>
 <script type="text/javascript">
 	function write_ok(f) {
-		f.action="/HanbitGroupware/Email?type=write&email_addr=<%=email_addr%>";
+		var ck = confirm("전송 하시겠습니까?");
+		if(ck==true){
+			f.action="/HanbitGroupware/Email?type=write&email_addr=<%=email_addr%>";
+			f.submit();
+		}
+	}
+	function write_go(f) {
+		f.action="email_write.jsp?email_addr=<%=email_addr%>";
+		f.submit();
+	}
+	function all_go(f) {
+		f.action="/HanbitGroupware/Email?type=getAllEmailList&email_addr=<%=email_addr%>";
+		f.submit();
+	}
+	function receive_go(f) {
+		f.action="/HanbitGroupware/Email?type=getEmailList&email_addr=<%=email_addr%>";
+		f.submit();
+	}
+	function send_go(f) {
+		f.action="/HanbitGroupware/Email?type=getSendEmailList&email_addr=<%=email_addr%>";
+		f.submit();
+	}
+	function me_go(f) {
+		f.action="/HanbitGroupware/Email?type=getSendMEEmailList&email_addr=<%=email_addr%>";
 		f.submit();
 	}
 </script>
@@ -120,19 +143,19 @@ body{
       </thead>
       <tbody>
          <tr>
-            <td width="200px">
+           <td width="200px">
             	<span id="btn1">
-					<input type="button" value="메일쓰기"/>
-					<input type="button" value="내게쓰기"/>
+					<input type="button" value="메일쓰기" onclick="write_go(this.form)"/>
+					<input type="button" value="내게쓰기" onclick="write_goME(this.form)"/>
 				</span>
 				<div id="btn2">
-					<input type="button" value="전체메일"/>
+					<input type="button" value="전체메일" onclick="all_go(this.form)"/>
 					<br/>
-					<input type="button" value="받은메일함"/>
+					<input type="button" value="받은메일함" onclick="receive_go(this.form)"/>
 					<br/>
-					<input type="button" value="보낸메일함"/>
+					<input type="button" value="보낸메일함" onclick="send_go(this.form)"/>
 					<br/>
-					<input type="button" value="내게쓴메일함"/>
+					<input type="button" value="내게쓴메일함" onclick="me_go(this.form)"/>
 					<br/>
 					<input type="button" value="스팸메일함"/>
 				</div>
@@ -156,7 +179,7 @@ body{
             			<tbody>
             				<tr>
             					<td width="100">받는 사람</td>
-            					<td><input type="text" name="receiver" size="50" value="<%=email_addr%>" disabled="disabled"></td>
+            					<td><input type="text" name="receiver" size="50" value="<%=email_addr%>"></td>
             				</tr>
             				<tr>
             					<td width="100">제목</td>
