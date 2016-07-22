@@ -33,10 +33,13 @@
 	<select id="totalCount5" resultType="int" parameterType="Map">
 		select
 		count(*) from
-		(select * from gw_email where email_addr = '${email_addr}' or sender_addr =
+		(select * from gw_email where email_addr =
+		'${email_addr}' or sender_addr =
 		'${email_addr}')
-		where email_addr like '%${search}%' or sender_addr like '%${search}%' or
-		subject like '%${search}%'
+		where email_addr like
+		'%${search}%' or sender_addr like '%${search}%' or
+		subject like
+		'%${search}%'
 	</select>
 
 	<!-- Support -->
@@ -60,14 +63,16 @@
 
 	<select id="vacation" resultType="com.hanbit.vo.VO_schedule">
 		select * from
-		(select gw_schedule.*, gw_member.name from gw_schedule, gw_member where
+		(select
+		gw_schedule.*, gw_member.name from gw_schedule, gw_member where
 		gw_schedule.id=gw_member.id)
 		where type='휴가'
 	</select>
 
 	<select id="bt" resultType="com.hanbit.vo.VO_schedule">
 		select * from
-		(select gw_schedule.*, gw_member.name from gw_schedule, gw_member where
+		(select gw_schedule.*,
+		gw_member.name from gw_schedule, gw_member where
 		gw_schedule.id=gw_member.id)
 		where type='출장'
 	</select>
@@ -93,10 +98,6 @@
 		select *
 		from gw_member where id=#{id}
 	</select>
-	<select id="em_one" resultType="com.hanbit.vo.VO_employees"
-		parameterType="String">
-		select * from gw_member where id=#{id}
-	</select>
 
 	<!-- Home -->
 	<select id="getHomeNotice" resultType="com.hanbit.vo.VO_board">
@@ -113,16 +114,19 @@
 		resultType="com.hanbit.vo.VO_email">
 		select * from (
 		select rownum r_num, a.* from (
-		select * from gw_email where sender_addr = #{email_addr} or email_addr =
+		select * from
+		gw_email where sender_addr = #{email_addr} or email_addr =
 		#{email_addr} order by regdate desc
 		) a
-		) where r_num between #{begin} and #{end}
+		) where r_num between #{begin}
+		and #{end}
 	</select>
 	<select id="getEmailList" resultType="com.hanbit.vo.VO_email"
 		parameterType="Map">
 		select * from (
 		select rownum r_num, a.* from (
-		select * from gw_email where email_addr = #{email_addr} order by regdate
+		select *
+		from gw_email where email_addr = #{email_addr} order by regdate
 		desc
 		) a
 		) where r_num between #{begin} and #{end}
@@ -140,19 +144,23 @@
 		parameterType="Map">
 		select * from (
 		select rownum r_num, a.* from (
-		select * from gw_email where sender_addr = #{email_addr} order by regdate
+		select *
+		from gw_email where sender_addr = #{email_addr} order by regdate
 		desc
-		) a
+		)
+		a
 		) where r_num between #{begin} and #{end}
 	</select>
 	<select id="sendMEEmailList" resultType="com.hanbit.vo.VO_email"
 		parameterType="Map">
 		select * from (
 		select rownum r_num, a.* from (
-		select * from gw_email where sender_addr = #{email_addr} and email_addr =
+		select *
+		from gw_email where sender_addr = #{email_addr} and email_addr =
 		#{email_addr} order by regdate desc
 		) a
-		) where r_num between #{begin} and #{end}
+		) where r_num between #{begin}
+		and #{end}
 	</select>
 	<delete id="emailDelete" parameterType="String">
 		delete from gw_email
@@ -166,10 +174,13 @@
 		select * from (
 		select rownum r_num, a.* from (
 		select * from
-		(select * from gw_email where email_addr = '${email_addr}' or sender_addr =
+		(select * from gw_email where email_addr = '${email_addr}' or
+		sender_addr =
 		'${email_addr}')
-		where email_addr like '%${search}%' or sender_addr like '%${search}%' or
-		subject like '%${search}%' order by regdate desc
+		where email_addr like '%${search}%' or
+		sender_addr like '%${search}%' or
+		subject like '%${search}%' order by
+		regdate desc
 		) a
 		) where r_num between #{begin} and #{end}
 	</select>
@@ -183,9 +194,11 @@
 		<!-- select * from gw_board where board_type = #{board_type} -->
 		select * from (
 		select rownum r_num, a.* from (
-		select * from gw_board where board_type = #{board_type} order by b_idx desc
+		select * from gw_board
+		where board_type = #{board_type} order by b_idx desc
 		) a
-		) where r_num between #{begin} and #{end}
+		) where r_num
+		between #{begin} and #{end}
 	</select>
 	<insert id="boardInsert" parameterType="com.hanbit.vo.VO_board">
 		insert into gw_board
@@ -200,8 +213,10 @@
 		b_idx = #{b_idx}
 	</delete>
 	<update id="boardUp" parameterType="com.hanbit.vo.VO_board">
-		update gw_board set subject=#{subject}, content=#{content},
-		board_file=#{board_file} where b_idx = #{b_idx}
+		update gw_board set
+		subject=#{subject}, content=#{content},
+		board_file=#{board_file} where
+		b_idx = #{b_idx}
 	</update>
 	<select id="c_list" parameterType="String"
 		resultType="com.hanbit.vo.VO_boardComment">
@@ -218,34 +233,43 @@
 		where c_idx=#{idx}
 	</delete>
 	<update id="boardHit" parameterType="com.hanbit.vo.VO_board">
-		update gw_board set hit = #{hit} where b_idx = #{b_idx}
+		update gw_board set hit =
+		#{hit} where b_idx = #{b_idx}
 	</update>
 	<delete id="select_del" parameterType="String">
-		delete from gw_board where b_idx=#{b_idx}
+		delete from gw_board where
+		b_idx=#{b_idx}
 	</delete>
 
 	<!-- setting -->
-	<select parameterType="String" resultType="com.hanbit.vo.VO_employees"
-		id="em_one"> select * from gw_member where id = #{id} </select>
+	<select id="em_one" parameterType="String" resultType="com.hanbit.vo.VO_employees">
+		select * from gw_member where id = #{id}
+	</select>
 
 	<update parameterType="com.hanbit.vo.VO_employees" id="setUpdate"> update
 		gw_member set pwd= '${pwd}',email_addr=
-		'${email_addr}',phone='${phone}' where id = #{id} </update>
+		'${email_addr}',phone='${phone}' where id = #{id}
+	</update>
 
 	<select resultType="com.hanbit.vo.VO_employees" id="setting_list"> select *
-		from gw_member order by id asc </select>
+		from gw_member order by id asc
+	</select>
 
 	<update parameterType="com.hanbit.vo.VO_employees" id="setUpdate2"> update
 		gw_member set pwd ='${pwd}', name='${name}', email_addr=
 		'${email_addr}', phone='${phone}',
 		job_id='${job_id}',salary='${salary}',department_name='${department_name}',grade='${grade}'
-		where id = #{id} </update>
+		where id = #{id}
+	</update>
 
 	<insert parameterType="com.hanbit.vo.VO_employees" id="setInsert"> insert
 		into gw_member values
 		('${id}','${pwd}','${name}','${email_addr}','${phone}','${job_id}',
-		'${salary}','${department_name}', sysdate,'${grade}') </insert>
+		'${salary}','${department_name}', sysdate,'${grade}')
+	</insert>
 
-	<delete parameterType="String" id="setDelete"> delete from gw_member where
-		id = #{id} </delete>
+	<delete parameterType="String" id="setDelete">
+		delete from gw_member where id
+		= #{id}
+	</delete>
 </mapper>
