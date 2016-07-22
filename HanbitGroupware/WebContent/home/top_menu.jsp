@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -144,10 +145,25 @@ li a.active {
 			</div>
 		</li>
 		<li id="menu">
-			<a href="#s_em" id="menu_drop">환경설정</a>
-			<div id="drop_content">
-				<a href="/HanbitGroupware/s_em?type=setting_em&id=${info.id}">개인정보</a>
-			</div>
+			<c:choose>
+         <c:when test="${info.grade eq '관리자'}">
+           <li id="menu">
+         <a href="#s_em" id="menu_drop">환경설정</a>
+         <div id="drop_content">
+            <a href="/HanbitGroupware/s_em?type=setting_list&id=${info.id}">사원목록</a>
+            <a href="/HanbitGroupware/s_em?type=insertPage">사원등록</a>
+         </div>
+      </li>
+         </c:when>
+         <c:otherwise>
+           <li id="menu">
+         <a href="#s_em" id="menu_drop">환경설정</a>
+         <div id="drop_content">
+            <a href="/HanbitGroupware/s_em?type=setting_em&id=${info.id}">개인정보</a>
+         </div>
+      </li>
+         </c:otherwise>
+      </c:choose>
 		</li>
 	</ul>
 	</div>

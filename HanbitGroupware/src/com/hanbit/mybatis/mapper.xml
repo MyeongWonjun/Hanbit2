@@ -265,7 +265,7 @@
 	<insert parameterType="com.hanbit.vo.VO_employees" id="setInsert"> insert
 		into gw_member values
 		('${id}','${pwd}','${name}','${email_addr}','${phone}','${job_id}',
-		'${salary}','${department_name}', sysdate,'${grade}')
+		'${salary}','${department_name}', null,sysdate,'${grade}')
 	</insert>
 
 	<delete parameterType="String" id="setDelete">
