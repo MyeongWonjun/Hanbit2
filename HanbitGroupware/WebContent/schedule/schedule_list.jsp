@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h3 align="center">스케쥴</h3>
-	<table border="1" align="center">
+	<table align="center">
 		<thead>
 			<tr>
 				<th>종류</th> <th>제목</th> <th>내용(행선지)</th> <th>시작일</th> <th>종료일</th> 

@@ -10,7 +10,7 @@
 <style type="text/css">
 #bbs table {
 	color: white;
-	width: 1000px;
+	width: 1080px;
 	margin-left: 10px;
 	border: 1px solid #e7e7e7;
 	border-collapse: collapse;
@@ -102,20 +102,31 @@ table tfoot ol.paging li a:hover {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	width: 180px;
+	width: 200px;
 	float: left;
+}
+
+.tab_vertical>li {
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px 10px;
+	text-decoration: none;
+	text-align: center;
+	width: 200px;
 }
 
 .tab-title {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	width: 180px;
+	width: 200px;
 }
 
 .tab-title:HOVER {
 	background-color: #9ad3de;
-	width: 180px;
+	width: 200;
 }
 
 .name {
@@ -155,20 +166,19 @@ table tfoot ol.paging li a:hover {
 <body>
 	<form method="post">
 	<table align="center">
-		<thead>
-			<tr>
-				<th colspan="2" width="1280" height="200"><jsp:include
-						page="../home/top_menu.jsp"></jsp:include></th>
-						
-			</tr>
-		</thead>
-		<tbody>
+			<thead>
+				<tr>
+					<th colspan="2" width="1280" height="200"><jsp:include
+							page="../home/top_menu.jsp" /></th>
+				</tr>
+			</thead>
+			<tbody>
 			<tr>
 				<td width="200px" valign="top">
-					<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게시판</h2>
-					<ul class="tab_vertical" d>
-						<li class="tab-title"><a href=#>공지사항</a></li>
-						<li class="tab-title"><a href=#>자유게시판</a></li>
+					<h2 class="name" align="center">게시판</h2>
+					<ul class="tab_vertical" >
+						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=공지사항">공지사항</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유게시판">자유게시판</a></li>
 					</ul>
 					
 				</td>
@@ -263,7 +273,7 @@ table tfoot ol.paging li a:hover {
 											</c:forEach>
 											<c:choose>
 												<c:when test="${pvo.endPage>=pvo.totalPage}">
-													<li class="disable">다음으로${pvo.endPage }</li>
+													<li class="disable">다음으로</li>
 												</c:when>
 												<c:otherwise>
 													<li><a href="/HanbitGroupware/BoardController?type=boardList&board_type=${board_type }&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로${cPage}</a>

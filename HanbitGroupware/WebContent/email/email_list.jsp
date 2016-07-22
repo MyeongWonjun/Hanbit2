@@ -196,7 +196,7 @@ table tfoot ol.paging li a:hover {
 <body>
 
 <form method="post">
-<table align="center" border="1" style="position: relative; left: 8px">
+<table align="center"  style="position: relative; left: 8px">
       <thead>
          <tr>
             <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>

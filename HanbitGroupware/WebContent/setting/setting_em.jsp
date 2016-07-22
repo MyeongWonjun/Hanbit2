@@ -43,7 +43,7 @@
 <body>
 <%-- <jsp:useBean id="vo_employees" class="com.hanbit.vo.VO_employees" scope="session"/>
 <jsp:setProperty property="*" name="vo_employees"/> --%>
-<table border="1" align="center">
+<table  align="center">
       <thead>
          <tr>
             <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
@@ -53,8 +53,12 @@
          <tr>
            
             <td><form>
+            <br/>
+           <br/>
+           <br/>
+         
 		<table width="700" height="500" border="1" cellspacing="0" cellpadding="0"
-			align="center" >
+			align="center" bordercolor="#e7e7e7" >
 			<tr>
 				<td colspan="2" height="45" align="left" bgcolor="#89bdd3" >
 					<font size="+1" font color="white" ><b>기본정보</b></font>

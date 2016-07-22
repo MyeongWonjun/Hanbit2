@@ -12,6 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
 .tab_vertical>li {
 	display: block;
 	color: #ffffff;
@@ -31,7 +32,7 @@
 #info table {
 	width: 1080px;
 	margin-left: 10px;
-	border: 1px solid black;
+	border: 1px solid #e7e7e7;
 	border-collapse: collapse;
 	font-size: 14px;
 }
@@ -44,7 +45,7 @@
 
 #info table th, #info table td {
 	text-align: center;
-	border: 1px solid black;
+	border: 1px solid #e7e7e7;
 	padding: 4px 10px;
 }
 
@@ -53,7 +54,8 @@
 }
 
 .name {
-	width: 10%
+	width: 10%;
+	color: #89bdd3;
 }
 
 .email_addr {
@@ -132,18 +134,18 @@ table tfoot ol.paging li a:hover {
 			response.sendRedirect("../home/login.jsp");
 		}else{
 	%>
-	<table align="center" border="1px">
+	<table align="center" >
 		<thead>
 			<tr>
-				<th colspan="2" width="500" height="200">
+				<th colspan="2" width="1280" height="200">
 					<jsp:include page="../home/top_menu.jsp" />
 				</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td width="200px">
-					<h2 align="center">업무지원</h2>
+				<td width="200px" valign="top">
+					<h2 align="center" style="color: #89bdd3">업무지원</h2>
 					<ul class="tab_vertical">
 						<li class="tab-title"><a href="#">업무자료실</a></li>
 						<li class="tab-title"><a href="#">공용문서함</a></li>
@@ -168,7 +170,7 @@ table tfoot ol.paging li a:hover {
 						</form>
 					</div>
 					<div id="info" align="center">
-						<table summary="임직원 정보 테이블">
+						<table summary="임직원 정보 테이블" bordercolor="#e7e7e7">
 							<thead>
 								<tr class="title">
 									<td class="id">사번</td>

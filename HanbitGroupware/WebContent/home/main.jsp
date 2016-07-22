@@ -20,20 +20,24 @@
          </tr>
       </thead>
       <tbody>
-         <tr>
-            <td width="200px">사이드바</td>
-            <td>
+	      <tr >
+	      	<td><img alt="" src="img/img1.png"> </td>
+	      	  <td valign="top" >
             	<div id="notice">
             		<jsp:include page="/home/notice.jsp" />
             	</div>
             	
             </td>
-            <td>
+	      </tr>
+        <%--  <tr>
+            
+          
+           <td>
             	<div id="email">
             		<jsp:include page="/home/email.jsp" />
             	</div>
-            </td>
-         </tr>
+            </td> 
+         </tr> --%>
       </tbody>
       <tfoot>
       	<tr>

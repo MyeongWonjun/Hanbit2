@@ -97,7 +97,7 @@
 
 </head>
 <body>
-	<table border="0" align="center">
+	<table  align="center">
 		<thead>
 			<tr>
 				<th colspan="2" width="1280" height="200"><jsp:include
@@ -106,11 +106,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td width="200px">
+				<td width="200px" valign="top">
 					<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게시판</h2>
 					<ul class="tab_vertical" d>
-						<li class="tab-title"><a href=#>공지사항</a></li>
-						<li class="tab-title"><a href=#>자유게시판</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=공지사항">공지사항</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유게시판">자유게시판</a></li>
 					</ul>
 
 				</td>

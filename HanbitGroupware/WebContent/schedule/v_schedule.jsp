@@ -91,7 +91,7 @@ td {
 </STYLE>
 </head>
 <body>
-	<table border="1" align="center">
+	<table align="center">
 		<thead>
 			<tr>
 				<th colspan="2" width="1280" height="200"><jsp:include
@@ -101,7 +101,7 @@ td {
 		<tbody>
 			<tr>
 				<td width="200px" valign="top">
-					<h2 align="center">스케쥴</h2>
+					<h2 align="center" style="color:#89bdd3">스케쥴</h2>
 					<ul class="tab_vertical">
 						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=personal&id=${info.id}">개인일정</a></li>
 						<li class="tab-title"><a href="/HanbitGroupware/Schedule?type=bt">출장</a></li>
