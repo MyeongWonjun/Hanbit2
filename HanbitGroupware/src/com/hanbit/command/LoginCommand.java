@@ -5,7 +5,6 @@ package com.hanbit.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.hanbit.mybatis.Dao;
 import com.hanbit.vo.VO_employees;
 
@@ -19,6 +18,7 @@ public class LoginCommand implements Command{
 		Dao dao = new Dao();
 		VO_employees vo_employees = dao.getLogin(id, pwd);
 		request.setAttribute("vo_employees", vo_employees);
+		
 		if(vo_employees!=null){
 			path = "/Home?type=main&email_addr="+vo_employees.getEmail_addr();
 		}else{

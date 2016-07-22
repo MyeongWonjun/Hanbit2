@@ -48,13 +48,13 @@ private static SqlSession ss;
 	
 	// login
 	public VO_employees getLogin(String id, String pwd){
-		Map<String, String> map = new HashMap<>();
-		map.put("id", id);
-		map.put("pwd", pwd);
-		System.out.println(id+"/"+pwd);
-		VO_employees vo_employees = getSql().selectOne("loginList", map);
+		VO_employees vo = new VO_employees();
+		vo.setId(id);
+		vo.setPwd(pwd);
 		System.out.println("Here!");
-		return vo_employees;
+		vo = getSql().selectOne("loginList", vo);
+		
+		return vo;
 	}
 
 	// employees list

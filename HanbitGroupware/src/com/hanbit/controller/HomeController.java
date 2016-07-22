@@ -37,5 +37,4 @@ public class HomeController extends HttpServlet {
 		path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);
 	}
-
 }
