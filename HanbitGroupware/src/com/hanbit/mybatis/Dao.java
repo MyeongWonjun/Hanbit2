@@ -205,6 +205,15 @@ public class Dao {
        
      }
     
+    public static void getHit_Update(VO_board vo){
+        getSql().update("boardHit", vo);
+        ss.commit();
+     }
+     public void getboard_selectdel(String b_idx) {
+        getSql().delete("select_del", b_idx);
+        ss.commit();
+     }
+    
 
     public void getCommentDel(String c_idx){
        getSql().delete("commentDel", c_idx);

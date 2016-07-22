@@ -23,8 +23,16 @@ public class Board_ViewCommand implements Command{
 		
 		List<String> list = new ArrayList<>();
 
+		
+		// 히트수 증가
+		int hit = Integer.parseInt(vo.getHit())+1;
+		vo.setHit(String.valueOf(hit));
+		dao.getHit_Update(vo);
+		
 		request.setAttribute("c_list", c_list);
 		request.setAttribute("vo", vo);
+		
+		
 		return "/board_notice/board_view.jsp";
 		
 	}

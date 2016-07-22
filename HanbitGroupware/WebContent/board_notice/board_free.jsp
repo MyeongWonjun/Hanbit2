@@ -122,11 +122,38 @@ table tfoot ol.paging li a:hover {
 	color: #89bdd3;
 }
 </style>
+<script type="text/javascript"
+   src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript">
+   $(function() {
+      //최상단 체크박스 클릭
+      $("#chk_all").click(function() {
+         //클릭되었으면
+         if ($("#chk_all").prop("checked")) {
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+            $("input[name=ck]").prop("checked", true);
+            //클릭이 안되있으면
+         } else {
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+            $("input[name=ck]").prop("checked", false);
+         }
+      })
+   });
 
+   function delete_go(f) {
+      var ck = confirm("삭제하시겠습니까?");
+      if (ck) {
+         f.action = "/HanbitGroupware/BoardController?type=select_del&board_type=${board_type}";
+      }else{
+    	  history.go(-1);
+      }
+      f.submit();
+   }
+</script>
 </head>
 
 <body>
-
+	<form method="post">
 	<table align="center">
 		<thead>
 			<tr>
@@ -137,7 +164,7 @@ table tfoot ol.paging li a:hover {
 		</thead>
 		<tbody>
 			<tr>
-				<td width="200px">
+				<td width="200px" valign="top">
 					<h2 class="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;게시판</h2>
 					<ul class="tab_vertical" d>
 						<li class="tab-title"><a href=#>공지사항</a></li>
@@ -152,6 +179,24 @@ table tfoot ol.paging li a:hover {
 							<br />
 							<thead style="outline: none;">
 								<tr class="title">
+									<c:choose>
+										<c:when test="${info.grade eq '관리자'}">
+											<div align="left" id="chk">
+												<span id="chk1">
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="checkbox" id="chk_all" />
+												</span>
+												<sapn id="selectall"> 전체선택 <input type="button"
+													value="삭제" name="delete" onclick="delete_go(this.form)" />
+												</span>
+											</div>
+										</c:when>
+									</c:choose>
+									<c:choose>
+										<c:when test="${info.grade eq '관리자'}">
+											<th class="select">선택</th>
+										</c:when>
+									</c:choose>
 									<th class="no">NO</th>
 									<th class="subject">제목</th>
 									<th class="writer">작성자</th>
@@ -168,10 +213,15 @@ table tfoot ol.paging li a:hover {
 								<c:if test="${!empty boardList}">
 									<c:forEach items="${boardList}" var="k" varStatus="status">
 										<tr>
+											<c:choose>
+												<c:when test="${info.grade eq '관리자'}">
+													<td><input type="checkbox" id="list" value="${k.b_idx}" name="ck" /></td>
+												</c:when>
+											</c:choose>
 											<td>${boardList.size()-status.count+1}</td>
 											<%-- <td><a
 												href="/HanbitGroupware/BoardController?type=view&b_idx=${k.b_idx}&cPage=${cPage}">${k.subject}</a></td> --%>
-											<td><a href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
+											<td><a style="text-decoration: none;" href="/HanbitGroupware/BoardController?type=boardView&b_idx=${k.b_idx}">${k.subject}</a></td>
 											<%-- <td>${k.subject}</td> --%>
 											<td>${k.name}</td>
 											<td>${k.regdate.substring(0,10)}</td>
@@ -227,18 +277,23 @@ table tfoot ol.paging li a:hover {
 						</table>
 						<br />
 						<br />
-						<div align="center">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<select name="search">
-								<option>제목</option>
-								<option>작성자</option>
-							</select> <input type="text" id="search_what"> 
-							<input type="button" value="검색">
-						</div>
-						</div>
+					</div>
 				</td>
 			</tr>
 		</tbody>	
 	</table>
+	</form>
+	<div align="center">
+		<form action="/HanbitGroupware/BoardController">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<select name="search">
+				<option value="subject">제목</option>
+				<option value="name">이름</option>
+			</select> <input type="text" name="search_what"> 
+			<input type="submit" value="검색" /> 
+			<input type="hidden" name="board_type" value="${board_type }" /> 
+			<input type="hidden" name="type"value="search" />
+		</form>
+	</div>
 </body>
 </html>

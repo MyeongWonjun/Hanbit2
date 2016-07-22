@@ -127,7 +127,7 @@
 									</tr>
 									<tr>
 										<th>이름:</th>
-										<td>${vo.name }<input type="hidden" name="name" size="12" value="${vo.name}" /></td>
+										<td>${vo.name }<input type="hidden" name="name" size="12"  value="${vo.name}" /></td>
 									</tr>
 									<tr>
 										<th>내용:</th>
@@ -135,14 +135,15 @@
 									</tr>
 									<tr>
 										<th>첨부파일:</th>
-										<td><input type="file" name="file_name" />(${vo.board_file })</td>
+										<td><input type="file" name="board_file"/>(${vo.board_file })</td>
 									</tr>
 									<tr>
 										<td colspan="2">
 										<input type="button" value="수정하기" onclick="sendData()" /> 
 										<input type="reset" value="다시" /> 
 										<input type="button" value="목록" onclick="list_go()" /> 
-										<input type="hidden" name="b_idx" value="${vo.b_idx }" /></td>
+										<input type="hidden" name="b_idx" value="${vo.b_idx }" />
+										<input type="hidden" name="f_n" value="${vo.board_file }" />
 										<input type="hidden" name="board_type" value="${vo.board_type }" /></td>
 									</tr>
 								</tbody>

@@ -13,10 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border="1" align="center">
+<table align="center">
       <thead>
          <tr>
-            <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
+            <th colspan="3" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
          </tr>
       </thead>
       <tbody>
@@ -26,12 +26,20 @@
             	<div id="notice">
             		<jsp:include page="/home/notice.jsp" />
             	</div>
+            	
+            </td>
+            <td>
             	<div id="email">
             		<jsp:include page="/home/email.jsp" />
             	</div>
             </td>
          </tr>
       </tbody>
+      <tfoot>
+      	<tr>
+      		<td colspan="3"><p></p></td>
+      	</tr>
+      </tfoot>
    </table>
 </body>
 </html>

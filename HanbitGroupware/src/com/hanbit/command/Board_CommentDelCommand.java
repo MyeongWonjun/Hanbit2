@@ -12,7 +12,7 @@ public class Board_CommentDelCommand implements Command{
 		String c_idx = request.getParameter("c_idx");
 		String b_idx = request.getParameter("b_idx");
 		System.out.println(b_idx);
-		//System.out.println("코멘트 번호"+c_idx);
+		System.out.println("코멘트 번호"+c_idx);
 		dao.getCommentDel(c_idx);
 		String path = "BoardController?type=boardView&b_idx="+b_idx;
 		

@@ -70,24 +70,34 @@
 		f.submit();
 	}
 	function delete_go(f) {
-		var ck = confirm("삭제하시겠습니까?");
-		if (ck) {
-
-			f.action="/HanbitGroupware/BoardController?type=boardDel";
+		if (${info.name == vo.name.substring(0,3) || info.grade == "관리자"}) {
+			var ck = confirm("삭제하시겠습니까?");
+			if (ck) {
+				f.action="/HanbitGroupware/BoardController?type=boardDel";
+			}else{
+				f.action= "/HanbitGroupware/BoardController?type=boardList&board_type=${vo.getBoard_type()}";
+			}
 		}else{
-			f.action= "/HanbitGroupware/BoardController?type=boardList&board_type=${vo.getBoard_type()}";
+			alert("삭제 권한이 없습니다.");
+			f.action = "/HanbitGroupware/BoardController?type=boardView&b_idx=${vo.b_idx}";
 		}
+		
+		
 		f.submit();
 	}
 	function list_go(f) {
 		location.href = "/HanbitGroupware/BoardController?type=boardList&board_type=${vo.getBoard_type()}";
 	
 	}
+	/* function comDel_go(f) {
+		f.action = "/HanbitGroupware/BoardController?type=boardComment_del";
+		f.submit();
+	} */
 </script>
 
 </head>
 <body>
-	<table border="1" align="center">
+	<table border="0" align="center">
 		<thead>
 			<tr>
 				<th colspan="2" width="1280" height="200"><jsp:include
@@ -113,7 +123,24 @@
 						<form method="post" >
 							<table summary="게시판 글보기">
 								<caption>게시판 글보기</caption>
+								
 								<tbody>
+							<tr bordercolor="white">
+										<td colspan="2" align="right">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;&nbsp; 
+											<input type="button" value="수정" onclick="modify_go(this.form)"/>
+											<input type="button" value="삭제" onclick="delete_go(this.form)"/>
+											<input type="button" value="목록" onclick="list_go(this.form)"/>
+				   							<input type="hidden" name="b_idx" value="${vo.b_idx}" />
+				   							<input type="hidden" name ="board_type" value="${vo.board_type }" >
+										</td>
+									</tr>
 									<tr>
 										<th>제목</th>
 										<td>${vo.subject }</td>
@@ -132,15 +159,15 @@
 										<th>첨부파일</th>
 										<td><c:choose>
 												<c:when test="${vo.board_file != null }">
-													<a
-														href="/Download/p_download.jsp?board_file=${vo.board_file }">${vo.board_file}</a>
+													<a href="board_notice/download.jsp?board_file=${vo.board_file }">${vo.board_file}</a>
 												</c:when>
-
+												<c:otherwise>
+											    	첨부파일 없음
+											    </c:otherwise>
 											</c:choose></td>
 									</tr>
-
 								</tbody>
-								<tfoot align="center">
+								<%-- <tfoot align="center">
 									<tr>
 										<td colspan="2">
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -151,27 +178,32 @@
 				   							<input type="hidden" name="b_idx" value="${vo.b_idx}" /> 
 										</td>
 									</tr>
-								</tfoot>
+								</tfoot> --%>
 							</table>
 						</form>
-						<hr/> 
+						<br/> 
+						<br/> 
 						<p style="color: #89bdd3">&nbsp;&nbsp;&nbsp;&nbsp;댓글</p>
 						<div>
-							<table border="1">
-								<c:forEach items="${c_list }" var="k">
-								<tr>
-									<td>${k.name }</td>
-									<td>${k.content }</td>
-									<td>${k.write_date.substring(0,16) }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<c:if test="${info.name == k.name.substring(0,3) }">
-									<input type="button" value="삭제" onclick="location.href='/HanbitGroupware/BoardController?type=boardComment_del'" /> 
-									</c:if>
-									<input type="hidden" name="c_idx" value="${k.c_idx }"/>
-									</td>
-								</tr>
-								</c:forEach>
-							</table>
-
+							<form method="get">
+								<table border="1">
+									<c:forEach items="${c_list }" var="k">
+									<tr>
+										<td>${k.name }</td>
+										<td>${k.content }</td>
+										<td>${k.write_date.substring(0,16) }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<c:if test="${info.name == k.name.substring(0,3) }">
+										<input type="button" value="삭제" onclick="location.href='/HanbitGroupware/BoardController?type=boardComment_del&b_idx=${k.b_idx} &c_idx=${k.c_idx}'" /> 
+										<%-- <input type="button" value="삭제${k.c_idx }" onclick="comDel_go(this.form)" />  --%>
+										<input type="hidden" name="c_idx" value="${k.c_idx }"/>
+										</c:if>
+										
+										</td>
+										
+									</tr>
+									</c:forEach>
+								</table>
+							</form>
 						</div>
 						<p style="color: #89bdd3">&nbsp;&nbsp;&nbsp;&nbsp;댓글달기</p>
 						<div>

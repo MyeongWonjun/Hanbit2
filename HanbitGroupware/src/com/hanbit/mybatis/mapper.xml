@@ -169,7 +169,10 @@
 	<delete id="commentDel" parameterType="String">
 		delete from gw_comment where c_idx=#{idx}
 	</delete>
-	
-	
-	
+	<update id="boardHit" parameterType="com.hanbit.vo.VO_board">
+      update gw_board set hit = #{hit} where b_idx = #{b_idx} 
+   </update>
+     <delete id="select_del" parameterType="String">
+      delete from gw_board where b_idx=#{b_idx}
+   </delete>
 </mapper>

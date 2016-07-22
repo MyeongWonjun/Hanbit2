@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="1">
+	<table>
 		<thead>
 			<tr>
 				<th>보낸사람</th> <th>제목</th> <th>보낸날짜</th> 

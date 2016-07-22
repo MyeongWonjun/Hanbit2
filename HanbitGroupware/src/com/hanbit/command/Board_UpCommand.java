@@ -30,20 +30,21 @@ public class Board_UpCommand implements Command{
 
 				String b_idx = mr.getParameter("b_idx");
 				String board_type = mr.getParameter("board_type");
+				String board_file = mr.getParameter("f_n");
+				
 				vo.setB_idx(b_idx);
 				vo.setSubject(mr.getParameter("subject"));
 				vo.setContent(mr.getParameter("content"));
 				
-				System.out.println(board_type);
-				System.out.println("업데이트 idx   "+b_idx);
 				// 파일처리
 				if(mr.getFile("board_file") != null){
 					vo.setBoard_file(mr.getFilesystemName("board_file"));
 					
 				}else{
-					vo.setBoard_file("");
+					vo.setBoard_file(board_file);
 					
 				}
+				
 				
 				
 				// DB처리 후 성공하면 list.jsp, 실패하면 write.jsp로 이동

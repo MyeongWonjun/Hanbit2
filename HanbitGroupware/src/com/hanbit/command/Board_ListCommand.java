@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanbit.mybatis.Dao;
-import com.hanbit.mybatis.Pageing;
+import com.hanbit.mybatis.Paging;
 import com.hanbit.vo.VO_board;
 
 public class Board_ListCommand implements Command {
-	static Pageing pvo = null;
+	static Paging pvo = null;
 
 	@Override  
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		String board_type = request.getParameter("board_type");
 		Dao dao = new Dao();
-		pvo = new Pageing();
+		pvo = new Paging();
 		
 		// list 무조건 cPage 부터 받기
 		// cPage는 현재 페이지롤 변경, null 이면 현재페이지가 기본값 1이된다.
@@ -27,7 +27,7 @@ public class Board_ListCommand implements Command {
 			pvo.setNowPage(Integer.parseInt(cPage));
 		}
 		// 전체 게시물의 수
-		int total = Dao.getBoardTotalCount(board_type);
+		int total = dao.getTotalCount(board_type);
 		pvo.setTotalRecord(total);
 		pvo.setTotalPage();
 		

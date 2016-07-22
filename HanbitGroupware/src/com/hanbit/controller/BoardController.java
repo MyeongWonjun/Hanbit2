@@ -16,6 +16,8 @@ import com.hanbit.command.Board_CommentDelCommand;
 import com.hanbit.command.Board_Del_Command;
 import com.hanbit.command.Board_ListCommand;
 import com.hanbit.command.Board_Modi_Command;
+import com.hanbit.command.Board_SearchCommand;
+import com.hanbit.command.Board_SelectDeleteCommand;
 import com.hanbit.command.Board_UpCommand;
 import com.hanbit.command.Board_WriteCommand;
 import com.hanbit.command.Board_WriteOKCommand;
@@ -55,8 +57,11 @@ private static final long serialVersionUID = 1L;
 			comm = new Board_CommentCommand();
 		}else if(type.equals("boardComment_del")){
 			comm = new Board_CommentDelCommand();
-		}
-		
+		}else if(type.equals("search")){
+			comm = new Board_SearchCommand();
+		}else if(type.equals("select_del")){
+	         comm= new Board_SelectDeleteCommand();
+	      }
 		
 		
 		path = comm.exec(request, response);
