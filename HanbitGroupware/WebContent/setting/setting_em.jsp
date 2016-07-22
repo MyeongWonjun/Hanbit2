@@ -1,6 +1,6 @@
 <%@page import="com.hanbit.vo.VO_employees"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%
 	request.setCharacterEncoding("utf-8");
     VO_employees vo_employees = (VO_employees)request.getAttribute("vo_employees");
@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>°³ÀÎÁ¤º¸</title>
+<title>ê°œì¸ì •ë³´</title>
 <style type="text/css">
 
 .btn2{
@@ -57,15 +57,15 @@
 			align="center" >
 			<tr>
 				<td colspan="2" height="45" align="left" bgcolor="#89bdd3" >
-					<font size="+1" font color="white" ><b>±âº»Á¤º¸</b></font>
+					<font size="+1" font color="white" ><b>ê¸°ë³¸ì •ë³´</b></font>
 				</td>
 			</tr>
 			<tr>
-				<td width="200" >»ç¹ø</td>
+				<td width="200" >ì‚¬ë²ˆ</td>
 				<td width="400" >${vo_employees.id}</td>
 			</tr>
 			<tr>
-				<td width="200" >ÀÌ¸§</td>
+				<td width="200" >ì´ë¦„</td>
 				<td width="400" >${vo_employees.name}</td>
 			</tr>
 			<tr>
@@ -73,37 +73,37 @@
 				<td width="400" >${vo_employees.email_addr}</td>
 			</tr>
 			<tr>
-				<td width="200">ÀüÈ­¹øÈ£</td>
+				<td width="200">ì „í™”ë²ˆí˜¸</td>
 				<td width="400">${vo_employees.phone}</td>
 				
 			</tr>
 			<tr>
-				<td width="200">ºÎ¼­</td>
+				<td width="200">ë¶€ì„œ</td>
 				<td width="400">${vo_employees.job_id}</td>
 			</tr>
 			<tr>
-				<td width="200">Á÷±Ş</td>
+				<td width="200">ì§ê¸‰</td>
 				<td width="400">${vo_employees.salary}</td>
 			</tr>
 			<tr>
-				<td width="200">´ã´ç</td>
+				<td width="200">ë‹´ë‹¹</td>
 				<td width="400">${vo_employees.department_name}</td>
 			</tr>
 			<tr>
-				<td width="200">»óÀ§ÀÚ</td>
+				<td width="200">ìƒìœ„ì</td>
 				<td width="400">${vo_employees.manager_id}</td>
 			</tr>
 			<tr>
-				<td width="200">ÀÔ»çÀÏÀÚ</td>
+				<td width="200">ì…ì‚¬ì¼ì</td>
 				<td width="400">${vo_employees.hire_date}</td>
 			</tr>
 			<tr>
-				<td width="200">º¸¾Èµî±Ş</td>
+				<td width="200">ë³´ì•ˆë“±ê¸‰</td>
 				<td width="400">${vo_employees.grade}</td>
 			</tr>
 			<tr >
 			<td colspan="2">
-				<input type="button" class="btn2" value="¼öÁ¤"onclick="update_go(this.form)" />
+				<input type="button" class="btn2" value="ìˆ˜ì •"onclick="update_go(this.form)" />
 			</td>
 			</tr>
 		</table>

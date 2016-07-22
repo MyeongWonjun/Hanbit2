@@ -1,6 +1,6 @@
 <%@page import="com.hanbit.vo.VO_employees"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%
     request.setCharacterEncoding("utf-8");
     VO_employees vo_employees = (VO_employees)request.getAttribute("vo_employees");
@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>°³ÀÎÁ¤º¸¼öÁ¤</title>
+<title>ê°œì¸ì •ë³´ìˆ˜ì •</title>
 <style type="text/css">
 
 .btn2{
@@ -39,18 +39,18 @@
 	function sendData(f){
 		for(var i=0 ; i<document.forms[0].elements.length ; i++){
 			if(document.forms[0].elements[i].value == ""){
-				if(i==3) continue;
+				
 				alert(document.forms[0].elements[i].name+
-						"¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+						"ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 				document.forms[0].elements[i].focus();
-				return;//¼öÇà Áß´Ü
+				return;//ìˆ˜í–‰ ì¤‘ë‹¨
 			}
 		}
 		if("${info.pwd}"==document.forms[0].elements[0].value){
 		if(document.forms[0].elements[1].value != document.forms[0].elements[2].value){
-			alert("»õ·Î¿î ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØÁÖ¼¼¿ä")
+			alert("ìƒˆë¡œìš´ ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”")
 		}else{
-		var ck= confirm("¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?");
+		var ck= confirm("ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 		if(ck==true){
 			
 		document.forms[0].submit();
@@ -60,12 +60,12 @@
 		}
 		}
 	}else{
-		alert("ºñ¹Ğ¹øÈ£°¡ ¸ÂÁö ¾Ê½À´Ï´Ù.")
+		alert("ë¹„ë°€ë²ˆí˜¸ê°€ ë§ì§€ ì•ŠìŠµë‹ˆë‹¤.")
 	}
 		}
 	
-	function home_go() {
-		location.href="/HanbitGroupware/home?type=main";
+	function back_go() {
+      history.go(-1);
 	}
 	</script>
 </head>
@@ -84,71 +84,66 @@
 			align="center" >
 			<tr>
 				<td colspan="2" height="45" align="center" bgcolor="#89bdd3" >
-					<font size="+1" font color="white" ><b>±âº»Á¤º¸¼öÁ¤</b></font>
+					<font size="+1" font color="white" ><b>ê¸°ë³¸ì •ë³´ìˆ˜ì •</b></font>
 				</td>
 			</tr>
 			<tr>
-				<td width="200" >»ç¹ø</td>
-				<td width="400" >${info.id}
-				</td>
+				<td width="200" >ì‚¬ë²ˆ</td>
+				<td width="400" >${info.id}</td>
 			</tr>
 			<tr>
-				<td width="200">±âÁ¸ ºñ¹Ğ¹øÈ£</td>
+				<td width="200">ê¸°ì¡´ ë¹„ë°€ë²ˆí˜¸</td>
 				<td width="400"><input type="password" name="pwd" value="${info.pwd }" size="30"
 					maxlength="12" ></td>
 			</tr>
 			<tr>
-				<td width="200">»õ·Î¿î ºñ¹Ğ¹øÈ£</td>
+				<td width="200">ìƒˆë¡œìš´ ë¹„ë°€ë²ˆí˜¸</td>
 				<td width="400"><input type="password" name="passwd" size="30"
-					maxlength="12" ></td>
+					maxlength="15" ></td>
 			<tr>
-				<td width="200">»õ·Î¿î ºñ¹Ğ¹øÈ£ È®ÀÎ</td>
+				<td width="200">ìƒˆë¡œìš´ ë¹„ë°€ë²ˆí˜¸ í™•ì¸</td>
 				<td width="400"><input type="password" name="passwd2" size="30"
-					maxlength="12"></td>
+					maxlength="15"></td>
 			</tr>
 			<tr>
-				<td width="200" >ÀÌ¸§</td>
+				<td width="200" >ì´ë¦„</td>
 				<td width="400" >${info.name}</td>
 			</tr>
 			<tr>
 				<td width="200" bgcolor="">E-Mail</td>
 				<td width="400" ><input type="email" name="email" value="${info.email_addr }" size="30"
-					maxlength="12"></td>
+					maxlength="30"></td>
 			</tr>
 			<tr>
-				<td width="200">ÀüÈ­¹øÈ£</td>
+				<td width="200">ì „í™”ë²ˆí˜¸</td>
 				<td width="400"><input type="phone" name="phone" value="${info.phone }" size="30"
-					maxlength="12"></td>
+					maxlength="15"></td>
 				
 			</tr>
 			<tr>
-				<td width="200">ºÎ¼­</td>
+				<td width="200">ë¶€ì„œ</td>
 				<td width="400">${info.job_id}</td>
 			</tr>
 			<tr>
-				<td width="200">Á÷±Ş</td>
+				<td width="200">ì—°ë´‰</td>
 				<td width="400">${info.salary}</td>
 			</tr>
 			<tr>
-				<td width="200">´ã´ç</td>
+				<td width="200">ë‹´ë‹¹</td>
 				<td width="400">${info.department_name}</td>
 			</tr>
 			<tr>
-				<td width="200">»óÀ§ÀÚ</td>
-				<td width="400">${info.manager_id}</td>
-			</tr>
-			<tr>
-				<td width="200">ÀÔ»çÀÏÀÚ</td>
+				<td width="200">ì…ì‚¬ì¼ì</td>
 				<td width="400">${info.hire_date}</td>
 			</tr>
 			<tr>
-				<td width="200">º¸¾Èµî±Ş</td>
+				<td width="200">ë³´ì•ˆë“±ê¸‰</td>
 				<td width="400">${info.grade}</td>
 			</tr>
 			<tr >
 			<td colspan="2">
-				<input type="button" class="btn2" value="È®ÀÎ" onclick="sendData(this.form)">
-				<input type="button" class="btn2" value="Ãë¼Ò" >
+				<input type="button" class="btn2" value="í™•ì¸" onclick="sendData(this.form)"/>
+				<input type="button" class="btn2" value="ì·¨ì†Œ" onclick="back_go(this.form)" />
 			</td>
 			</tr>
 		</table>

@@ -3,176 +3,249 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gw_member">
-	<select id="loginList" parameterType="com.hanbit.vo.VO_employees" resultType="com.hanbit.vo.VO_employees">
+	<select id="loginList" parameterType="com.hanbit.vo.VO_employees"
+		resultType="com.hanbit.vo.VO_employees">
 		select * from gw_member where id=#{id} and pwd=#{pwd}
 	</select>
-	
+
 	<select id="totalCount" resultType="int" parameterType="String">
-		select count(*) from gw_email where sender_addr = #{email_addr} or email_addr = #{email_addr}
+		select
+		count(*) from gw_email where sender_addr = #{email_addr} or email_addr
+		= #{email_addr}
 	</select>
-	
+
 	<select id="totalCount2" resultType="int" parameterType="String">
-		select count(*) from gw_email where email_addr = #{email_addr}
+		select
+		count(*) from gw_email where email_addr = #{email_addr}
 	</select>
-	
+
 	<select id="totalCount3" resultType="int" parameterType="String">
-		select count(*) from gw_email where sender_addr = #{email_addr}
+		select
+		count(*) from gw_email where sender_addr = #{email_addr}
 	</select>
-	
+
 	<select id="totalCount4" resultType="int" parameterType="String">
-		select count(*) from gw_email where sender_addr = #{email_addr} and email_addr = #{email_addr}
+		select
+		count(*) from gw_email where sender_addr = #{email_addr} and
+		email_addr = #{email_addr}
 	</select>
-	
+
 	<select id="totalCount5" resultType="int" parameterType="Map">
-		select count(*) from 
-		(select * from gw_email where email_addr = '${email_addr}' or sender_addr = '${email_addr}') 
-		where email_addr like '%${search}%' or sender_addr like '%${search}%' or subject like '%${search}%'
+		select
+		count(*) from
+		(select * from gw_email where email_addr = '${email_addr}' or sender_addr =
+		'${email_addr}')
+		where email_addr like '%${search}%' or sender_addr like '%${search}%' or
+		subject like '%${search}%'
 	</select>
-	
+
 	<!-- Support -->
-	
+
 	<select id="employee_list" resultType="com.hanbit.vo.VO_employees">
-		select * from gw_member order by id
+		select * from gw_member
+		order by id
 	</select>
-	
-	<select id="employee_search" parameterType="Map" resultType="com.hanbit.vo.VO_employees">
-		select * from gw_member where ${type}=#{content} order by id
+
+	<select id="employee_search" parameterType="Map"
+		resultType="com.hanbit.vo.VO_employees">
+		select * from gw_member where ${type}=#{content} order by
+		id
 	</select>
-	
+
 	<!-- Schedule -->
 	<select id="schedule" parameterType="String" resultType="com.hanbit.vo.VO_schedule">
-		select * from gw_schedule where id=#{id} order by start_date
+		select *
+		from gw_schedule where id=#{id} order by start_date
 	</select>
-	
+
 	<select id="vacation" resultType="com.hanbit.vo.VO_schedule">
 		select * from
-			(select gw_schedule.*, gw_member.name from gw_schedule, gw_member where gw_schedule.id=gw_member.id)
+		(select gw_schedule.*, gw_member.name from gw_schedule, gw_member where
+		gw_schedule.id=gw_member.id)
 		where type='휴가'
 	</select>
-	
+
 	<select id="bt" resultType="com.hanbit.vo.VO_schedule">
 		select * from
-			(select gw_schedule.*, gw_member.name from gw_schedule, gw_member where gw_schedule.id=gw_member.id)
+		(select gw_schedule.*, gw_member.name from gw_schedule, gw_member where
+		gw_schedule.id=gw_member.id)
 		where type='출장'
 	</select>
-	
-	<select id="schedule_show" parameterType="String" resultType="com.hanbit.vo.VO_schedule">
+
+	<select id="schedule_show" parameterType="String"
+		resultType="com.hanbit.vo.VO_schedule">
 		select * from gw_schedule where idx=#{idx}
 	</select>
-	
+
 	<update id="schedule_update" parameterType="com.hanbit.vo.VO_schedule">
-		update gw_schedule set type=#{type}, subject=#{subject}, content=#{content}, start_date=#{start_date}, end_date=#{end_date} where idx=#{idx}	
+		update gw_schedule
+		set type=#{type}, subject=#{subject}, content=#{content},
+		start_date=#{start_date}, end_date=#{end_date} where idx=#{idx}
 	</update>
-	
+
 	<insert id="schedule_insert" parameterType="com.hanbit.vo.VO_schedule">
-		insert into gw_schedule values(schedule_seq.nextval,#{type},#{id},#{subject},#{content},#{start_date},#{end_date})
+		insert into
+		gw_schedule
+		values(schedule_seq.nextval,#{type},#{id},#{subject},#{content},#{start_date},#{end_date})
 	</insert>
-	
+
 	<select id="emp_show" parameterType="String" resultType="com.hanbit.vo.VO_employees">
+		select *
+		from gw_member where id=#{id}
+	</select>
+	<select id="em_one" resultType="com.hanbit.vo.VO_employees"
+		parameterType="String">
 		select * from gw_member where id=#{id}
 	</select>
-	<select id="em_one" resultType="com.hanbit.vo.VO_employees" parameterType="String">
-		select * from gw_member where id=#{id} 
-	</select>
-	
+
 	<!-- Home -->
 	<select id="getHomeNotice" resultType="com.hanbit.vo.VO_board">
-		select * from gw_board where board_type='공지사항' order by b_idx
+		select * from gw_board
+		where board_type='공지사항' order by b_idx
 	</select>
 	<select id="getHomeEmail" parameterType="String" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email where email_addr=#{email_addr}
-	</select> 
-	
-	
+	</select>
+
+
 	<!-- Email -->
-	<select id="getAllEmailList" parameterType="Map" resultType="com.hanbit.vo.VO_email">
+	<select id="getAllEmailList" parameterType="Map"
+		resultType="com.hanbit.vo.VO_email">
 		select * from (
-			select rownum r_num, a.* from (
-				select * from gw_email where sender_addr = #{email_addr} or email_addr = #{email_addr} order by regdate desc
-			) a
+		select rownum r_num, a.* from (
+		select * from gw_email where sender_addr = #{email_addr} or email_addr =
+		#{email_addr} order by regdate desc
+		) a
 		) where r_num between #{begin} and #{end}
 	</select>
-	<select id="getEmailList" resultType="com.hanbit.vo.VO_email" parameterType="Map">
+	<select id="getEmailList" resultType="com.hanbit.vo.VO_email"
+		parameterType="Map">
 		select * from (
-			select rownum r_num, a.* from (
-				select * from gw_email where email_addr = #{email_addr} order by regdate desc
-			) a
+		select rownum r_num, a.* from (
+		select * from gw_email where email_addr = #{email_addr} order by regdate
+		desc
+		) a
 		) where r_num between #{begin} and #{end}
 	</select>
 	<insert id="writeEmail" parameterType="com.hanbit.vo.VO_email">
-		insert into gw_email values(gw_email_seq.nextval, #{sender_addr}, #{receiver}, #{subject}, #{content}, RAWTOHEX(#{email_file}), sysdate, #{real_file})
+		insert into gw_email
+		values(gw_email_seq.nextval, #{sender_addr}, #{receiver}, #{subject},
+		#{content}, RAWTOHEX(#{email_file}), sysdate, #{real_file})
 	</insert>
-	<select id="getEmailOneList" parameterType="String" resultType="com.hanbit.vo.VO_email">
-		select * from gw_email where idx = #{idx} 
+	<select id="getEmailOneList" parameterType="String"
+		resultType="com.hanbit.vo.VO_email">
+		select * from gw_email where idx = #{idx}
 	</select>
-	<select id="sendEmailList" resultType="com.hanbit.vo.VO_email" parameterType="Map">
+	<select id="sendEmailList" resultType="com.hanbit.vo.VO_email"
+		parameterType="Map">
 		select * from (
-			select rownum r_num, a.* from (
-				select * from gw_email where sender_addr = #{email_addr} order by regdate desc
-			) a
+		select rownum r_num, a.* from (
+		select * from gw_email where sender_addr = #{email_addr} order by regdate
+		desc
+		) a
 		) where r_num between #{begin} and #{end}
 	</select>
-	<select id="sendMEEmailList" resultType="com.hanbit.vo.VO_email" parameterType="Map">
+	<select id="sendMEEmailList" resultType="com.hanbit.vo.VO_email"
+		parameterType="Map">
 		select * from (
-			select rownum r_num, a.* from (
-				select * from gw_email where sender_addr = #{email_addr} and email_addr = #{email_addr} order by regdate desc
-			) a
+		select rownum r_num, a.* from (
+		select * from gw_email where sender_addr = #{email_addr} and email_addr =
+		#{email_addr} order by regdate desc
+		) a
 		) where r_num between #{begin} and #{end}
 	</select>
 	<delete id="emailDelete" parameterType="String">
-		delete from gw_email where idx = #{idx}
+		delete from gw_email
+		where idx = #{idx}
 	</delete>
 	<select id="emailAnswer" parameterType="String" resultType="com.hanbit.vo.VO_email">
 		select * from gw_email where idx = #{idx}
 	</select>
-	<select id="searchEmailList" parameterType="Map" resultType="com.hanbit.vo.VO_email">
-		select * from ( 
-			select rownum r_num, a.* from ( 
-				select * from 
-					(select * from gw_email where email_addr = '${email_addr}' or sender_addr = '${email_addr}') 
-						where email_addr like '%${search}%' or sender_addr like '%${search}%' or subject like '%${search}%' order by regdate desc 
-			) a 
+	<select id="searchEmailList" parameterType="Map"
+		resultType="com.hanbit.vo.VO_email">
+		select * from (
+		select rownum r_num, a.* from (
+		select * from
+		(select * from gw_email where email_addr = '${email_addr}' or sender_addr =
+		'${email_addr}')
+		where email_addr like '%${search}%' or sender_addr like '%${search}%' or
+		subject like '%${search}%' order by regdate desc
+		) a
 		) where r_num between #{begin} and #{end}
 	</select>
-	
-	
+
+
 	<!-- Board -->
 	<select id="boardTotalCount" parameterType="String" resultType="int">
 		select count(*) from gw_board where board_type=#{board_type}
 	</select>
 	<select id="boardList" parameterType="Map" resultType="com.hanbit.vo.VO_board">
-      <!-- select * from gw_board where board_type = #{board_type} -->
-      select * from ( 
-            select rownum r_num, a.* from (
-               select * from gw_board where board_type = #{board_type} order by b_idx desc
-               ) a 
-              ) where r_num between #{begin} and #{end}
-   	</select>
+		<!-- select * from gw_board where board_type = #{board_type} -->
+		select * from (
+		select rownum r_num, a.* from (
+		select * from gw_board where board_type = #{board_type} order by b_idx desc
+		) a
+		) where r_num between #{begin} and #{end}
+	</select>
 	<insert id="boardInsert" parameterType="com.hanbit.vo.VO_board">
-		insert into gw_board values(gw_board_seq.nextval, #{board_type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
+		insert into gw_board
+		values(gw_board_seq.nextval,
+		#{board_type},#{name},#{subject},#{content},#{board_file},sysdate,'0')
 	</insert>
 	<select id="boardOneList" parameterType="String" resultType="com.hanbit.vo.VO_board">
 		select * from gw_board where b_idx = #{b_idx}
 	</select>
 	<delete id="boardDel" parameterType="String">
-		delete from gw_board where b_idx = #{b_idx}
+		delete from gw_board where
+		b_idx = #{b_idx}
 	</delete>
-	<update id="boardUp" parameterType="com.hanbit.vo.VO_board" >
-		update gw_board set subject=#{subject}, content=#{content}, board_file=#{board_file} where b_idx = #{b_idx}
+	<update id="boardUp" parameterType="com.hanbit.vo.VO_board">
+		update gw_board set subject=#{subject}, content=#{content},
+		board_file=#{board_file} where b_idx = #{b_idx}
 	</update>
-	<select id="c_list" parameterType="String" resultType="com.hanbit.vo.VO_boardComment">
-		select * from gw_comment where b_idx=#{b_idx} order by c_idx desc
+	<select id="c_list" parameterType="String"
+		resultType="com.hanbit.vo.VO_boardComment">
+		select * from gw_comment where b_idx=#{b_idx} order by
+		c_idx desc
 	</select>
 	<insert id="commentInsert" parameterType="com.hanbit.vo.VO_boardComment">
-		insert into gw_comment values (gw_comment_seq.nextval, #{name}, #{content}, sysdate, #{b_idx})
+		insert into gw_comment
+		values (gw_comment_seq.nextval, #{name}, #{content}, sysdate,
+		#{b_idx})
 	</insert>
 	<delete id="commentDel" parameterType="String">
-		delete from gw_comment where c_idx=#{idx}
+		delete from gw_comment
+		where c_idx=#{idx}
 	</delete>
 	<update id="boardHit" parameterType="com.hanbit.vo.VO_board">
-      update gw_board set hit = #{hit} where b_idx = #{b_idx} 
-   </update>
-     <delete id="select_del" parameterType="String">
-      delete from gw_board where b_idx=#{b_idx}
-   </delete>
+		update gw_board set hit = #{hit} where b_idx = #{b_idx}
+	</update>
+	<delete id="select_del" parameterType="String">
+		delete from gw_board where b_idx=#{b_idx}
+	</delete>
+
+	<!-- setting -->
+	<select parameterType="String" resultType="com.hanbit.vo.VO_employees"
+		id="em_one"> select * from gw_member where id = #{id} </select>
+
+	<update parameterType="com.hanbit.vo.VO_employees" id="setUpdate"> update
+		gw_member set pwd= '${pwd}',email_addr=
+		'${email_addr}',phone='${phone}' where id = #{id} </update>
+
+	<select resultType="com.hanbit.vo.VO_employees" id="setting_list"> select *
+		from gw_member order by id asc </select>
+
+	<update parameterType="com.hanbit.vo.VO_employees" id="setUpdate2"> update
+		gw_member set pwd ='${pwd}', name='${name}', email_addr=
+		'${email_addr}', phone='${phone}',
+		job_id='${job_id}',salary='${salary}',department_name='${department_name}',grade='${grade}'
+		where id = #{id} </update>
+
+	<insert parameterType="com.hanbit.vo.VO_employees" id="setInsert"> insert
+		into gw_member values
+		('${id}','${pwd}','${name}','${email_addr}','${phone}','${job_id}',
+		'${salary}','${department_name}', sysdate,'${grade}') </insert>
+
+	<delete parameterType="String" id="setDelete"> delete from gw_member where
+		id = #{id} </delete>
 </mapper>

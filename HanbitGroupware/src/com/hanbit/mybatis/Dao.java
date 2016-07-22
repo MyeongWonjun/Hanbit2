@@ -197,28 +197,27 @@ public class Dao {
 	}
 
 	// board
-	
-    public List<VO_board> getBoard_Search(Map<String, String> map){
-        List<VO_board> list = getSql().selectList("boardSearch",map);
-        return list;
-        
-       
-     }
-    
-    public static void getHit_Update(VO_board vo){
-        getSql().update("boardHit", vo);
-        ss.commit();
-     }
-     public void getboard_selectdel(String b_idx) {
-        getSql().delete("select_del", b_idx);
-        ss.commit();
-     }
-    
 
-    public void getCommentDel(String c_idx){
-       getSql().delete("commentDel", c_idx);
-       ss.commit();
-    }
+	public List<VO_board> getBoard_Search(Map<String, String> map) {
+		List<VO_board> list = getSql().selectList("boardSearch", map);
+		return list;
+
+	}
+
+	public static void getHit_Update(VO_board vo) {
+		getSql().update("boardHit", vo);
+		ss.commit();
+	}
+
+	public void getboard_selectdel(String b_idx) {
+		getSql().delete("select_del", b_idx);
+		ss.commit();
+	}
+
+	public void getCommentDel(String c_idx) {
+		getSql().delete("commentDel", c_idx);
+		ss.commit();
+	}
 
 	// totalCount(pageing)
 	public static int getBoardTotalCount(String board_type) {
@@ -278,6 +277,32 @@ public class Dao {
 	public List<VO_email> getHomeEmail(String email_addr) {
 		List<VO_email> list = getSql().selectList("getHomeEmail", email_addr);
 		return list;
+	}
+
+	public void getSetUpdate(VO_employees vo_employees) {
+		getSql().update("setUpdate", vo_employees);
+		ss.commit();
+	}
+
+	public List<VO_employees> getSetting_list() {
+		List<VO_employees> list = getSql().selectList("setting_list");
+		return list;
+	}
+
+	public void getSetUpdate2(VO_employees vo_employees) {
+		getSql().update("setUpdate2", vo_employees);
+		System.out.println(vo_employees);
+		ss.commit();
+	}
+
+	public void getSetInsert(VO_employees vo_employees) {
+		getSql().insert("setInsert", vo_employees);
+		ss.commit();
+	}
+
+	public void getSetDelete(String id) {
+		getSql().delete("setDelete", id);
+		ss.commit();
 	}
 
 }
