@@ -22,6 +22,10 @@ public class HomeCommand implements Command {
 		String email_addr = request.getParameter("email_addr");
 		List<VO_email> emailList = dao.getHomeEmail(email_addr);
 		
+		if(emailList.isEmpty()){
+			System.out.println("비어있음!!");
+		}
+		
 		request.setAttribute("noticeList", noticeList);
 		request.setAttribute("emailList", emailList);
 		return "/home/main.jsp";

@@ -52,14 +52,12 @@ public class Dao {
 		VO_employees vo = new VO_employees();
 		vo.setId(id);
 		vo.setPwd(pwd);
-		System.out.println("Here!");
 		vo = getSql().selectOne("loginList", vo);
 
 		return vo;
 	}
 
 	// employees list
-	// github.com/MyeongWonjun/Hanbit2.git
 	public List<VO_employees> getEmpList() {
 		List<VO_employees> list = getSql().selectList("employee_list");
 		return list;

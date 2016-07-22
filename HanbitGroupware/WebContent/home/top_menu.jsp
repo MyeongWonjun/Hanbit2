@@ -108,7 +108,7 @@ li a.active {
 	<p>
 	<div>
 	<ul>
-		<li><a href="#home">Home</a></li>
+		<li><a href="/HanbitGroupware/Home?type=main&email_addr=${info.email_addr}">Home</a></li>
 		<li id="menu">
 			<a href="/HanbitGroupware/Email?type=getEmailList&email_addr=${info.email_addr}" id="menu_drop">E-mail</a>
 			<div id="drop_content">
