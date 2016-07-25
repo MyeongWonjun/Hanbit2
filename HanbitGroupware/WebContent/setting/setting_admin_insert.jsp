@@ -32,6 +32,16 @@
 h2{
   color: #89bdd3;
 }
+.tab-title {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+}
+.tab-title:HOVER {
+	background-color: #9ad3de;
+	width: 200;
+}
 </style>
 <script type="text/javascript">
   function insert_go(f) {
@@ -62,7 +72,7 @@ h2{
 </head>
 <body>
 <%-- <jsp:include page="../home/top_menu.jsp" /> --%>
-<table border="1" align="center">
+<table  align="center">
       <thead>
          <tr>
             <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>
@@ -70,15 +80,19 @@ h2{
       </thead>
       <tbody>
          <tr>
-         <td width="200px">
+         <td width="200px" valign="top">
 					<h2 class="name">환경설정</h2>
 					<ul class="tab_vertical" >
 						<li class="tab-title"><a href=/HanbitGroupware/s_em?type=setting_list&id=${info.id}>사원목록</a></li>
 						<li class="tab-title"><a href=/HanbitGroupware/s_em?type=insertPage>사원등록</a></li>
 					</ul>
          </td>
+         
             <td>
       <form method="post">
+		<br/>
+		<br/>
+		<br/>
 		<table width="700" height="500" border="1" cellspacing="0" cellpadding="0"
 			align="center" >
 			<tr>

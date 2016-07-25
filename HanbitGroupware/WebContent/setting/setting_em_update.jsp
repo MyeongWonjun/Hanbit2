@@ -71,7 +71,7 @@
 </head>
 <body>
 <%-- <jsp:include page="../home/top_menu.jsp" /> --%>
-<table border="1" align="center">
+<table align="center">
       <thead>
          <tr>
             <th colspan="2" width="1280" height="200"><jsp:include page="../home/top_menu.jsp"></jsp:include></th>

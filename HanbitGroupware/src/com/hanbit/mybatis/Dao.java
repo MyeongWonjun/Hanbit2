@@ -222,6 +222,7 @@ public class Dao {
 	// totalCount(pageing)
 	public static int getBoardTotalCount(String board_type) {
 		int count = getSql().selectOne("boardTotalCount", board_type);
+		System.out.println("dao"+count);
 		return count;
 	}
 

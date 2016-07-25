@@ -175,11 +175,24 @@ table tfoot ol.paging li a:hover {
 			<tbody>
 			<tr>
 				<td width="200px" valign="top">
+					<c:if test="${board_type eq '공지사항' || board_type eq '자유게시판'}">
 					<h2 class="name" align="center">게시판</h2>
-					<ul class="tab_vertical" >
-						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=공지사항">공지사항</a></li>
-						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유게시판">자유게시판</a></li>
-					</ul>
+						<ul class="tab_vertical" >
+							<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=공지사항">공지사항</a></li>
+							<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=자유게시판">자유게시판</a></li>
+						</ul>
+					</c:if>
+					<c:if test="${!(board_type eq '공지사항' || board_type eq '자유게시판')}">
+					<h2 class="name" align="center">업무지원</h2>
+						<ul class="tab_vertical" >
+							<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=업무자료실">업무자료실</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=공용문서함">공용문서함</a></li>
+						<li class="tab-title" style="background-color: #9ad3de;">
+						
+						<a href="/HanbitGroupware/Support?type=employee_list">임직원정보</a></li>
+						</ul>
+					</c:if>
+					
 					
 				</td>
 				<td>
@@ -273,7 +286,7 @@ table tfoot ol.paging li a:hover {
 											</c:forEach>
 											<c:choose>
 												<c:when test="${pvo.endPage>=pvo.totalPage}">
-													<li class="disable">다음으로</li>
+													<li class="disable">다음으로${pvo.endPage }</li>
 												</c:when>
 												<c:otherwise>
 													<li><a href="/HanbitGroupware/BoardController?type=boardList&board_type=${board_type }&cPage=${pvo.beginPage+pvo.pagePerBlock }">다음으로${cPage}</a>

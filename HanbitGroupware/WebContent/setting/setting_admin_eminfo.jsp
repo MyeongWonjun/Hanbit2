@@ -13,14 +13,19 @@
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	width:180px;
+	width:200px;
 	float: left;
 	
 }
-
+.tab-title {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+}
 .tab-title:HOVER{
 	background-color: #9ad3de;
-	width:180px;
+	width:200px;
 }  
 
 #info table {
@@ -117,7 +122,7 @@ h2{
 </head>
 <body>
 	<%--  <jsp:include page="../home/top_menu.jsp" /> --%>
-	<table border="1" align="center">
+	<table align="center">
 		<thead>
 			<tr>
 				<th colspan="2" width="1280" height="200"><jsp:include
@@ -126,10 +131,10 @@ h2{
 		</thead>
 		<tbody>
 			<tr>
-				<td width="200px">
+				<td width="200px" valign="top">
 					<h2 align="center">환경설정</h2>
 					<ul class="tab_vertical">
-						<li class="tab-title"><a href="/HanbitGroupware/s_em?type=setting_list&id=${info.id}">사원목록</a></li>
+						<li class="tab-title" ><a href="/HanbitGroupware/s_em?type=setting_list&id=${info.id}">사원목록</a></li>
 						<li class="tab-title"><a href="setting/setting_admin_insert.jsp">사원등록</a></li>
 					</ul>
 				<td>

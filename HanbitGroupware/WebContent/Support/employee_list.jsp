@@ -147,10 +147,11 @@ table tfoot ol.paging li a:hover {
 				<td width="200px" valign="top">
 					<h2 align="center" style="color: #89bdd3">업무지원</h2>
 					<ul class="tab_vertical">
-						<li class="tab-title"><a href="#">업무자료실</a></li>
-						<li class="tab-title"><a href="#">공용문서함</a></li>
-						<li class="tab-title" style="background-color: #9ad3de;"><a
-							href="#">임직원정보</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=업무자료실">업무자료실</a></li>
+						<li class="tab-title"><a href="/HanbitGroupware/BoardController?type=boardList&board_type=공용문서함">공용문서함</a></li>
+						<li class="tab-title" style="background-color: #9ad3de;">
+						
+						<a href="/HanbitGroupware/Support?type=employee_list">임직원정보</a></li>
 					</ul>
 				</td>
 				<td valign="top" align="center">
